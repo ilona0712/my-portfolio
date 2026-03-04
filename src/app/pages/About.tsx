@@ -114,7 +114,7 @@ export function About() {
                 Currently: AI Lab Intern at Byblos Bank
               </h4>
               <p className="text-gray-700 mb-3">
-                Ashrafieh, Beirut | Winter 2025 - Present
+                Ashrafieh, Beirut | Jan 2026 - Present
               </p>
               <p className="text-gray-700 mb-3">
                 I'm currently working in the AI Lab at Byblos Bank, where I'm diving deep into machine learning and 
