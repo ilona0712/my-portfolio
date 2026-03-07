@@ -1,155 +1,130 @@
+import { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router';
-import { ArrowLeft, CheckCircle2, Calendar, Briefcase } from 'lucide-react';
-import { Button } from '../components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { projects } from '../data/projects';
+
+declare const anime: any;
 
 export function ProjectDetail() {
   const { projectId } = useParams<{ projectId: string }>();
   const navigate = useNavigate();
-  
-  const project = projects.find((p) => p.id === projectId);
-  const currentIndex = projects.findIndex((p) => p.id === projectId);
+
+  const project = projects.find(p => p.id === projectId);
+  const currentIndex = projects.findIndex(p => p.id === projectId);
   const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : projects[0];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    anime.timeline({ easing: 'easeOutExpo' })
+      .add({ targets: '.detail-hero-title', opacity: [0,1], translateY: [40,0], duration: 800 })
+      .add({ targets: '.detail-meta',       opacity: [0,1], translateY: [20,0], duration: 600 }, '-=400')
+      .add({ targets: '.detail-body > *',   opacity: [0,1], translateY: [16,0], delay: anime.stagger(80), duration: 500 }, '-=300');
+  }, [projectId]);
 
   if (!project) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold mb-4">Project not found</h2>
-          <Link to="/projects">
-            <Button>Back to Projects</Button>
-          </Link>
+      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1, position: 'relative' }}>
+        <div style={{ textAlign: 'center' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', color: '#fff', marginBottom: 16 }}>Project not found</h2>
+          <Link to="/projects" style={{ color: 'var(--neon-cyan)', fontFamily: 'var(--font-mono)' }}>← Back to Projects</Link>
         </div>
       </div>
     );
   }
 
+  const CAT_COLORS: Record<string, string> = {
+    'Full-Stack':       'var(--neon-cyan)',
+    'Machine Learning': 'var(--neon-green)',
+    'Development':      'var(--neon-blue)',
+    'Embedded Systems': 'var(--neon-pink)',
+    'Networking':       'var(--neon-yellow)',
+  };
+  const neon = CAT_COLORS[project.category] || 'var(--neon-cyan)';
+
   return (
-    <div className="min-h-screen bg-gray-50 pt-24 pb-20">
-      {/* Hero Image */}
-      <div className="w-full h-[400px] overflow-hidden bg-gray-900">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover opacity-80"
-        />
+    <div style={{ position: 'relative', zIndex: 1, minHeight: '100vh' }}>
+
+      {/* Hero image */}
+      <div style={{ height: 380, overflow: 'hidden', background: 'var(--bg2)', position: 'relative' }}>
+        <img src={project.image} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'saturate(0.5) brightness(0.5)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(5,8,16,0.9), transparent)' }} />
+        {/* Title over image */}
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '40px', maxWidth: 1100, margin: '0 auto' }}>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: neon, letterSpacing: '0.15em', textTransform: 'uppercase', display: 'inline-block', marginBottom: 12, textShadow: `0 0 12px ${neon}` }}>{project.category}</span>
+          <h1 className="detail-hero-title" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem,5vw,3.5rem)', fontWeight: 800, color: '#fff', opacity: 0 }}>
+            {project.title}
+          </h1>
+        </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 relative z-10">
-        {/* Header Card */}
-        <Card className="mb-8">
-          <CardHeader>
-            <Link to="/projects">
-              <Button variant="ghost" size="sm" className="gap-2 mb-4">
-                <ArrowLeft className="w-4 h-4" /> Back to Projects
-              </Button>
-            </Link>
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-sm font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded">
-                {project.category}
-              </span>
+      <div className="section-inner" style={{ padding: '48px 40px' }}>
+
+        {/* Back */}
+        <Link to="/projects" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: neon, textDecoration: 'none', letterSpacing: '0.1em', marginBottom: 40, transition: 'gap 0.2s' }}>
+          ← Back to Projects
+        </Link>
+
+        {/* Meta row */}
+        <div className="detail-meta" style={{ display: 'flex', flexWrap: 'wrap', gap: 20, marginBottom: 48, paddingBottom: 32, borderBottom: '1px solid var(--border)', opacity: 0 }}>
+          {[
+            { label: 'Timeline', value: project.timeline },
+            { label: 'Role',     value: project.role || '—' },
+          ].map(m => (
+            <div key={m.label}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: neon, letterSpacing: '0.15em', textTransform: 'uppercase', display: 'block', marginBottom: 4 }}>{m.label}</span>
+              <span style={{ fontSize: '0.875rem', color: 'var(--text)' }}>{m.value}</span>
             </div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">{project.title}</h1>
-            <p className="text-xl text-gray-600">{project.subtitle}</p>
-            
-            {/* Meta Info */}
-            <div className="flex flex-wrap gap-4 mt-4 pt-4 border-t border-gray-200">
-              <div className="flex items-center gap-2 text-gray-600">
-                <Calendar className="w-4 h-4" />
-                <span className="text-sm">{project.timeline}</span>
-              </div>
-              {project.role && (
-                <div className="flex items-center gap-2 text-gray-600">
-                  <Briefcase className="w-4 h-4" />
-                  <span className="text-sm">{project.role}</span>
-                </div>
-              )}
+          ))}
+        </div>
+
+        {/* Body */}
+        <div className="detail-body" style={{ maxWidth: 720 }}>
+          {[
+            { label: 'Overview',       content: project.overview },
+            { label: 'The Challenge',  content: project.challenge },
+            { label: 'The Solution',   content: project.solution },
+          ].map(s => (
+            <div key={s.label} style={{ marginBottom: 40, opacity: 0 }}>
+              <div className="section-label">{s.label}</div>
+              <p style={{ fontSize: '0.9rem', color: 'var(--muted)', lineHeight: 1.8 }}>{s.content}</p>
             </div>
-          </CardHeader>
-        </Card>
+          ))}
 
-        {/* Overview */}
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle>Overview</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-gray-700 leading-relaxed">{project.overview}</p>
-          </CardContent>
-        </Card>
-
-        {/* Challenge */}
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle>The Challenge</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-gray-700 leading-relaxed">{project.challenge}</p>
-          </CardContent>
-        </Card>
-
-        {/* Solution */}
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle>The Solution</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-gray-700 leading-relaxed">{project.solution}</p>
-          </CardContent>
-        </Card>
-
-        {/* Impact */}
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle>Impact & Results</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ul className="space-y-3">
-              {project.impact.map((item, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">{item}</span>
+          {/* Impact */}
+          <div style={{ marginBottom: 40, opacity: 0 }}>
+            <div className="section-label">Impact & Results</div>
+            <ul style={{ listStyle: 'none' }}>
+              {project.impact.map((item, i) => (
+                <li key={i} style={{ display: 'flex', gap: 12, marginBottom: 12, fontSize: '0.875rem', color: 'var(--muted)', lineHeight: 1.7 }}>
+                  <span style={{ color: neon, flexShrink: 0, marginTop: 2 }}>✓</span>
+                  {item}
                 </li>
               ))}
             </ul>
-          </CardContent>
-        </Card>
+          </div>
 
-        {/* Technologies */}
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle>Technologies Used</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="flex flex-wrap gap-2">
-              {project.technologies.map((tech, index) => (
-                <span
-                  key={index}
-                  className="px-4 py-2 bg-blue-50 text-blue-700 rounded-lg font-medium"
-                >
-                  {tech}
-                </span>
+          {/* Technologies */}
+          <div style={{ marginBottom: 56, opacity: 0 }}>
+            <div className="section-label">Technologies</div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+              {project.technologies.map((tech, i) => (
+                <span key={i} style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', padding: '8px 16px', border: `1px solid ${neon}22`, borderRadius: 2, color: neon, background: `${neon}08`, letterSpacing: '0.05em' }}>{tech}</span>
               ))}
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
 
-        {/* Next Project */}
-        <Card className="bg-gradient-to-br from-blue-50 to-purple-50 border-0">
-          <CardContent className="p-8">
-            <p className="text-sm text-gray-600 mb-2">Next Project</p>
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">{nextProject.title}</h3>
-            <div className="flex gap-4">
-              <Button onClick={() => navigate(`/projects/${nextProject.id}`)}>
-                View Project
-              </Button>
-              <Link to="/projects">
-                <Button variant="outline">All Projects</Button>
-              </Link>
-            </div>
-          </CardContent>
-        </Card>
+        {/* Next project */}
+        <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4, padding: 36, opacity: 0 }}
+          className="detail-body"
+        >
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--muted)', letterSpacing: '0.15em', display: 'block', marginBottom: 8 }}>NEXT PROJECT</span>
+          <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 700, color: '#fff', marginBottom: 24 }}>{nextProject.title}</h3>
+          <div style={{ display: 'flex', gap: 12 }}>
+            <button onClick={() => navigate(`/projects/${nextProject.id}`)} className="btn-primary">View Project →</button>
+            <Link to="/projects" className="btn-ghost">All Projects</Link>
+          </div>
+        </div>
+
       </div>
     </div>
   );
