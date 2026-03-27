@@ -1,15 +1,24 @@
-import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
+import { useEffect } from 'react';
 import { Code, Database, Network, Cpu, Globe, Award } from 'lucide-react';
 
+declare const anime: any;
+
 export function About() {
+  useEffect(() => {
+    anime.timeline({ easing: 'easeOutExpo' })
+      .add({ targets: '.about-title', opacity: [0, 1], translateY: [40, 0], duration: 800 })
+      .add({ targets: '.about-sub',   opacity: [0, 1], translateY: [20, 0], duration: 600 }, '-=400')
+      .add({ targets: '.about-block', opacity: [0, 1], translateY: [24, 0], delay: anime.stagger(80), duration: 600 }, '-=300');
+  }, []);
+
   const skills = {
     'Programming Languages': [
-      { name: 'Python', level: 'Primary language for backend development, automation, ML, and scripting' },
-      { name: 'Java', level: 'Design Patterns, OOP, Backend Development' },
-      { name: 'C++', level: 'Low-level programming, Pointers, Inheritance, Embedded Systems' },
-      { name: 'JavaScript', level: 'Basic front-end interactivity' },
-      { name: 'HTML & CSS', level: 'Front-end markup and styling (beginner level)' },
-      { name: 'SQL', level: 'Database queries, optimization, window functions, CTEs' },
+      { name: 'Python',      level: 'Primary language for backend development, automation, ML, and scripting' },
+      { name: 'Java',        level: 'Design Patterns, OOP, Backend Development' },
+      { name: 'C++',         level: 'Low-level programming, Pointers, Inheritance, Embedded Systems' },
+      { name: 'JavaScript',  level: 'Basic front-end interactivity' },
+      { name: 'HTML & CSS',  level: 'Front-end markup and styling (beginner level)' },
+      { name: 'SQL',         level: 'Database queries, optimization, window functions, CTEs' },
     ],
     'Backend Development': [
       'ERPNext POS Backend Customization',
@@ -41,9 +50,9 @@ export function About() {
   };
 
   const languages = [
-    { name: 'Arabic', level: 'Native' },
+    { name: 'Arabic',  level: 'Native' },
     { name: 'English', level: 'Fluent' },
-    { name: 'French', level: 'Intermediate' },
+    { name: 'French',  level: 'Intermediate' },
   ];
 
   const certifications = [
@@ -53,154 +62,157 @@ export function About() {
   ];
 
   const principles = [
-    {
-      title: 'Understand the problem deeply',
-      description: 'Before writing a single line of code',
-    },
-    {
-      title: 'Optimize for maintainability',
-      description: 'Because code is read more often than it\'s written',
-    },
-    {
-      title: 'Measure everything',
-      description: 'Because you can\'t improve what you don\'t measure',
-    },
+    { title: 'Understand the problem deeply',    description: 'Before writing a single line of code' },
+    { title: 'Optimize for maintainability',     description: "Because code is read more often than it's written" },
+    { title: 'Measure everything',               description: "Because you can't improve what you don't measure" },
+  ];
+
+  const drives = [
+    { label: 'Efficiency',          desc: 'Every line of code should serve a purpose',            color: 'var(--neon-cyan)' },
+    { label: 'Reliability',         desc: 'Systems should work consistently, even under pressure', color: 'var(--neon-blue)' },
+    { label: 'Continuous Learning', desc: 'Technology evolves rapidly, and so should we',          color: 'var(--neon-green)' },
+    { label: 'Practical Solutions', desc: 'The best code is code that solves real problems',       color: 'var(--neon-yellow)' },
+  ];
+
+  const lookingForward = [
+    { icon: <Code     className="w-5 h-5" style={{ color: 'var(--neon-cyan)', flexShrink: 0 }} />, label: 'Backend system architecture and optimization' },
+    { icon: <Database className="w-5 h-5" style={{ color: 'var(--neon-cyan)', flexShrink: 0 }} />, label: 'Data pipeline engineering' },
+    { icon: <Network  className="w-5 h-5" style={{ color: 'var(--neon-cyan)', flexShrink: 0 }} />, label: 'Cloud infrastructure and DevOps' },
+    { icon: <Cpu      className="w-5 h-5" style={{ color: 'var(--neon-cyan)', flexShrink: 0 }} />, label: 'Embedded systems and IoT solutions' },
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24 pb-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">About Me</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            4th-year Computer and Communication Engineering student passionate about solving 
-            complex technical challenges through elegant, efficient code
+    <div style={{ position: 'relative', zIndex: 1, minHeight: '100vh' }}>
+
+      {/* ── HEADER BAND ── */}
+      <div style={{ background: 'var(--bg2)', paddingTop: 120, paddingBottom: 80, borderBottom: '1px solid var(--border)' }}>
+        <div className="section-inner">
+          <div className="section-label">Portfolio</div>
+          <h1
+            className="about-title"
+            style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(3.5rem,8vw,7rem)', fontWeight: 800, color: '#fff', lineHeight: 0.95, marginBottom: 24, opacity: 0 }}
+          >
+            About<br /><span style={{ color: 'var(--neon-cyan)' }}>Me</span><span style={{ color: 'var(--neon-pink)' }}>.</span>
+          </h1>
+          <p
+            className="about-sub"
+            style={{ fontSize: '1rem', color: 'var(--muted)', maxWidth: 500, lineHeight: 1.7, opacity: 0 }}
+          >
+            4th-year Computer and Communication Engineering student passionate about solving
+            complex technical challenges through elegant, efficient code.
           </p>
         </div>
+      </div>
 
-        {/* Who I Am */}
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle className="text-2xl">Who I Am</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4 text-gray-700 leading-relaxed">
-            <p>
-              I'm Ilona Chamoun, a 4th-year Software Engineering student at Université Saint-Joseph de Beyrouth (USJ) 
-              in Lebanon, specializing in Computer and Communication Engineering. My journey in technology is driven 
-              by a passion for solving complex technical challenges through elegant, efficient code.
-            </p>
-          </CardContent>
-        </Card>
+      {/* ── MAIN CONTENT ── */}
+      <div style={{ padding: '80px 0' }}>
+        <div className="section-inner" style={{ display: 'flex', flexDirection: 'column', gap: 64 }}>
 
-        {/* My Journey */}
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle className="text-2xl">My Journey</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4 text-gray-700 leading-relaxed">
-            <p>
-              My path into software engineering began with a fascination for how systems work beneath the surface. 
-              This curiosity led me to pursue formal education in Computer and Communication Engineering, where 
-              I've been able to explore everything from low-level embedded systems programming to high-level backend architecture.
-            </p>
-            <p>
-              During my internships at DigitalCircle in the summers of 2023 and 2024, I gained invaluable real-world 
-              experience in a startup environment. Working on production systems taught me not just how to write code, 
-              but how to optimize for performance, ensure data integrity, and deliver solutions that directly impact business operations.
-            </p>
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-lg border-l-4 border-blue-600">
-              <h4 className="font-semibold text-gray-900 mb-2">
-                Currently: AI Lab Intern at Byblos Bank
-              </h4>
-              <p className="text-gray-700 mb-3">
-                Ashrafieh, Beirut | Jan 2026 - Present
-              </p>
-              <p className="text-gray-700 mb-3">
-                I'm currently working in the AI Lab at Byblos Bank, where I'm diving deep into machine learning and 
-                data engineering. This role has been transformative, introducing me to new technologies like Docker 
-                for the first time and challenging me to build production-ready ML systems.
-              </p>
-              <p className="text-gray-700">
-                Working on projects like ATM failure prediction and intelligent web scraping systems has taught me 
-                that successful ML isn't just about algorithms—it's about feature engineering, data quality, system 
-                optimization, and building trust through interpretability.
+          {/* WHO I AM + MY JOURNEY */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48 }}>
+            <div className="about-block" style={{ opacity: 0 }}>
+              <div className="section-label" style={{ marginBottom: 20 }}>Who I Am</div>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text)', lineHeight: 1.8, fontFamily: 'var(--font-body)' }}>
+                I'm Ilona Chamoun, a 4th-year Software Engineering student at Université Saint-Joseph de Beyrouth (USJ)
+                in Lebanon, specializing in Computer and Communication Engineering. My journey in technology is driven
+                by a passion for solving complex technical challenges through elegant, efficient code.
               </p>
             </div>
-          </CardContent>
-        </Card>
-
-        {/* What Drives Me */}
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle className="text-2xl">What Drives Me</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4 text-gray-700 leading-relaxed">
-            <p>
-              I'm particularly drawn to backend development and system optimization. There's something deeply 
-              satisfying about making a system run 3 seconds faster or enabling 20% more transactions per hour. 
-              These aren't just numbers—they represent better user experiences, increased business capacity, and 
-              more efficient use of resources.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-              <div className="bg-blue-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-gray-900 mb-2">Efficiency</h4>
-                <p className="text-sm text-gray-600">Every line of code should serve a purpose</p>
-              </div>
-              <div className="bg-purple-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-gray-900 mb-2">Reliability</h4>
-                <p className="text-sm text-gray-600">Systems should work consistently, even under pressure</p>
-              </div>
-              <div className="bg-green-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-gray-900 mb-2">Continuous Learning</h4>
-                <p className="text-sm text-gray-600">Technology evolves rapidly, and so should we</p>
-              </div>
-              <div className="bg-orange-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-gray-900 mb-2">Practical Solutions</h4>
-                <p className="text-sm text-gray-600">The best code is code that solves real problems</p>
-              </div>
+            <div className="about-block" style={{ opacity: 0 }}>
+              <div className="section-label" style={{ marginBottom: 20 }}>My Journey</div>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text)', lineHeight: 1.8, fontFamily: 'var(--font-body)', marginBottom: 14 }}>
+                My path into software engineering began with a fascination for how systems work beneath the surface.
+                This curiosity led me to explore everything from low-level embedded systems to high-level backend architecture.
+              </p>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text)', lineHeight: 1.8, fontFamily: 'var(--font-body)' }}>
+                During my internships at DigitalCircle in 2023 and 2024, I gained invaluable real-world experience
+                learning to optimize for performance, ensure data integrity, and deliver solutions that impact business operations.
+              </p>
             </div>
-          </CardContent>
-        </Card>
+          </div>
 
-        {/* Technical Philosophy */}
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle className="text-2xl">My Technical Philosophy</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              {principles.map((principle, index) => (
-                <div key={index} className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
-                  <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
-                    {index + 1}
+          {/* CURRENT ROLE */}
+          <div
+            className="about-block"
+            style={{ opacity: 0, padding: '32px 36px', border: '1px solid var(--border)', borderLeft: '4px solid var(--neon-cyan)', borderRadius: 4, background: 'var(--surface)', boxShadow: '0 0 40px rgba(0,255,224,0.04)' }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 12, marginBottom: 16 }}>
+              <div>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--neon-cyan)', letterSpacing: '0.15em', textTransform: 'uppercase', display: 'block', marginBottom: 6 }}>Currently</span>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 700, color: '#fff' }}>AI Lab Intern at Byblos Bank</h3>
+              </div>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', padding: '6px 14px', borderRadius: 20, background: 'rgba(0,255,224,0.08)', color: 'var(--neon-cyan)', border: '1px solid rgba(0,255,224,0.2)', whiteSpace: 'nowrap' }}>
+                Jan 2026 — Present
+              </span>
+            </div>
+            <p style={{ fontSize: '0.875rem', color: 'var(--muted)', lineHeight: 1.8, marginBottom: 12 }}>
+              Working in the AI Lab at Byblos Bank, diving deep into machine learning and data engineering.
+              This role introduced me to Docker for the first time and challenged me to build production-ready ML systems.
+            </p>
+            <p style={{ fontSize: '0.875rem', color: 'var(--muted)', lineHeight: 1.8 }}>
+              Projects like ATM failure prediction and intelligent web scraping taught me that successful ML
+              is about feature engineering, data quality, system optimization, and building trust through interpretability.
+            </p>
+          </div>
+
+          {/* WHAT DRIVES ME */}
+          <div className="about-block" style={{ opacity: 0 }}>
+            <div className="section-label" style={{ marginBottom: 24 }}>What Drives Me</div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 12 }}>
+              {drives.map(({ label, desc, color }) => (
+                <div
+                  key={label}
+                  style={{ padding: '20px 24px', border: '1px solid var(--border)', borderTop: `2px solid ${color}`, borderRadius: 4, background: 'var(--surface)', transition: 'box-shadow 0.2s' }}
+                  onMouseEnter={e => (e.currentTarget.style.boxShadow = `0 0 24px rgba(0,255,224,0.06)`)}
+                  onMouseLeave={e => (e.currentTarget.style.boxShadow = 'none')}
+                >
+                  <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, color, marginBottom: 6, fontSize: '0.95rem' }}>{label}</h4>
+                  <p style={{ fontSize: '0.8rem', color: 'var(--muted)', lineHeight: 1.6 }}>{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* TECHNICAL PHILOSOPHY */}
+          <div className="about-block" style={{ opacity: 0 }}>
+            <div className="section-label" style={{ marginBottom: 24 }}>Technical Philosophy</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              {principles.map((p, i) => (
+                <div
+                  key={i}
+                  style={{ display: 'flex', alignItems: 'center', gap: 20, padding: '20px 24px', border: '1px solid var(--border)', borderRadius: 4, background: 'var(--surface)', transition: 'border-color 0.2s' }}
+                  onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--neon-cyan)')}
+                  onMouseLeave={e => (e.currentTarget.style.borderColor = 'var(--border)')}
+                >
+                  <div style={{ flexShrink: 0, width: 36, height: 36, borderRadius: '50%', border: '1px solid var(--neon-cyan)', color: 'var(--neon-cyan)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-mono)', fontSize: '0.75rem', boxShadow: '0 0 12px rgba(0,255,224,0.15)' }}>
+                    {i + 1}
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">{principle.title}</h4>
-                    <p className="text-sm text-gray-600">{principle.description}</p>
+                    <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, color: '#fff', marginBottom: 4, fontSize: '0.9rem' }}>{p.title}</h4>
+                    <p style={{ fontSize: '0.8rem', color: 'var(--muted)' }}>{p.description}</p>
                   </div>
                 </div>
               ))}
             </div>
-          </CardContent>
-        </Card>
+          </div>
 
-        {/* Skills & Expertise */}
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle className="text-2xl">Skills & Expertise</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-6">
+          {/* SKILLS */}
+          <div className="about-block" style={{ opacity: 0 }}>
+            <div className="section-label" style={{ marginBottom: 24 }}>Skills & Expertise</div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 40 }}>
               {Object.entries(skills).map(([category, items]) => (
                 <div key={category}>
-                  <h3 className="font-semibold text-lg text-gray-900 mb-3">{category}</h3>
-                  <div className="space-y-2">
-                    {items.map((item, index) => (
-                      <div key={index} className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-700">
-                          {typeof item === 'string' ? item : `${item.name} - ${item.level}`}
+                  <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, color: 'var(--neon-cyan)', fontSize: '0.8rem', letterSpacing: '0.08em', marginBottom: 14, textTransform: 'uppercase' }}>
+                    {category}
+                  </h3>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                    {items.map((item, idx) => (
+                      <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+                        <div style={{ width: 5, height: 5, borderRadius: '50%', background: 'var(--neon-cyan)', boxShadow: '0 0 6px var(--neon-cyan)', flexShrink: 0, marginTop: 7 }} />
+                        <span style={{ fontSize: '0.85rem', color: 'var(--text)', fontFamily: 'var(--font-body)', lineHeight: 1.6 }}>
+                          {typeof item === 'string' ? item : (
+                            <><span style={{ color: '#fff', fontWeight: 600 }}>{item.name}</span><span style={{ color: 'var(--muted)' }}> — {item.level}</span></>
+                          )}
                         </span>
                       </div>
                     ))}
@@ -208,128 +220,107 @@ export function About() {
                 </div>
               ))}
             </div>
-          </CardContent>
-        </Card>
+          </div>
 
-        {/* Languages */}
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle className="text-2xl flex items-center gap-2">
-              <Globe className="w-6 h-6" />
+          {/* LANGUAGES */}
+          <div className="about-block" style={{ opacity: 0 }}>
+            <div className="section-label" style={{ marginBottom: 24, display: 'flex', alignItems: 'center', gap: 8 }}>
+              <Globe className="w-4 h-4" />
               Languages
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {languages.map((lang, index) => (
-                <div key={index} className="bg-gray-50 p-4 rounded-lg text-center">
-                  <p className="font-semibold text-gray-900">{lang.name}</p>
-                  <p className="text-sm text-gray-600">{lang.level}</p>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
+              {languages.map((lang, i) => (
+                <div
+                  key={i}
+                  style={{ padding: '20px 24px', textAlign: 'center', border: '1px solid var(--border)', borderRadius: 4, background: 'var(--surface)', transition: 'border-color 0.2s' }}
+                  onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--neon-cyan)')}
+                  onMouseLeave={e => (e.currentTarget.style.borderColor = 'var(--border)')}
+                >
+                  <p style={{ fontFamily: 'var(--font-display)', fontWeight: 700, color: '#fff', marginBottom: 4 }}>{lang.name}</p>
+                  <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--neon-cyan)', letterSpacing: '0.1em' }}>{lang.level}</p>
                 </div>
               ))}
             </div>
-          </CardContent>
-        </Card>
+          </div>
 
-        {/* Education & Certifications */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          {/* Education */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-xl">Education</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-2">
-                <h4 className="font-semibold text-gray-900">
+          {/* EDUCATION + CERTIFICATIONS */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48 }}>
+            <div className="about-block" style={{ opacity: 0 }}>
+              <div className="section-label" style={{ marginBottom: 20 }}>Education</div>
+              <div style={{ padding: '24px', border: '1px solid var(--border)', borderRadius: 4, background: 'var(--surface)' }}>
+                <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, color: '#fff', marginBottom: 10, fontSize: '0.95rem', lineHeight: 1.4 }}>
                   Diploma in Computer and Communication Engineering
                 </h4>
-                <p className="text-gray-600">Université Saint-Joseph de Beyrouth (USJ)</p>
-                <p className="text-gray-600">Beirut, Lebanon</p>
-                <p className="text-blue-600 font-medium">Expected Graduation: 2027</p>
-                <p className="text-sm text-gray-600 mt-2">Specialization: Software Engineering</p>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text)', marginBottom: 4 }}>Université Saint-Joseph de Beyrouth (USJ)</p>
+                <p style={{ fontSize: '0.85rem', color: 'var(--muted)', marginBottom: 12 }}>Beirut, Lebanon</p>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', padding: '4px 12px', borderRadius: 20, background: 'rgba(0,255,224,0.08)', color: 'var(--neon-cyan)', border: '1px solid rgba(0,255,224,0.2)' }}>
+                  Expected Graduation: 2027
+                </span>
+                <p style={{ fontSize: '0.8rem', color: 'var(--muted)', marginTop: 12 }}>Specialization: Software Engineering</p>
               </div>
-            </CardContent>
-          </Card>
-
-          {/* Certifications */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-xl flex items-center gap-2">
-                <Award className="w-5 h-5" />
-                Certifications
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2">
-                {certifications.map((cert, index) => (
-                  <li key={index} className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-gray-700">{cert}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Activities */}
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle className="text-2xl">Activities & Involvement</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-lg">
-              <h4 className="font-semibold text-gray-900 mb-2">
-                IEEE Member - Organizer in DYL (Digital Youth Leaders)
-              </h4>
-              <ul className="space-y-2 text-gray-700">
-                <li className="flex items-start gap-2">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                  Supporting technical skill development in young engineers
-                </li>
-                <li className="flex items-start gap-2">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                  Organizing workshops and technical events
-                </li>
-                <li className="flex items-start gap-2">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                  Fostering leadership and collaboration in the tech community
-                </li>
-              </ul>
             </div>
-          </CardContent>
-        </Card>
 
-        {/* Looking Forward */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-2xl">Looking Forward</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4 text-gray-700 leading-relaxed">
-            <p>
-              As I approach my graduation in 2027, I'm excited to take on more challenging projects that push 
-              the boundaries of what I can build. I'm particularly interested in opportunities that involve:
+            <div className="about-block" style={{ opacity: 0 }}>
+              <div className="section-label" style={{ marginBottom: 20, display: 'flex', alignItems: 'center', gap: 8 }}>
+                <Award className="w-4 h-4" />
+                Certifications
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                {certifications.map((cert, i) => (
+                  <div
+                    key={i}
+                    style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '16px 20px', border: '1px solid var(--border)', borderRadius: 4, background: 'var(--surface)', transition: 'border-color 0.2s' }}
+                    onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--neon-green)')}
+                    onMouseLeave={e => (e.currentTarget.style.borderColor = 'var(--border)')}
+                  >
+                    <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--neon-green)', boxShadow: '0 0 8px var(--neon-green)', flexShrink: 0 }} />
+                    <span style={{ fontSize: '0.85rem', color: 'var(--text)', fontFamily: 'var(--font-body)' }}>{cert}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* ACTIVITIES */}
+          <div className="about-block" style={{ opacity: 0 }}>
+            <div className="section-label" style={{ marginBottom: 24 }}>Activities & Involvement</div>
+            <div style={{ padding: '28px 32px', border: '1px solid var(--border)', borderLeft: '4px solid var(--neon-blue)', borderRadius: 4, background: 'var(--surface)' }}>
+              <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, color: 'var(--neon-blue)', marginBottom: 16, fontSize: '0.95rem' }}>
+                IEEE Member — Organizer in DYL (Digital Youth Leaders)
+              </h4>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                {['Supporting technical skill development in young engineers', 'Organizing workshops and technical events', 'Fostering leadership and collaboration in the tech community'].map((item, i) => (
+                  <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                    <div style={{ width: 5, height: 5, borderRadius: '50%', background: 'var(--neon-blue)', boxShadow: '0 0 6px var(--neon-blue)', flexShrink: 0 }} />
+                    <span style={{ fontSize: '0.875rem', color: 'var(--text)', fontFamily: 'var(--font-body)' }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* LOOKING FORWARD */}
+          <div className="about-block" style={{ opacity: 0 }}>
+            <div className="section-label" style={{ marginBottom: 24 }}>Looking Forward</div>
+            <p style={{ fontSize: '0.9rem', color: 'var(--muted)', lineHeight: 1.8, marginBottom: 24, maxWidth: 640, fontFamily: 'var(--font-body)' }}>
+              As I approach my graduation in 2027, I'm excited to take on more challenging projects. I'm particularly interested in opportunities that involve:
             </p>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              <li className="flex items-start gap-2">
-                <Code className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                <span>Backend system architecture and optimization</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Database className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                <span>Data pipeline engineering</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Network className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                <span>Cloud infrastructure and DevOps</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Cpu className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                <span>Embedded systems and IoT solutions</span>
-              </li>
-            </ul>
-          </CardContent>
-        </Card>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 10 }}>
+              {lookingForward.map(({ icon, label }, i) => (
+                <div
+                  key={i}
+                  style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '18px 22px', border: '1px solid var(--border)', borderRadius: 4, background: 'var(--surface)', transition: 'border-color 0.2s, transform 0.2s' }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--neon-cyan)'; e.currentTarget.style.transform = 'translateX(4px)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.transform = 'none'; }}
+                >
+                  {icon}
+                  <span style={{ fontSize: '0.875rem', color: 'var(--text)', fontFamily: 'var(--font-body)' }}>{label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   );
