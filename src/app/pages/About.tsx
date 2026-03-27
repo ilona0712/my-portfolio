@@ -56,10 +56,25 @@ export function About() {
   ];
 
   const certifications = [
-    'Cisco CCNA 1 - Introduction to Networking',
-    'Cisco CCNA 2 - Routing & Switching Essentials',
-    'Java Backend Development',
-  ];
+  {
+    label: 'Cisco CCNA 1 - Introduction to Networking',
+    file: '/certificates/ccna1.pdf',
+    date: 'Jan 27, 2025',
+    color: 'var(--neon-cyan)',
+  },
+  {
+    label: 'Cisco CCNA 2 - Routing & Switching Essentials',
+    file: '/certificates/ccna2.pdf',
+    date: 'Oct 16, 2025',
+    color: 'var(--neon-cyan)',
+  },
+  {
+    label: 'Java Backend Development',
+    file: '/certificates/java_backend.pdf',
+    date: 'Dec 8, 2025',
+    color: 'var(--neon-green)',
+  },
+];
 
   const principles = [
     { title: 'Understand the problem deeply',    description: 'Before writing a single line of code' },
@@ -261,24 +276,33 @@ export function About() {
             </div>
 
             <div className="about-block" style={{ opacity: 0 }}>
-              <div className="section-label" style={{ marginBottom: 20, display: 'flex', alignItems: 'center', gap: 8 }}>
-                <Award className="w-4 h-4" />
-                Certifications
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                {certifications.map((cert, i) => (
-                  <div
-                    key={i}
-                    style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '16px 20px', border: '1px solid var(--border)', borderRadius: 4, background: 'var(--surface)', transition: 'border-color 0.2s' }}
-                    onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--neon-green)')}
-                    onMouseLeave={e => (e.currentTarget.style.borderColor = 'var(--border)')}
-                  >
-                    <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--neon-green)', boxShadow: '0 0 8px var(--neon-green)', flexShrink: 0 }} />
-                    <span style={{ fontSize: '0.85rem', color: 'var(--text)', fontFamily: 'var(--font-body)' }}>{cert}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+  <div className="section-label" style={{ marginBottom: 20, display: 'flex', alignItems: 'center', gap: 8 }}>
+    <Award className="w-4 h-4" />
+    Certifications
+  </div>
+  <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+    {certifications.map((cert, i) => (
+      <a
+        key={i}
+        href={cert.file}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 14, padding: '16px 20px', border: '1px solid var(--border)', borderRadius: 4, background: 'var(--surface)', textDecoration: 'none', color: 'inherit', transition: 'border-color 0.2s, transform 0.2s' }}
+        onMouseEnter={e => { e.currentTarget.style.borderColor = cert.color; e.currentTarget.style.transform = 'translateX(4px)'; }}
+        onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.transform = 'none'; }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <div style={{ width: 6, height: 6, borderRadius: '50%', background: cert.color, boxShadow: `0 0 8px ${cert.color}`, flexShrink: 0 }} />
+          <span style={{ fontSize: '0.85rem', color: 'var(--text)', fontFamily: 'var(--font-body)' }}>{cert.label}</span>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted)' }}>{cert.date}</span>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: cert.color }}>↗</span>
+        </div>
+      </a>
+    ))}
+  </div>
+</div>
           </div>
 
           {/* ACTIVITIES */}
