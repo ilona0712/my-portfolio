@@ -16,8 +16,7 @@ export function Home() {
       .add({ targets: '.hero-sub',      opacity: [0, 1], translateY: [20, 0], duration: 700 }, '-=500')
       .add({ targets: '.hero-tags .tag', opacity: [0, 1], translateY: [16, 0], scale: [0.85, 1], delay: anime.stagger(60), duration: 500 }, '-=400')
       .add({ targets: '.hero-ctas',     opacity: [0, 1], translateY: [20, 0], duration: 600 }, '-=300')
-      .add({ targets: '.hero-stats',    opacity: [0, 1], translateY: [30, 0], duration: 700 }, '-=200')
-      .add({ targets: '.hero-scroll',   opacity: [0, 0.7], duration: 600 }, '-=200');
+      .add({ targets: '.hero-stats',    opacity: [0, 1], translateY: [30, 0], duration: 700 }, '-=200');
 
     /* Animated stat counters */
     document.querySelectorAll<HTMLElement>('.stat-value[data-count]').forEach(el => {

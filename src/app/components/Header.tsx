@@ -230,7 +230,8 @@ export function Header() {
             letterSpacing: '0.05em',
           }}
         >
-          IC_
+          <span>IC</span>
+          <span className="prompt-cursor" aria-hidden="true">_</span>
         </Link>
 
         <ul className="desktop-only" style={{ display: 'flex', gap: 36, listStyle: 'none' }}>
