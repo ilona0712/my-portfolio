@@ -56,7 +56,7 @@ export function ProjectDetail() {
         </div>
       </div>
 
-      <div className="section-inner" style={{ padding: '48px 0' }}>
+      <div className="section-inner" style={{ padding: '48px 18px' }}>
 
         {/* Back */}
         <Link to="/projects" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: neon, textDecoration: 'none', letterSpacing: '0.1em', marginBottom: 40, transition: 'gap 0.2s' }}>

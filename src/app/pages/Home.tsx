@@ -94,7 +94,7 @@ export function Home() {
             lineHeight: 1.7, marginBottom: 40, opacity: 0,
           }}>
             <strong style={{ color: 'var(--text)' }}>Software Engineer & AI Researcher</strong> — building ML pipelines
-            at Byblos Bank, delivering government dashboards, mastering low-level logic at 42 Beirut.
+            at Byblos Bank, delivering government dashboards, mastering projects at 42 Beirut.
           </p>
 
           {/* tags */}
@@ -147,14 +147,6 @@ export function Home() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="hero-scroll" style={{
-          position: 'absolute', bottom: 40, left: '50%', transform: 'translateX(-50%)',
-          display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, opacity: 0,
-        }}>
-          <div className="scroll-line" />
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--muted)', letterSpacing: '0.15em', textTransform: 'uppercase' }}>scroll</span>
-        </div>
       </section>
 
       {/* ═══ EXPERTISE ═══ */}

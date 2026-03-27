@@ -279,7 +279,7 @@ body::after {
   }
 
   .hero-name {
-    font-size: clamp(2.9rem, 14vw, 4.9rem) !important;
+    font-size: clamp(2.65rem, 13vw, 4.65rem) !important;
     line-height: 0.98 !important;
     letter-spacing: -0.03em;
   }
