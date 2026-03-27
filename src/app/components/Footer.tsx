@@ -14,7 +14,7 @@ export function Footer() {
         fontFamily: 'var(--font-mono)', fontSize: '0.8rem',
         color: 'var(--neon-cyan)',
       }}>
-        IC_ — Ilona Chamoun
+        IC_ Ilona Chamoun
       </span>
 
       <div style={{ display: 'flex', gap: 24, alignItems: 'center', flexWrap: 'wrap' }}>

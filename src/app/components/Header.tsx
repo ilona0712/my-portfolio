@@ -222,6 +222,7 @@ export function Header() {
       >
         <Link
           to="/"
+          className="prompt-logo"
           style={{
             fontFamily: 'var(--font-mono)',
             fontSize: '1rem',

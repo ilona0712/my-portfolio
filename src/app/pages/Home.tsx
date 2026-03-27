@@ -19,12 +19,22 @@ export function Home() {
       .add({ targets: '.hero-stats',    opacity: [0, 1], translateY: [30, 0], duration: 700 }, '-=200');
 
     /* Animated stat counters */
-    document.querySelectorAll<HTMLElement>('.stat-value[data-count]').forEach(el => {
-      const target = parseInt(el.dataset.count!);
+    document.querySelectorAll<HTMLElement>('.stat-value[data-count]').forEach((el) => {
+      const countValue = el.dataset.count;
+      if (!countValue) return;
+
+      const target = Number(countValue);
+      if (Number.isNaN(target)) return;
+
       anime({
         targets: { val: 0 }, val: target, round: 1,
         duration: 1800, delay: 1100, easing: 'easeOutExpo',
-        update(a: any) { el.textContent = Math.round(a.animations[0].currentValue); },
+        update(animation: any) {
+          const currentValue = animation.animations?.[0]?.currentValue;
+          if (typeof currentValue === 'number') {
+            el.textContent = String(Math.round(currentValue));
+          }
+        },
       });
     });
   }, []);
