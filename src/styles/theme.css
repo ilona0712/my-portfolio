@@ -310,7 +310,9 @@ body::after {
   .hero-name-secondary {
     display: block;
     max-width: 100%;
-    overflow-wrap: anywhere;
+    overflow-wrap: normal;
+    word-break: keep-all;
+    white-space: nowrap;
   }
 
   .glitch::before,
