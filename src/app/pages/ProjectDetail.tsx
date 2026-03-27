@@ -44,11 +44,11 @@ export function ProjectDetail() {
     <div style={{ position: 'relative', zIndex: 1, minHeight: '100vh' }}>
 
       {/* Hero image */}
-      <div style={{ height: 380, overflow: 'hidden', background: 'var(--bg2)', position: 'relative' }}>
+      <div style={{ height: 'clamp(260px, 42vw, 380px)', overflow: 'hidden', background: 'var(--bg2)', position: 'relative' }}>
         <img src={project.image} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'saturate(0.5) brightness(0.5)' }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(5,8,16,0.9), transparent)' }} />
         {/* Title over image */}
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '40px', maxWidth: 1100, margin: '0 auto' }}>
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: 'clamp(20px, 4vw, 40px)', maxWidth: 1100, margin: '0 auto' }}>
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: neon, letterSpacing: '0.15em', textTransform: 'uppercase', display: 'inline-block', marginBottom: 12, textShadow: `0 0 12px ${neon}` }}>{project.category}</span>
           <h1 className="detail-hero-title" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem,5vw,3.5rem)', fontWeight: 800, color: '#fff', opacity: 0 }}>
             {project.title}
@@ -56,7 +56,7 @@ export function ProjectDetail() {
         </div>
       </div>
 
-      <div className="section-inner" style={{ padding: '48px 40px' }}>
+      <div className="section-inner" style={{ padding: '48px 0' }}>
 
         {/* Back */}
         <Link to="/projects" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: neon, textDecoration: 'none', letterSpacing: '0.1em', marginBottom: 40, transition: 'gap 0.2s' }}>
@@ -119,7 +119,7 @@ export function ProjectDetail() {
         >
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--muted)', letterSpacing: '0.15em', display: 'block', marginBottom: 8 }}>NEXT PROJECT</span>
           <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 700, color: '#fff', marginBottom: 24 }}>{nextProject.title}</h3>
-          <div style={{ display: 'flex', gap: 12 }}>
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
             <button onClick={() => navigate(`/projects/${nextProject.id}`)} className="btn-primary">View Project →</button>
             <Link to="/projects" className="btn-ghost">All Projects</Link>
           </div>

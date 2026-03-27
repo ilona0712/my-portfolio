@@ -124,7 +124,7 @@ export function About() {
         <div className="section-inner" style={{ display: 'flex', flexDirection: 'column', gap: 64 }}>
 
           {/* WHO I AM + MY JOURNEY */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 48 }}>
             <div className="about-block" style={{ opacity: 0 }}>
               <div className="section-label" style={{ marginBottom: 20 }}>Who I Am</div>
               <p style={{ fontSize: '0.9rem', color: 'var(--text)', lineHeight: 1.8, fontFamily: 'var(--font-body)' }}>
@@ -173,7 +173,7 @@ export function About() {
           {/* WHAT DRIVES ME */}
           <div className="about-block" style={{ opacity: 0 }}>
             <div className="section-label" style={{ marginBottom: 24 }}>What Drives Me</div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 12 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
               {drives.map(({ label, desc, color }) => (
                 <div
                   key={label}
@@ -214,7 +214,7 @@ export function About() {
           {/* SKILLS */}
           <div className="about-block" style={{ opacity: 0 }}>
             <div className="section-label" style={{ marginBottom: 24 }}>Skills & Expertise</div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 40 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 40 }}>
               {Object.entries(skills).map(([category, items]) => (
                 <div key={category}>
                   <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, color: 'var(--neon-cyan)', fontSize: '0.8rem', letterSpacing: '0.08em', marginBottom: 14, textTransform: 'uppercase' }}>
@@ -243,7 +243,7 @@ export function About() {
               <Globe className="w-4 h-4" />
               Languages
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 12 }}>
               {languages.map((lang, i) => (
                 <div
                   key={i}
@@ -259,7 +259,7 @@ export function About() {
           </div>
 
           {/* EDUCATION + CERTIFICATIONS */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 48 }}>
             <div className="about-block" style={{ opacity: 0 }}>
               <div className="section-label" style={{ marginBottom: 20 }}>Education</div>
               <div style={{ padding: '24px', border: '1px solid var(--border)', borderRadius: 4, background: 'var(--surface)' }}>
@@ -287,7 +287,7 @@ export function About() {
         href={cert.file}
         target="_blank"
         rel="noopener noreferrer"
-        style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 14, padding: '16px 20px', border: '1px solid var(--border)', borderRadius: 4, background: 'var(--surface)', textDecoration: 'none', color: 'inherit', transition: 'border-color 0.2s, transform 0.2s' }}
+        style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 14, padding: '16px 20px', border: '1px solid var(--border)', borderRadius: 4, background: 'var(--surface)', textDecoration: 'none', color: 'inherit', transition: 'border-color 0.2s, transform 0.2s' }}
         onMouseEnter={e => { e.currentTarget.style.borderColor = cert.color; e.currentTarget.style.transform = 'translateX(4px)'; }}
         onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.transform = 'none'; }}
       >
@@ -329,7 +329,7 @@ export function About() {
             <p style={{ fontSize: '0.9rem', color: 'var(--muted)', lineHeight: 1.8, marginBottom: 24, maxWidth: 640, fontFamily: 'var(--font-body)' }}>
               As I approach my graduation in 2027, I'm excited to take on more challenging projects. I'm particularly interested in opportunities that involve:
             </p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 10 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 10 }}>
               {lookingForward.map(({ icon, label }, i) => (
                 <div
                   key={i}

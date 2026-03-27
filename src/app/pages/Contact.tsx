@@ -45,7 +45,7 @@ export function Contact() {
       {/* Main content */}
       <div style={{ padding: '80px 0' }}>
         <div className="section-inner">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 72 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 48 }}>
 
             {/* Left — contact methods */}
             <div>
@@ -59,7 +59,7 @@ export function Contact() {
                     rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                     className="contact-link"
                     style={{
-                      display: 'flex', alignItems: 'center', gap: 16, padding: '20px 24px',
+                      display: 'flex', alignItems: 'center', gap: 16, padding: '20px 24px', flexWrap: 'wrap',
                       border: '1px solid var(--border)', borderRadius: 4,
                       textDecoration: 'none', color: 'inherit',
                       background: 'var(--surface)', opacity: 0,
@@ -106,7 +106,7 @@ export function Contact() {
                 {availability.map((item, i) => (
                   <div key={i} className="avail-card" style={{
                     padding: '18px 24px', border: '1px solid var(--border)', borderRadius: 4,
-                    background: 'var(--surface)', display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                    background: 'var(--surface)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12,
                     opacity: 0,
                     transition: 'border-color 0.2s',
                   }}

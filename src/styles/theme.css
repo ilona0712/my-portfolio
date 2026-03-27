@@ -81,6 +81,14 @@ h1, h2, h3 {
   padding: 0 40px;
 }
 
+.mobile-only {
+  display: none;
+}
+
+.desktop-only {
+  display: initial;
+}
+
 .section-label {
   display: inline-flex;
   align-items: center;
@@ -263,4 +271,49 @@ body::after {
 @media (max-width: 900px) {
   .section-inner { padding: 0 24px; }
   .section-heading { margin-bottom: 36px; }
+}
+
+@media (max-width: 768px) {
+  .section-inner {
+    padding: 0 18px;
+  }
+
+  .section-label {
+    font-size: 0.64rem;
+    gap: 8px;
+    letter-spacing: 0.16em;
+  }
+
+  .section-label::before {
+    width: 18px;
+  }
+
+  .btn-primary,
+  .btn-ghost {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 18px;
+  }
+
+  .mobile-only {
+    display: initial;
+  }
+
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+
+  .btn-primary,
+  .btn-ghost,
+  .chip,
+  button,
+  a {
+    cursor: pointer;
+  }
 }

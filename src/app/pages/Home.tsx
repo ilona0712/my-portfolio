@@ -113,7 +113,7 @@ export function Home() {
 
           {/* Stats */}
           <div className="hero-stats" style={{
-            display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 1,
+            display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 1,
             marginTop: 80, background: 'var(--border)',
             border: '1px solid var(--border)', opacity: 0,
           }}>
@@ -162,7 +162,7 @@ export function Home() {
         <div className="section-inner">
           <div className="section-label">What I Do</div>
           <h2 className="section-heading">Areas of <span>Expertise</span></h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 1, background: 'var(--border)', border: '1px solid var(--border)' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 1, background: 'var(--border)', border: '1px solid var(--border)' }}>
             {expertise.map((e, i) => (
               <div
                 key={i}
@@ -189,7 +189,7 @@ export function Home() {
       {/* ═══ FEATURED PROJECTS ═══ */}
       <section data-anim="featured" style={{ padding: '120px 0' }}>
         <div className="section-inner">
-          <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 56 }}>
+          <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 20, marginBottom: 56 }}>
             <div>
               <div className="section-label">Selected Work</div>
               <h2 className="section-heading" style={{ marginBottom: 0 }}>Featured <span>Projects</span></h2>
@@ -199,7 +199,7 @@ export function Home() {
             </Link>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
             {featuredProjects.map((project, i) => {
               const neons = ['var(--neon-cyan)', 'var(--neon-green)', 'var(--neon-pink)'];
               const catColors = ['var(--neon-cyan)', 'var(--neon-green)', 'var(--neon-pink)'];

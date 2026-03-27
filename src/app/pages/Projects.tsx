@@ -81,7 +81,7 @@ export function Projects() {
         </div>
 
         {/* Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
           {filtered.map(project => {
             const neon = CAT_COLORS[project.category] || 'var(--neon-cyan)';
             return (

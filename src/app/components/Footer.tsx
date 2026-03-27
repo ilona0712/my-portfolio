@@ -5,7 +5,7 @@ export function Footer() {
     <footer style={{
       position: 'relative', zIndex: 1,
       borderTop: '1px solid var(--border)',
-      padding: '32px 48px',
+      padding: '32px 18px',
       display: 'flex', justifyContent: 'space-between', alignItems: 'center',
       flexWrap: 'wrap', gap: 12,
       background: 'var(--bg)',
@@ -17,7 +17,7 @@ export function Footer() {
         IC_ — Ilona Chamoun
       </span>
 
-      <div style={{ display: 'flex', gap: 24, alignItems: 'center' }}>
+      <div style={{ display: 'flex', gap: 24, alignItems: 'center', flexWrap: 'wrap' }}>
         <a
           href="https://github.com/ilona0712"
           target="_blank" rel="noopener noreferrer"
