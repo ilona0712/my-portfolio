@@ -278,6 +278,24 @@ body::after {
     padding: 0 18px;
   }
 
+  .hero-name {
+    font-size: clamp(2.9rem, 14vw, 4.9rem) !important;
+    line-height: 0.98 !important;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-name-primary,
+  .hero-name-secondary {
+    display: block;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    display: none;
+  }
+
   .section-label {
     font-size: 0.64rem;
     gap: 8px;

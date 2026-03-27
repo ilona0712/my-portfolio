@@ -79,11 +79,11 @@ export function Home() {
           {/* name */}
           <h1 className="hero-name" style={{
             fontFamily: 'var(--font-display)', fontWeight: 800,
-            fontSize: 'clamp(4rem, 10vw, 9rem)', lineHeight: 0.9,
+            fontSize: 'clamp(3.2rem, 10vw, 9rem)', lineHeight: 0.92,
             color: '#fff', marginBottom: 28, opacity: 0,
           }}>
-            <span className="glitch" data-text="Ilona">Ilona</span>
-            <span style={{ color: 'var(--neon-cyan)', display: 'block' }}>
+            <span className="glitch hero-name-primary" data-text="Ilona">Ilona</span>
+            <span className="hero-name-secondary" style={{ color: 'var(--neon-cyan)', display: 'block' }}>
               Chamoun<span style={{ color: 'var(--neon-pink)' }}>.</span>
             </span>
           </h1>
