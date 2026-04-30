@@ -121,26 +121,6 @@ export const projects: Project[] = [
     role: 'Backend Developer Intern — DigitalCircle'
   },
   {
-    id: 'wordpress-portfolio',
-    category: 'Development',
-    title: 'Responsive Client Website Portfolio',
-    subtitle: 'WordPress-based web solutions with focus on UX',
-    image: 'https://images.unsplash.com/photo-1705904506592-d8a0d5392c66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZXNwb25zaXZlJTIwd2ViJTIwZGVzaWduJTIwd29yZHByZXNzfGVufDF8fHx8MTc3MTI0MDQwM3ww&ixlib=rb-4.1.0&q=80&w=1080',
-    tags: ['WordPress', 'Elementor', 'Frontend', 'UI/UX'],
-    overview: 'Designed, developed, and maintained multiple client websites using WordPress and Elementor, delivering responsive and user-friendly web experiences optimized for both mobile and desktop.',
-    challenge: 'Clients needed professional, responsive websites delivered quickly while maintaining high quality and seamless user experience across all devices.',
-    solution: 'Conducted client consultations to understand requirements, created custom layouts using Elementor, and optimized for mobile responsiveness. Notable projects include junetlb.com (built independently from start to finish) and woodies.design. Established a rapid bug-fixing workflow to ensure consistent quality.',
-    impact: [
-      'Successfully delivered junetlb.com as a complete solo project',
-      'Created woodies.design and multiple other professional client websites',
-      'Resolved over 90% of front-end bugs within 48 hours',
-      'Delivered pixel-perfect, responsive designs for phone and desktop'
-    ],
-    technologies: ['WordPress', 'Elementor', 'HTML', 'CSS', 'JavaScript'],
-    timeline: 'Summer 2023 & 2024',
-    role: 'Frontend Developer Intern — DigitalCircle'
-  },
-  {
     id: 'sound-tracking',
     category: 'Embedded Systems',
     title: 'Embedded Sound Tracking System',
@@ -201,24 +181,25 @@ export const projects: Project[] = [
     role: 'Personal Project'
   },
   {
-    id: 'junetlb-website',
+    id: 'digitalcircle-web-portfolio',
     category: 'Development',
-    title: 'Junet Lebanon — Corporate Website',
-    subtitle: 'Full WordPress & Elementor website for a leading Lebanese juice manufacturer',
+    title: 'Client Website Portfolio — DigitalCircle',
+    subtitle: '6 production websites built with WordPress & Elementor across diverse industries',
     image: 'https://images.unsplash.com/photo-1705904506592-d8a0d5392c66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZXNwb25zaXZlJTIwd2ViJTIwZGVzaWduJTIwd29yZHByZXNzfGVufDF8fHx8MTc3MTI0MDQwM3ww&ixlib=rb-4.1.0&q=80&w=1080',
     tags: ['WordPress', 'Elementor', 'UI/UX', 'Frontend'],
-    overview: 'Designed and developed the official corporate website for Junet Lebanon (junetlb.com), a leading juice manufacturer operating in Lebanon, Nigeria, and Iraq since 1978. The site serves as the brand\'s digital face, showcasing its product range, company story, and commitment to quality.',
-    challenge: 'Junet needed a professional, modern website that reflected the brand\'s legacy and scale — a company with over 100 employees and a regional presence across three countries — while remaining easy to navigate for both local and international visitors.',
-    solution: 'Built the full website independently from scratch using WordPress and Elementor, handling everything from layout design and content structure to mobile responsiveness and visual branding. Translated the brand identity into a clean, polished digital experience that highlights Junet\'s products, history since 1978, and their "Always Fresh!" brand promise.',
+    overview: 'During my internship at DigitalCircle, I independently designed and developed 6 production client websites using WordPress and Elementor across a range of industries — from FMCG manufacturing and wood furniture e-commerce to NGOs, medical spas, interior design, and local business marketing. Each site was built from client consultation through to launch, with a focus on responsive design, brand accuracy, and fast turnaround.',
+    challenge: 'Each client came from a completely different industry with distinct audiences, branding needs, and functional requirements. The challenge was delivering polished, professional results efficiently — adapting layouts, content hierarchy, and UX patterns to fit each context — while maintaining quality across all projects simultaneously.',
+    solution: 'Handled each project end-to-end: gathering requirements, designing custom layouts in Elementor, structuring content, and ensuring full mobile/desktop responsiveness. Developed a reusable workflow that let me move fast without sacrificing quality. Notable sites include:\n\n• junetlb.com — Corporate site for Junet, a regional juice manufacturer (Lebanon, Nigeria, Iraq) operating since 1978 with 100+ employees. Built solo from start to finish, reflecting the brand\'s "Always Fresh!" identity.\n\n• woodies.design — E-commerce store for a premium wood home furniture brand, featuring product catalog pages for cabinets, coat racks, nightstands, TV units, and more.\n\n• boisdesign.me — Corporate site for Bois Design, a bespoke interior woodworking company offering precision cutting, edge banding, and custom furniture manufacturing services.\n\n• camealeon.org — Website for CAMEALEON, an NGO-led research network established in 2017 under the Norwegian Refugee Council, focused on social assistance accountability for refugees and host communities in Lebanon.\n\n• bzahle.com — Marketing and business growth platform for the Zahle region, helping local businesses establish an online presence.\n\n• dvinemedspa.com — Luxury medical spa website for D\'vine Med Spa (Connecticut, USA), showcasing aesthetic treatments including Botox, fillers, laser hair removal, CoolSculpting, and skin rejuvenation services.',
     impact: [
-      'Delivered a complete, production-ready corporate website solo from start to finish',
-      'Created a responsive design optimized for both desktop and mobile users',
-      'Established a professional online presence for a regional FMCG brand',
-      'Live at junetlb.com — serving as the company\'s primary digital touchpoint'
+      'Delivered 6 live, production-ready websites across 6 different industries',
+      'Built junetlb.com entirely solo — from requirements to launch',
+      'Resolved over 90% of front-end bugs within 48 hours across all client sites',
+      'Handled projects for clients in Lebanon and the United States',
+      'Delivered pixel-perfect, fully responsive designs for both phone and desktop'
     ],
-    technologies: ['WordPress', 'Elementor', 'HTML', 'CSS', 'JavaScript'],
-    timeline: '2024',
-    role: 'Freelance Web Developer'
+    technologies: ['WordPress', 'Elementor', 'HTML', 'CSS', 'JavaScript', 'WooCommerce'],
+    timeline: 'Summer 2023 & 2024',
+    role: 'Frontend Developer Intern — DigitalCircle'
   },
   {
     id: 'ccna-networking',
