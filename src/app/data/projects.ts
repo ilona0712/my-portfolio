@@ -58,7 +58,7 @@ export const projects: Project[] = [
       'Built interpretable models showing why each ATM is flagged as high-risk'
     ],
     technologies: ['Python', 'SQL Server', 'Pandas', 'Scikit-learn', 'XGBoost', 'LightGBM', 'SHAP', 'NumPy'],
-    timeline: 'Winter 2025 – Present',
+    timeline: 'Winter 2026 – Present',
     role: 'AI Lab Intern — Bank Byblos'
   },
   {
@@ -79,7 +79,7 @@ export const projects: Project[] = [
       'Enabled automated data collection reducing manual research time significantly'
     ],
     technologies: ['Python', 'Docker', 'BeautifulSoup', 'Requests', 'Selenium', 'APIs'],
-    timeline: 'Winter 2025 – Present',
+    timeline: 'Winter 2026 – Present',
     role: 'AI Lab Intern — Bank Byblos'
   },
   {
@@ -160,7 +160,7 @@ export const projects: Project[] = [
       'Directly complemented the ATM Failure Prediction ML system by validating real failure patterns'
     ],
     technologies: ['SQL', 'SQL Server', 'Data Integration', 'Dashboard Tools', 'Python'],
-    timeline: 'Winter 2025 – Present',
+    timeline: 'Winter 2026 – Present',
     role: 'AI Lab Intern — Byblos Bank'
   },
   {

@@ -102,8 +102,9 @@ export function Home() {
             fontSize: '1.1rem', color: 'var(--muted)', maxWidth: 540,
             lineHeight: 1.7, marginBottom: 40, opacity: 0,
           }}>
-            <strong style={{ color: 'var(--text)' }}>Software Engineer & AI Researcher</strong> — building ML pipelines
-            at Byblos Bank, delivering government dashboards, mastering projects at 42 Beirut.
+            <strong style={{ color: 'var(--text)' }}>Software Engineer & AI Enthusiast</strong> — 4th-year student at USJ 
+            turning internships and academic projects into production-ready ML systems, 
+            web platforms, and automation tools.
           </p>
 
           {/* tags */}
