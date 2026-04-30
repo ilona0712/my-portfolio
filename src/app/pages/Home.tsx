@@ -64,10 +64,10 @@ export function Home() {
     .filter(Boolean) as typeof projects;
 
   const expertise = [
-    { icon: '⬡', color: 'var(--neon-cyan)',   num: '01', title: 'Machine Learning',        desc: 'End-to-end ML pipelines, feature engineering, RandomForest / XGBoost / LightGBM, SHAP interpretability.' },
-    { icon: '◈', color: 'var(--neon-green)',  num: '02', title: 'Backend Development',     desc: 'System optimization, API design and integration, ERPNext backend customization, data pipelines.' },
-    { icon: '◎', color: 'var(--neon-pink)',   num: '03', title: 'Full-Stack & Dashboards', desc: 'Next.js, React, TypeScript, Tailwind CSS. Delivered a national analytics dashboard for Lebanon\'s Ministry of IT & AI.' },
-    { icon: '◇', color: 'var(--neon-yellow)', num: '04', title: 'Embedded Systems',        desc: 'Low-level C++ on Arduino, hardware-software integration, sensor arrays, real-time signal processing.' },
+    { icon: '⬡', color: 'var(--neon-cyan)',   num: '01', title: 'Machine Learning & AI',    desc: 'End-to-end ML pipelines, 136-feature engineering, XGBoost / LightGBM / Random Forest, SHAP interpretability, predictive maintenance at Byblos Bank AI Lab.' },
+    { icon: '◈', color: 'var(--neon-green)',  num: '02', title: 'Data Engineering',          desc: 'Real-time SQL-based data integration, live ATM status dashboards, web scraping pipelines (HTML, REST APIs, Selenium), automated backup systems.' },
+    { icon: '◎', color: 'var(--neon-pink)',   num: '03', title: 'Full-Stack Development',    desc: 'Next.js, React, TypeScript, Tailwind. Delivered a national analytics dashboard for Lebanon\'s Ministry of IT & AI and a bridal e-commerce platform with AI customization and live chat.' },
+    { icon: '◇', color: 'var(--neon-yellow)', num: '04', title: 'Automation & Web',          desc: 'Python email automation agents (SMTP, MIME), process pipelines with pandas & openpyxl. 6 production WordPress & Elementor sites delivered across Lebanon and the USA.' },
   ];
 
   return (
@@ -108,7 +108,7 @@ export function Home() {
 
           {/* tags */}
           <div className="hero-tags" style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: 48, opacity: 0 }}>
-            {['Python', 'Machine Learning', 'Next.js', 'TypeScript', 'C++', 'SQL', 'Docker'].map(t => (
+            {['Python', 'Machine Learning', 'SQL', 'Next.js', 'TypeScript', 'Automation', 'Docker', 'WordPress'].map(t => (
               <span key={t} className="tag">{t}</span>
             ))}
           </div>
@@ -128,7 +128,7 @@ export function Home() {
           }}>
             {[
               { value: '4', label: 'Year of Study', count: true },
-              { value: '8', label: 'Projects Built', count: true },
+              { value: '11', label: 'Projects Built', count: true },
               { value: '2', label: 'Internships',    count: true },
               { value: '2027', label: 'Graduation',  count: false },
             ].map((s, i) => (

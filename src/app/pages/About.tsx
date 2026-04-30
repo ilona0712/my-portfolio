@@ -13,39 +13,61 @@ export function About() {
 
   const skills = {
     'Programming Languages': [
-      { name: 'Python',      level: 'Primary language for backend development, automation, ML, and scripting' },
-      { name: 'Java',        level: 'Design Patterns, OOP, Backend Development' },
-      { name: 'C++',         level: 'Low-level programming, Pointers, Inheritance, Embedded Systems' },
-      { name: 'JavaScript',  level: 'Basic front-end interactivity' },
-      { name: 'HTML & CSS',  level: 'Front-end markup and styling (beginner level)' },
-      { name: 'SQL',         level: 'Database queries, optimization, window functions, CTEs' },
+      { name: 'Python',       level: 'Primary language — ML, automation, backend scripting, SMTP, web scraping' },
+      { name: 'SQL',          level: 'Advanced queries, window functions, CTEs, lag calculations, data integration' },
+      { name: 'Java',         level: 'Design Patterns, OOP, Backend Development' },
+      { name: 'C++',          level: 'Low-level programming, Pointers, Inheritance, Embedded Systems' },
+      { name: 'TypeScript',   level: 'Full-stack development with Next.js and React' },
+      { name: 'JavaScript',   level: 'Frontend interactivity, React components, DOM manipulation' },
+      { name: 'HTML & CSS',   level: 'Frontend markup, styling, responsive layout' },
     ],
-    'Backend Development': [
-      'ERPNext POS Backend Customization',
-      'Database Design and Optimization',
-      'API Development and Integration',
-      'Performance Optimization',
-      'Data Management and Automation',
+    'Machine Learning & AI': [
+      'End-to-end ML pipeline design and deployment',
+      'Feature Engineering (136+ features, rolling patterns, lag calculations)',
+      'Model Training & Selection — Random Forest, XGBoost, LightGBM',
+      'Time-Series Analysis and Predictive Maintenance',
+      'Model Interpretability with SHAP',
+      'AI-guided recommendation systems',
+      'Class Imbalance Handling (balanced class weights)',
     ],
-    'Machine Learning & Data Science': [
-      'Feature Engineering and Data Processing',
-      'ML Model Training (Random Forest, XGBoost, LightGBM)',
-      'Time-Series Analysis and Prediction',
-      'Model Interpretability (SHAP)',
-      'Web Scraping and Data Extraction',
+    'Data Engineering': [
+      'Real-time data integration and live dashboard design',
+      'Database access and SQL-based status monitoring',
+      'Web scraping — static HTML, REST APIs, dynamic content (Selenium)',
+      'Data extraction pipelines for ML training',
+      'Automated backup systems (Google Drive API)',
+      'Pandas, NumPy — data processing and transformation',
+    ],
+    'Backend & Automation': [
+      'ERPNext POS Backend Customization (Python)',
+      'Email automation — SMTP, MIMEMultipart, Gmail App Passwords',
+      'Process automation with pandas + openpyxl pipelines',
+      'REST API design and integration',
+      'Linux Cron Jobs and Shell Scripting',
+      'Google Drive API integration',
+    ],
+    'Full-Stack & Web': [
+      'Next.js, React, TypeScript — national-scale dashboards',
+      'Tailwind CSS, Recharts — data visualization',
+      'WordPress & Elementor — 6 production client websites',
+      'WooCommerce — e-commerce implementation',
+      'Live chat system integration',
+      'Admin dashboard design and dynamic content management',
+      'Mobile-first responsive design',
     ],
     'Systems & Tools': [
-      'Ubuntu/Linux (CLI proficiency)',
-      'Docker (Containerization and Deployment)',
-      'Google Drive API Integration',
-      'WordPress, Elementor',
+      'Docker — containerization and deployment',
+      'Ubuntu/Linux CLI — directory management, file operations, encryption',
       'Arduino, Hardware-Software Integration',
+      'Signal Processing — 7-microphone array, servo motor control',
+      'Git & GitHub — version control and collaboration',
+      'Vercel — deployment and CI/CD',
     ],
     'Networking': [
       'Cisco CCNA 1 & 2 Certified',
       'Network Design and Configuration',
-      'Routing and Switching Fundamentals',
-      'Network Security Basics',
+      'Routing, Switching and VLAN Configuration',
+      'Network Security Fundamentals',
     ],
   };
 
@@ -90,10 +112,10 @@ export function About() {
   ];
 
   const lookingForward = [
-    { icon: <Code     className="w-5 h-5" style={{ color: 'var(--neon-cyan)', flexShrink: 0 }} />, label: 'Backend system architecture and optimization' },
-    { icon: <Database className="w-5 h-5" style={{ color: 'var(--neon-cyan)', flexShrink: 0 }} />, label: 'Data pipeline engineering' },
-    { icon: <Network  className="w-5 h-5" style={{ color: 'var(--neon-cyan)', flexShrink: 0 }} />, label: 'Cloud infrastructure and DevOps' },
-    { icon: <Cpu      className="w-5 h-5" style={{ color: 'var(--neon-cyan)', flexShrink: 0 }} />, label: 'Embedded systems and IoT solutions' },
+    { icon: <Code     className="w-5 h-5" style={{ color: 'var(--neon-cyan)', flexShrink: 0 }} />, label: 'Backend system architecture and API design' },
+    { icon: <Database className="w-5 h-5" style={{ color: 'var(--neon-cyan)', flexShrink: 0 }} />, label: 'Data engineering and ML pipeline development' },
+    { icon: <Network  className="w-5 h-5" style={{ color: 'var(--neon-cyan)', flexShrink: 0 }} />, label: 'Cloud infrastructure, DevOps, and deployment' },
+    { icon: <Cpu      className="w-5 h-5" style={{ color: 'var(--neon-cyan)', flexShrink: 0 }} />, label: 'AI-powered full-stack product development' },
   ];
 
   return (
