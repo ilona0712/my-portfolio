@@ -1,150 +1,243 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router';
-import { projects } from '../data/projects';
-
-declare const anime: any;
-
-const CATEGORIES = ['All', 'Full-Stack', 'Machine Learning', 'Development', 'Embedded Systems', 'Networking'];
-const CAT_COLORS: Record<string, string> = {
-  'Full-Stack':        'var(--neon-cyan)',
-  'Machine Learning':  'var(--neon-green)',
-  'Development':       'var(--neon-blue)',
-  'Embedded Systems':  'var(--neon-pink)',
-  'Networking':        'var(--neon-yellow)',
-};
-
-export function Projects() {
-  const [selected, setSelected] = useState('All');
-
-  const filtered = selected === 'All' ? projects : projects.filter(p => p.category === selected);
-
-  /* Animate cards whenever filter changes */
-  useEffect(() => {
-    anime({
-      targets: '.project-card',
-      opacity: [0, 1],
-      translateY: [32, 0],
-      delay: anime.stagger(80),
-      duration: 600,
-      easing: 'easeOutExpo',
-    });
-  }, [selected]);
-
-  /* Initial entrance */
-  useEffect(() => {
-    anime.timeline({ easing: 'easeOutExpo' })
-      .add({ targets: '.projects-title', opacity: [0,1], translateY: [30,0], duration: 700 })
-      .add({ targets: '.filter-btn',     opacity: [0,1], scale: [0.85,1], delay: anime.stagger(50), duration: 400 }, '-=400');
-  }, []);
-
-  return (
-    <div style={{ position: 'relative', zIndex: 1, minHeight: '100vh', paddingTop: 100, paddingBottom: 80, background: 'var(--bg)' }}>
-      <div className="section-inner">
-
-        {/* Header */}
-        <div style={{ marginBottom: 48 }}>
-          <div className="section-label">Portfolio</div>
-          <h1 className="projects-title section-heading" style={{ opacity: 0 }}>
-            My <span>Projects</span>
-          </h1>
-          <p style={{ color: 'var(--muted)', maxWidth: 520, fontSize: '0.9rem', lineHeight: 1.7 }}>
-            Spanning machine learning, backend systems, full-stack development, and embedded engineering.
-          </p>
-        </div>
-
-        {/* Filters */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 52 }}>
-          {CATEGORIES.map(cat => (
-            <button
-              key={cat}
-              className="filter-btn"
-              onClick={() => setSelected(cat)}
-              style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.7rem',
-                padding: '8px 18px',
-                border: `1px solid ${selected === cat ? (CAT_COLORS[cat] || 'var(--neon-cyan)') : 'var(--border)'}`,
-                borderRadius: 2,
-                background: selected === cat ? `rgba(0,255,224,0.06)` : 'transparent',
-                color: selected === cat ? (CAT_COLORS[cat] || 'var(--neon-cyan)') : 'var(--muted)',
-                cursor: 'none',
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-                transition: 'all 0.2s',
-                boxShadow: selected === cat ? `0 0 16px rgba(0,255,224,0.2)` : 'none',
-                opacity: 0,
-              }}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
-          {filtered.map(project => {
-            const neon = CAT_COLORS[project.category] || 'var(--neon-cyan)';
-            return (
-              <Link
-                key={project.id}
-                to={`/projects/${project.id}`}
-                className="project-card"
-                style={{
-                  display: 'block', textDecoration: 'none', color: 'inherit',
-                  background: 'var(--surface)', border: '1px solid var(--border)',
-                  borderRadius: 4, overflow: 'hidden', opacity: 0,
-                  transition: 'border-color 0.3s, transform 0.3s, box-shadow 0.3s',
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.borderColor = neon;
-                  e.currentTarget.style.transform = 'translateY(-6px)';
-                  e.currentTarget.style.boxShadow = `0 20px 60px rgba(0,0,0,0.5), 0 0 24px rgba(0,255,224,0.06)`;
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.borderColor = 'var(--border)';
-                  e.currentTarget.style.transform = 'none';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
-              >
-                <div style={{ aspectRatio: '16/9', overflow: 'hidden', background: 'var(--bg2)' }}>
-                  <img src={project.image} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'saturate(0.6) brightness(0.75)', transition: 'filter 0.3s' }}
-                    onMouseEnter={e => (e.currentTarget.style.filter = 'saturate(1) brightness(0.9)')}
-                    onMouseLeave={e => (e.currentTarget.style.filter = 'saturate(0.6) brightness(0.75)')}
-                  />
-                </div>
-                <div style={{ padding: 24 }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 10 }}>
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.62rem', color: neon, letterSpacing: '0.12em', textTransform: 'uppercase', textShadow: `0 0 10px ${neon}` }}>
-                      {project.category}
-                    </span>
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.62rem', color: 'var(--muted)' }}>{project.timeline}</span>
-                  </div>
-                  <div style={{ fontFamily: 'var(--font-display)', fontSize: '1rem', fontWeight: 700, color: '#fff', marginBottom: 8, lineHeight: 1.3 }}>
-                    {project.title}
-                  </div>
-                  <p style={{ fontSize: '0.78rem', color: 'var(--muted)', lineHeight: 1.6, marginBottom: 16 }}>
-                    {project.subtitle}
-                  </p>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 12 }}>
-                    {project.tags.map((tag, i) => (
-                      <span key={i} style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', padding: '3px 8px', border: '1px solid var(--border)', color: 'var(--muted)', borderRadius: 2, letterSpacing: '0.04em' }}>{tag}</span>
-                    ))}
-                  </div>
-                  {project.role && (
-                    <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.62rem', color: neon, letterSpacing: '0.04em' }}>{project.role}</p>
-                  )}
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-
-        {filtered.length === 0 && (
-          <div style={{ textAlign: 'center', padding: '80px 0', color: 'var(--muted)', fontFamily: 'var(--font-mono)', letterSpacing: '0.1em' }}>
-            No projects in this category.
-          </div>
-        )}
-      </div>
-    </div>
-  );
+export interface Project {
+  id: string;
+  category: string;
+  title: string;
+  subtitle: string;
+  image: string;
+  tags: string[];
+  overview: string;
+  challenge: string;
+  solution: string;
+  impact: string[];
+  technologies: string[];
+  timeline: string;
+  role?: string;
 }
+
+export const projects: Project[] = [
+  {
+    id: 'numu-dashboard',
+    category: 'Full-Stack',
+    title: 'NUMŪ National Analytics Dashboard',
+    subtitle: 'Government monitoring platform for Lebanon\'s national AI upskilling program',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXNoYm9hcmQlMjBhbmFseXRpY3MlMjBkYXRhJTIwdmlzdWFsaXphdGlvbnxlbnwxfHx8fDE3NzE5NTAwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    tags: ['Next.js', 'TypeScript', 'Data Visualization', 'REST API'],
+    overview: 'Built a full-stack national monitoring and analytics platform for Lebanon\'s Ministry of IT & AI (MITAI), commissioned as part of the Code for Lebanon x USJ Hackathon. The platform serves as the operational backbone for the NUMŪ national AI upskilling program, giving ministry officials real-time visibility into registration performance, learner demographics, geographic reach, and training track demand.',
+    challenge: 'The Ministry needed a data-driven tool to monitor the national rollout of NUMŪ across 8 Lebanese regions, tracking 4,800+ registered learners spanning universities, syndicates, public sector entities, NGOs, and employers. Policy decisions around outreach strategy, regional inclusion, and partnership prioritization had to be supported by live, filterable analytics — not static reports.',
+    solution: 'Engineered a two-tier architecture with a REST API backend for data ingestion, normalization, and aggregation, paired with a Next.js/TypeScript frontend. Consumed the NUMŪ Survey API to process raw learner profiles and compute metrics in real-time. Built four policy-facing dashboard modules: Dissemination Performance (channel breakdown with drill-down to sub-entities), Geographic Insights (regional distribution and gap analysis), Interest & Strategy (track demand heatmaps and learning motivation analysis), and a Unified Learner Profile view with provider status badges from Microsoft and Oracle platforms.',
+    impact: [
+      'Delivered a working government-grade prototype within a 24-hour hackathon',
+      'Visualized registration data for 4,800+ learners across 8 Lebanese regions',
+      'Enabled ministry officials to drill down from national to sub-entity level (e.g. specific university)',
+      'Identified underrepresented regions for targeted outreach using geographic gap analysis',
+      'Recognized among top finalist groups by Ministry of IT & AI (MITAI) jury',
+      'Deployed live at: v0-frontend-web-numu.vercel.app'
+    ],
+    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Recharts', 'REST API', 'pnpm', 'Vercel'],
+    timeline: 'February 2026',
+    role: 'Frontend Developer — Code for Lebanon x USJ Hackathon'
+  },
+  {
+    id: 'atm-ml-prediction',
+    category: 'Machine Learning',
+    title: 'ATM Failure Prediction System',
+    subtitle: 'Predictive maintenance ML system for banking infrastructure',
+    image: 'https://images.unsplash.com/photo-1591453089816-0fbb971b454c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWNoaW5lJTIwbGVhcm5pbmclMjBBVE0lMjBiYW5raW5nJTIwcHJlZGljdGlvbnxlbnwxfHx8fDE3NzEyNDU4MDd8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    tags: ['Machine Learning', 'Python', 'SQL', 'Data Science'],
+    overview: 'Designed and implemented an end-to-end machine learning system for predictive maintenance of ATM networks at Byblos Bank, forecasting equipment failures 24 hours in advance to enable proactive maintenance and reduce downtime.',
+    challenge: 'ATM failures are costly, causing lost transactions, frustrated customers, emergency repair costs, and damaged reputation. Traditional reactive maintenance meant waiting for failures before fixing them, leading to unplanned downtime and customer dissatisfaction.',
+    solution: 'Built a comprehensive ML pipeline that processes millions of telemetry records from 250+ ATMs, engineering 136 predictive features including 21 component states, 18 error types, 7-day and 30-day rolling patterns, trend analysis, and lag features. Developed advanced SQL queries (400+ lines) using window functions, CTEs, and lag calculations. Trained and compared multiple ML models (Random Forest, XGBoost, LightGBM) with automated best-model selection. Implemented time-based train/test splits to prevent data leakage, handled class imbalance with balanced class weights, and optimized daily prediction processing time by 95%. Integrated SHAP-based model interpretability for maintenance team adoption and trust.',
+    impact: [
+      'Successfully predicts ATM failures 24 hours in advance',
+      'Transformed reactive maintenance into proactive maintenance workflow',
+      'Automated daily predictions with risk categorization: Critical (≥80%), High (60-79%), Medium (40-59%), Low (<40%)',
+      'Reduced daily prediction processing time by 95%',
+      'Enabled maintenance teams to prioritize high-risk ATMs effectively',
+      'Built interpretable models showing why each ATM is flagged as high-risk'
+    ],
+    technologies: ['Python', 'SQL Server', 'Pandas', 'Scikit-learn', 'XGBoost', 'LightGBM', 'SHAP', 'NumPy'],
+    timeline: 'Winter 2025 – Present',
+    role: 'AI Lab Intern — Bank Byblos'
+  },
+  {
+    id: 'web-scraping-ml',
+    category: 'Machine Learning',
+    title: 'Intelligent Web Scraping System',
+    subtitle: 'Multi-format data extraction pipeline for ML training',
+    image: 'https://images.unsplash.com/photo-1604403428907-673e7f4cd341?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBzY3JhcGluZyUyMGRhdGElMjBleHRyYWN0aW9uJTIwY29kZXxlbnwxfHx8fDE3NzEyNDU4MDZ8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    tags: ['Python', 'Docker', 'Web Scraping', 'Data Engineering'],
+    overview: 'Developed a comprehensive web scraping system at Byblos Bank AI Lab to extract external data from multiple sources for machine learning training, with focus on organizing Lebanese events, holidays, and news for business intelligence applications.',
+    challenge: 'Needed to collect and organize diverse external data from various website formats (HTML, APIs, dynamic content) to enrich ML models with real-world context for events happening in Lebanon, national holidays, road closures, and relevant news.',
+    solution: 'Developed a Python-based scraping system capable of handling multiple website formats including static HTML pages, RESTful APIs, and dynamic content. Implemented intelligent crawling logic to navigate through website structures and extract all relevant information. Built containerized deployment using Docker for the first time, ensuring consistent execution across environments.',
+    impact: [
+      'Successfully extracted and organized data from multiple diverse sources',
+      'Built flexible scraper handling HTML, API, and dynamic content formats',
+      'Containerized application using Docker — first hands-on containerization experience',
+      'Provided clean, categorized data for ML model training and business intelligence',
+      'Enabled automated data collection reducing manual research time significantly'
+    ],
+    technologies: ['Python', 'Docker', 'BeautifulSoup', 'Requests', 'Selenium', 'APIs'],
+    timeline: 'Winter 2025 – Present',
+    role: 'AI Lab Intern — Bank Byblos'
+  },
+  {
+    id: 'erpnext-pos',
+    category: 'Development',
+    title: 'ERPNext POS System Customization',
+    subtitle: 'Restaurant POS interface with table management and reservations',
+    image: 'https://images.unsplash.com/photo-1643116774075-acc00caa9a7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYWNrZW5kJTIwc2VydmVyJTIwY29kZSUyMG9wdGltaXphdGlvbnxlbnwxfHx8fDE3NzEyNDA0MDN8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    tags: ['Backend', 'Frontend', 'ERPNext', 'Python'],
+    overview: 'Customized ERPNext POS system for DigitalCircle startup, transforming a retail-focused system into a comprehensive restaurant management solution with table management and reservation capabilities.',
+    challenge: 'The installed version of ERPNext POS was designed exclusively for retail stores and lacked essential restaurant features such as table management, reservations, and dining-specific workflows.',
+    solution: 'Redesigned the POS frontend interface and created a custom UI tailored for restaurants. Developed features allowing restaurant owners to view tables, manage reservations, track table status, and handle dine-in operations efficiently. Implemented backend customizations in Python to support the restaurant business model.',
+    impact: [
+      'Successfully transformed retail POS into a restaurant-ready solution',
+      'Decreased average transaction processing time by 3 seconds',
+      'Enabled 20% more transactions processed per hour',
+      'Enabled efficient table and reservation management for restaurant operations'
+    ],
+    technologies: ['ERPNext', 'Python', 'JavaScript', 'UI/UX Design'],
+    timeline: 'Summer 2023 & 2024',
+    role: 'Backend Developer Intern — DigitalCircle'
+  },
+  {
+    id: 'automated-backup',
+    category: 'Development',
+    title: 'Automated Database Backup System',
+    subtitle: 'Cloud-based data security and recovery solution',
+    image: 'https://images.unsplash.com/photo-1667372283496-893f0b1e7c16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbG91ZCUyMGRhdGFiYXNlJTIwc2VjdXJpdHklMjB0ZWNobm9sb2d5fGVufDF8fHx8MTc3MTI0MDQwN3ww&ixlib=rb-4.1.0&q=80&w=1080',
+    tags: ['Backend', 'Automation', 'Cloud', 'Python'],
+    overview: 'Engineered an automated system to ensure data integrity and availability for DigitalCircle\'s POS system through scheduled backups and cloud storage integration.',
+    challenge: 'Manual database backups were inconsistent and prone to human error, risking data loss and business continuity for a growing startup.',
+    solution: 'Developed an automated backup pipeline that schedules daily database exports from the POS system, securely transfers backups to Google Drive using API integration, implements versioning and retention policies, and provides a notification system for backup status.',
+    impact: [
+      'Achieved 100% backup consistency — zero missed daily backups',
+      'Ensured high data availability with up-to-date recovery points',
+      'Eliminated daily manual backup tasks entirely',
+      'Enhanced business continuity planning for the startup'
+    ],
+    technologies: ['Python', 'Google Drive API', 'Linux Cron Jobs', 'Shell Scripting'],
+    timeline: 'Summer 2024',
+    role: 'Backend Developer Intern — DigitalCircle'
+  },
+  {
+    id: 'wordpress-portfolio',
+    category: 'Development',
+    title: 'Responsive Client Website Portfolio',
+    subtitle: 'WordPress-based web solutions with focus on UX',
+    image: 'https://images.unsplash.com/photo-1705904506592-d8a0d5392c66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZXNwb25zaXZlJTIwd2ViJTIwZGVzaWduJTIwd29yZHByZXNzfGVufDF8fHx8MTc3MTI0MDQwM3ww&ixlib=rb-4.1.0&q=80&w=1080',
+    tags: ['WordPress', 'Elementor', 'Frontend', 'UI/UX'],
+    overview: 'Designed, developed, and maintained multiple client websites using WordPress and Elementor, delivering responsive and user-friendly web experiences optimized for both mobile and desktop.',
+    challenge: 'Clients needed professional, responsive websites delivered quickly while maintaining high quality and seamless user experience across all devices.',
+    solution: 'Conducted client consultations to understand requirements, created custom layouts using Elementor, and optimized for mobile responsiveness. Notable projects include junetlb.com (built independently from start to finish) and woodies.design. Established a rapid bug-fixing workflow to ensure consistent quality.',
+    impact: [
+      'Successfully delivered junetlb.com as a complete solo project',
+      'Created woodies.design and multiple other professional client websites',
+      'Resolved over 90% of front-end bugs within 48 hours',
+      'Delivered pixel-perfect, responsive designs for phone and desktop'
+    ],
+    technologies: ['WordPress', 'Elementor', 'HTML', 'CSS', 'JavaScript'],
+    timeline: 'Summer 2023 & 2024',
+    role: 'Frontend Developer Intern — DigitalCircle'
+  },
+  {
+    id: 'sound-tracking',
+    category: 'Embedded Systems',
+    title: 'Embedded Sound Tracking System',
+    subtitle: 'Arduino-based directional audio detection with 7-mic array',
+    image: 'https://images.unsplash.com/photo-1605143185693-931d6c06ed0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmR1aW5vJTIwbWljcm9waG9uZSUyMGhhcmR3YXJlJTIwZW1iZWRkZWR8ZW58MXx8fHwxNzcxMjQwNDA0fDA&ixlib=rb-4.1.0&q=80&w=1080',
+    tags: ['C++', 'Arduino', 'Embedded', 'Signal Processing'],
+    overview: 'Academic project developing an intelligent system to identify and track sound sources using a 7-microphone array and servo motor-driven positioning.',
+    challenge: 'Integrating multiple audio inputs with mechanical movement to accurately determine sound source direction in real-time with minimal latency.',
+    solution: 'Developed signal processing algorithms to analyze audio amplitude differences across the microphone array, implemented triangulation logic to calculate sound source direction, and created motor control protocols for precise servo positioning using low-level C++.',
+    impact: [
+      'Successfully detected and tracked sound sources with high accuracy',
+      'Achieved real-time performance with minimal latency',
+      'Demonstrated practical application of signal processing and embedded concepts',
+      'Full hardware-software integration from scratch using low-level C++'
+    ],
+    technologies: ['Arduino', 'C++', 'Signal Processing', 'Motor Control', 'Sensor Arrays'],
+    timeline: 'Spring 2025',
+    role: 'Academic Project — USJ'
+  },
+  {
+    id: 'atm-live-dashboard',
+    category: 'Data Engineering',
+    title: 'ATM Live Status Dashboard',
+    subtitle: 'Real-time banking dashboard tracking inactive and error-state ATMs',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXNoYm9hcmQlMjBhbmFseXRpY3MlMjBkYXRhJTIwdmlzdWFsaXphdGlvbnxlbnwxfHx8fDE3NzE5NTAwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    tags: ['SQL', 'Data Integration', 'Dashboard', 'Banking'],
+    overview: 'Developed a live ATM monitoring dashboard during my internship at a bank, providing real-time visibility into the operational status of the entire ATM network. The dashboard highlights ATMs that are currently inactive or experiencing errors, enabling the operations team to act immediately.',
+    challenge: 'The bank\'s operations team had no centralized, real-time view of ATM health across the network. Identifying inactive or error-state ATMs required manual checks, leading to delayed responses and extended downtime for customers.',
+    solution: 'Accessed the bank\'s database directly and wrote optimized SQL queries to filter and aggregate ATM status data in real time. Integrated the query results into a live dashboard that auto-refreshes, clearly flagging ATMs by status: inactive, error, or operational. This gave the team an instant, actionable overview without any manual intervention.',
+    impact: [
+      'Enabled real-time monitoring of the full ATM network from a single dashboard',
+      'Eliminated the need for manual status checks across individual machines',
+      'Reduced response time to ATM incidents by surfacing errors immediately',
+      'Provided the operations team with a reliable, always-up-to-date status view'
+    ],
+    technologies: ['SQL', 'Database Access', 'Data Integration', 'Dashboard Tools'],
+    timeline: 'Internship — 2024',
+    role: 'Data Integration Intern — Bank Internship'
+  },
+  {
+    id: 'email-agent',
+    category: 'Automation',
+    title: 'Personalized Internship Email Agent',
+    subtitle: 'Automated email agent sending tailored applications with custom cover letters per company',
+    image: 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbWFpbCUyMGF1dG9tYXRpb24lMjBhZ2VudHxlbnwxfHx8fDE3NzEyNDA0MDN8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    tags: ['Python', 'Automation', 'AI', 'Email'],
+    overview: 'Built an intelligent email agent to solve a real problem during my university internship search. When the university sent a list of 50 companies to apply to, sending generic applications to all of them wasn\'t an option — so I automated the process in a smarter way.',
+    challenge: 'The university provided a list of 50 companies accepting internship applications. Manually writing a personalized cover letter and email for each company was time-consuming and impractical, but sending the same generic message to everyone would significantly reduce response rates.',
+    solution: 'Developed a Python-based email agent that iterated through the list of companies, generated a tailored description about me specific to each company\'s industry and profile, attached my CV, and sent a personalized email automatically. Each email felt individually crafted while the entire process ran autonomously.',
+    impact: [
+      'Sent 50 personalized internship applications automatically with zero manual effort per email',
+      'Each email included a company-specific description and attached CV',
+      'Saved hours of repetitive work while maintaining a high quality, personal tone',
+      'Demonstrated practical AI automation applied to a real personal challenge'
+    ],
+    technologies: ['Python', 'SMTP / Email API', 'Automation', 'NLP / Text Generation'],
+    timeline: '2024',
+    role: 'Personal Project'
+  },
+  {
+    id: 'junetlb-website',
+    category: 'Development',
+    title: 'Junet Lebanon — Corporate Website',
+    subtitle: 'Full WordPress & Elementor website for a leading Lebanese juice manufacturer',
+    image: 'https://images.unsplash.com/photo-1705904506592-d8a0d5392c66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZXNwb25zaXZlJTIwd2ViJTIwZGVzaWduJTIwd29yZHByZXNzfGVufDF8fHx8MTc3MTI0MDQwM3ww&ixlib=rb-4.1.0&q=80&w=1080',
+    tags: ['WordPress', 'Elementor', 'UI/UX', 'Frontend'],
+    overview: 'Designed and developed the official corporate website for Junet Lebanon (junetlb.com), a leading juice manufacturer operating in Lebanon, Nigeria, and Iraq since 1978. The site serves as the brand\'s digital face, showcasing its product range, company story, and commitment to quality.',
+    challenge: 'Junet needed a professional, modern website that reflected the brand\'s legacy and scale — a company with over 100 employees and a regional presence across three countries — while remaining easy to navigate for both local and international visitors.',
+    solution: 'Built the full website independently from scratch using WordPress and Elementor, handling everything from layout design and content structure to mobile responsiveness and visual branding. Translated the brand identity into a clean, polished digital experience that highlights Junet\'s products, history since 1978, and their "Always Fresh!" brand promise.',
+    impact: [
+      'Delivered a complete, production-ready corporate website solo from start to finish',
+      'Created a responsive design optimized for both desktop and mobile users',
+      'Established a professional online presence for a regional FMCG brand',
+      'Live at junetlb.com — serving as the company\'s primary digital touchpoint'
+    ],
+    technologies: ['WordPress', 'Elementor', 'HTML', 'CSS', 'JavaScript'],
+    timeline: '2024',
+    role: 'Freelance Web Developer'
+  },
+  {
+    id: 'ccna-networking',
+    category: 'Networking',
+    title: 'CCNA Networking Foundations',
+    subtitle: 'Enterprise network design and implementation',
+    image: 'https://images.unsplash.com/photo-1484557052118-f32bd25b45b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuZXR3b3JrJTIwcm91dGVyJTIwY2lzY28lMjBzd2l0Y2hlc3xlbnwxfHx8fDE3NzEyNDA0MDV8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    tags: ['Networking', 'Cisco', 'CCNA', 'Infrastructure'],
+    overview: 'Comprehensive networking knowledge gained through Cisco CCNA certification program, covering fundamental to intermediate networking concepts and practical configurations.',
+    challenge: 'Mastering complex networking concepts and practical configuration skills required for enterprise network deployment.',
+    solution: 'Completed CCNA 1 (Introduction to Networking) covering OSI/TCP-IP models, IP addressing, subnetting, and basic router/switch configuration. Completed CCNA 2 (Routing & Switching Essentials) covering static/dynamic routing, VLAN configuration, inter-VLAN routing, and network security.',
+    impact: [
+      'Cisco CCNA 1 certified — Introduction to Networking',
+      'Cisco CCNA 2 certified — Routing & Switching Essentials',
+      'Acquired hands-on experience with router and switch configuration',
+      'Built foundation for enterprise networking and infrastructure roles'
+    ],
+    technologies: ['Cisco Routers', 'Cisco Switches', 'Packet Tracer', 'Network Protocols'],
+    timeline: 'Completed',
+    role: 'Self-Directed Certification'
+  }
+];
