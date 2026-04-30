@@ -12,6 +12,8 @@ export interface Project {
   technologies: string[];
   timeline: string;
   role?: string;
+  liveUrl?: string;
+  websiteLinks?: { label: string; url: string }[];
 }
 
 export const projects: Project[] = [
@@ -192,7 +194,7 @@ export const projects: Project[] = [
     tags: ['WordPress', 'Elementor', 'UI/UX', 'Frontend'],
     overview: 'During my internship at DigitalCircle, I independently designed and developed 6 production client websites using WordPress and Elementor across a range of industries — from FMCG manufacturing and wood furniture e-commerce to NGOs, medical spas, interior design, and local business marketing. Each site was built from client consultation through to launch, with a focus on responsive design, brand accuracy, and fast turnaround.',
     challenge: 'Each client came from a completely different industry with distinct audiences, branding needs, and functional requirements. The challenge was delivering polished, professional results efficiently — adapting layouts, content hierarchy, and UX patterns to fit each context — while maintaining quality across all projects simultaneously.',
-    solution: 'Handled each project end-to-end: gathering requirements, designing custom layouts in Elementor, structuring content, and ensuring full mobile/desktop responsiveness. Developed a reusable workflow that let me move fast without sacrificing quality. Notable sites include:\n\n• junetlb.com — Corporate site for Junet, a regional juice manufacturer (Lebanon, Nigeria, Iraq) operating since 1978 with 100+ employees. Built solo from start to finish, reflecting the brand\'s "Always Fresh!" identity.\n\n• woodies.design — E-commerce store for a premium wood home furniture brand, featuring product catalog pages for cabinets, coat racks, nightstands, TV units, and more.\n\n• boisdesign.me — Corporate site for Bois Design, a bespoke interior woodworking company offering precision cutting, edge banding, and custom furniture manufacturing services.\n\n• camealeon.org — Website for CAMEALEON, an NGO-led research network established in 2017 under the Norwegian Refugee Council, focused on social assistance accountability for refugees and host communities in Lebanon.\n\n• bzahle.com — Marketing and business growth platform for the Zahle region, helping local businesses establish an online presence.\n\n• dvinemedspa.com — Luxury medical spa website for D\'vine Med Spa (Connecticut, USA), showcasing aesthetic treatments including Botox, fillers, laser hair removal, CoolSculpting, and skin rejuvenation services.',
+    solution: 'Handled each project end-to-end: gathering requirements, designing custom layouts in Elementor, structuring content, and ensuring full mobile/desktop responsiveness. Developed a reusable workflow that let me move fast without sacrificing quality. The six sites span juice manufacturing (junetlb.com), wood furniture e-commerce (woodies.design), bespoke interior woodworking (boisdesign.me), an NGO research network under the Norwegian Refugee Council (camealeon.org), a regional business marketing platform for the Zahle area (bzahle.com), and a luxury medical spa in Connecticut, USA (dvinemedspa.com) — each built from brief to launch with full mobile and desktop responsiveness.',
     impact: [
       'Delivered 6 live, production-ready websites across 6 different industries',
       'Built junetlb.com entirely solo — from requirements to launch',
@@ -202,7 +204,15 @@ export const projects: Project[] = [
     ],
     technologies: ['WordPress', 'Elementor', 'HTML', 'CSS', 'JavaScript', 'WooCommerce'],
     timeline: 'Summer 2023 & 2024',
-    role: 'Frontend Developer Intern — DigitalCircle'
+    role: 'Frontend Developer Intern — DigitalCircle',
+    websiteLinks: [
+      { label: 'junetlb.com',      url: 'https://junetlb.com' },
+      { label: 'woodies.design',   url: 'https://woodies.design' },
+      { label: 'boisdesign.me',    url: 'https://boisdesign.me' },
+      { label: 'camealeon.org',    url: 'https://camealeon.org' },
+      { label: 'bzahle.com',       url: 'https://bzahle.com' },
+      { label: 'dvinemedspa.com',  url: 'https://dvinemedspa.com' },
+    ]
   },
   {
     id: 'maria-badari',
@@ -223,8 +233,9 @@ export const projects: Project[] = [
       'Live at: mariabadari.com'
     ],
     technologies: ['Full-Stack Web', 'AI / Recommendation System', 'Live Chat', 'Admin Dashboard', 'Database'],
-    timeline: '2025',
-    role: 'Full-Stack Developer — Academic Team Project, USJ'
+    timeline: 'Spring 2026',
+    role: 'Full-Stack Developer — Academic Team Project, USJ',
+    liveUrl: 'https://www.mariabadari.com'
   },
   {
     id: 'ccna-networking',

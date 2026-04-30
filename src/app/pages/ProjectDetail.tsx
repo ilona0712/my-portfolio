@@ -34,7 +34,9 @@ export function ProjectDetail() {
   const CAT_COLORS: Record<string, string> = {
     'Full-Stack':       'var(--neon-cyan)',
     'Machine Learning': 'var(--neon-green)',
-    'Development':      'var(--neon-blue)',
+    'Data Engineering': 'var(--neon-blue)',
+    'Automation':       'var(--neon-pink)',
+    'Development':      'var(--neon-yellow)',
     'Embedded Systems': 'var(--neon-pink)',
     'Networking':       'var(--neon-yellow)',
   };
@@ -85,9 +87,90 @@ export function ProjectDetail() {
           ].map(s => (
             <div key={s.label} style={{ marginBottom: 40, opacity: 0 }}>
               <div className="section-label">{s.label}</div>
-              <p style={{ fontSize: '0.9rem', color: 'var(--muted)', lineHeight: 1.8 }}>{s.content}</p>
+              {s.content.split('\n\n').map((para, i) => (
+                <p key={i} style={{ fontSize: '0.9rem', color: 'var(--muted)', lineHeight: 1.8, marginBottom: 12 }}>{para}</p>
+              ))}
             </div>
           ))}
+
+          {/* Live Demo */}
+          {project.liveUrl && (
+            <div style={{ marginBottom: 40, opacity: 0 }} className="detail-body">
+              <div className="section-label">Live Demo</div>
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.85rem',
+                  color: neon,
+                  textDecoration: 'none',
+                  border: `1px solid ${neon}44`,
+                  borderRadius: 2,
+                  padding: '10px 20px',
+                  background: `${neon}08`,
+                  letterSpacing: '0.05em',
+                  transition: 'background 0.2s, box-shadow 0.2s',
+                }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLAnchorElement).style.background = `${neon}18`;
+                  (e.currentTarget as HTMLAnchorElement).style.boxShadow = `0 0 20px ${neon}33`;
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLAnchorElement).style.background = `${neon}08`;
+                  (e.currentTarget as HTMLAnchorElement).style.boxShadow = 'none';
+                }}
+              >
+                ↗ {project.liveUrl.replace(/^https?:\/\//, '')}
+              </a>
+            </div>
+          )}
+
+          {/* Website Links (for multi-site projects) */}
+          {project.websiteLinks && project.websiteLinks.length > 0 && (
+            <div style={{ marginBottom: 40, opacity: 0 }} className="detail-body">
+              <div className="section-label">Live Websites</div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+                {project.websiteLinks.map((site, i) => (
+                  <a
+                    key={i}
+                    href={site.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 6,
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '0.75rem',
+                      color: neon,
+                      textDecoration: 'none',
+                      border: `1px solid ${neon}44`,
+                      borderRadius: 2,
+                      padding: '8px 16px',
+                      background: `${neon}08`,
+                      letterSpacing: '0.05em',
+                      transition: 'background 0.2s, box-shadow 0.2s',
+                    }}
+                    onMouseEnter={e => {
+                      (e.currentTarget as HTMLAnchorElement).style.background = `${neon}18`;
+                      (e.currentTarget as HTMLAnchorElement).style.boxShadow = `0 0 16px ${neon}33`;
+                    }}
+                    onMouseLeave={e => {
+                      (e.currentTarget as HTMLAnchorElement).style.background = `${neon}08`;
+                      (e.currentTarget as HTMLAnchorElement).style.boxShadow = 'none';
+                    }}
+                  >
+                    ↗ {site.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Impact */}
           <div style={{ marginBottom: 40, opacity: 0 }}>
