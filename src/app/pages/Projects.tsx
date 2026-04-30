@@ -144,40 +144,43 @@ export const projects: Project[] = [
     id: 'atm-live-dashboard',
     category: 'Data Engineering',
     title: 'ATM Live Status Dashboard',
-    subtitle: 'Real-time banking dashboard tracking inactive and error-state ATMs',
+    subtitle: 'Real-time data integration dashboard tracking inactive and error-state ATMs across a bank\'s full network',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXNoYm9hcmQlMjBhbmFseXRpY3MlMjBkYXRhJTIwdmlzdWFsaXphdGlvbnxlbnwxfHx8fDE3NzE5NTAwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080',
     tags: ['SQL', 'Data Integration', 'Dashboard', 'Banking'],
-    overview: 'Developed a live ATM monitoring dashboard during my internship at a bank, providing real-time visibility into the operational status of the entire ATM network. The dashboard highlights ATMs that are currently inactive or experiencing errors, enabling the operations team to act immediately.',
-    challenge: 'The bank\'s operations team had no centralized, real-time view of ATM health across the network. Identifying inactive or error-state ATMs required manual checks, leading to delayed responses and extended downtime for customers.',
-    solution: 'Accessed the bank\'s database directly and wrote optimized SQL queries to filter and aggregate ATM status data in real time. Integrated the query results into a live dashboard that auto-refreshes, clearly flagging ATMs by status: inactive, error, or operational. This gave the team an instant, actionable overview without any manual intervention.',
+    overview: 'As part of my internship at Byblos Bank\'s AI Lab, I built a live data integration layer and operational dashboard that gives the bank\'s operations team real-time visibility into the status of every ATM in the network. The dashboard flags machines that are currently inactive or in an error state, enabling the team to respond immediately rather than discovering problems after customer complaints.',
+    challenge: 'The bank had no centralized, live view of ATM health across its network. Status checks were manual and reactive — teams only learned of failures after the fact, resulting in extended customer-facing downtime, lost transactions, and unnecessary emergency response costs. There was no system to distinguish between machines with recoverable errors versus those fully offline.',
+    solution: 'Gained direct access to the bank\'s database and designed and wrote SQL queries to extract, filter, and aggregate real-time ATM status data. The queries classified each machine by operational state — active, inactive, or error — and surfaced the relevant details for each incident. These results were integrated into a live dashboard that auto-refreshes, giving the operations team an always-current network view without any manual intervention. This work was closely tied to the broader ATM ML prediction pipeline I also developed at the bank, where similar data was used to train predictive maintenance models.',
     impact: [
-      'Enabled real-time monitoring of the full ATM network from a single dashboard',
-      'Eliminated the need for manual status checks across individual machines',
-      'Reduced response time to ATM incidents by surfacing errors immediately',
-      'Provided the operations team with a reliable, always-up-to-date status view'
+      'Delivered a live dashboard providing real-time status across the full ATM network',
+      'Eliminated manual status checks — the team now has a single always-current source of truth',
+      'Enabled immediate incident response by surfacing inactive and error-state machines as they occur',
+      'Distinguished between error types, helping operations teams prioritize and triage effectively',
+      'Directly complemented the ATM Failure Prediction ML system by validating real failure patterns'
     ],
-    technologies: ['SQL', 'Database Access', 'Data Integration', 'Dashboard Tools'],
-    timeline: 'Internship — 2024',
-    role: 'Data Integration Intern — Bank Internship'
+    technologies: ['SQL', 'SQL Server', 'Data Integration', 'Dashboard Tools', 'Python'],
+    timeline: 'Winter 2025 – Present',
+    role: 'AI Lab Intern — Byblos Bank'
   },
   {
     id: 'email-agent',
     category: 'Automation',
     title: 'Personalized Internship Email Agent',
-    subtitle: 'Automated email agent sending tailored applications with custom cover letters per company',
+    subtitle: 'Python automation agent that sent 30 personalized applications — each with a tailored email body and CV attached — in one run',
     image: 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbWFpbCUyMGF1dG9tYXRpb24lMjBhZ2VudHxlbnwxfHx8fDE3NzEyNDA0MDN8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    tags: ['Python', 'Automation', 'AI', 'Email'],
-    overview: 'Built an intelligent email agent to solve a real problem during my university internship search. When the university sent a list of 50 companies to apply to, sending generic applications to all of them wasn\'t an option — so I automated the process in a smarter way.',
-    challenge: 'The university provided a list of 50 companies accepting internship applications. Manually writing a personalized cover letter and email for each company was time-consuming and impractical, but sending the same generic message to everyone would significantly reduce response rates.',
-    solution: 'Developed a Python-based email agent that iterated through the list of companies, generated a tailored description about me specific to each company\'s industry and profile, attached my CV, and sent a personalized email automatically. Each email felt individually crafted while the entire process ran autonomously.',
+    tags: ['Python', 'SMTP', 'Automation', 'Email'],
+    overview: 'When my university provided a directory of companies for summer 2026 internship applications, I immediately saw a problem: sending a meaningful, personalized application to each one manually was not feasible at scale. So I built a Python email automation agent from scratch that handled the entire outreach pipeline — reading company data, generating personalized email bodies, attaching my CV, and dispatching everything via Gmail SMTP — with zero manual effort per email.',
+    challenge: 'The university sent a structured list of 33+ companies across diverse industries (banking, AI, consulting, engineering, logistics, media). A generic mass email would be immediately dismissible. But manually writing a personalized email for each company — referencing the right supervisor, their industry, and my relevant experience — would take hours and introduce inconsistency. I needed a system that could do both: be fast and be personal.',
+    solution: 'Built a full Python automation pipeline with three core components: (1) a data layer that reads company targets from an Excel sheet and cross-references a JSON file containing each company\'s supervisor name, position, and email address; (2) a dynamic email generator that personalizes each message with the correct greeting (e.g. "Dear Ms. Nahla Najjar,"), references the specific company by name, and highlights my current role at Byblos Bank AI Lab as a credibility signal; and (3) an SMTP dispatcher using Gmail App Passwords that sends each email with my CV attached as a PDF, with a 5-second delay between sends to avoid spam detection. A companion preview script let me verify any email before the batch ran. All results were logged to JSON files (sent and failed separately) with timestamps for full traceability.',
     impact: [
-      'Sent 50 personalized internship applications automatically with zero manual effort per email',
-      'Each email included a company-specific description and attached CV',
-      'Saved hours of repetitive work while maintaining a high quality, personal tone',
-      'Demonstrated practical AI automation applied to a real personal challenge'
+      '30 emails sent successfully in a single automated run on February 3, 2026',
+      'Companies targeted included Dar Al-Handasah, BLOM Bank, KPMG, InMind.ai, CMA CGM, BishopByte, and 24 others',
+      'Each email addressed the correct supervisor by name and referenced the company specifically',
+      'CV attached automatically to every email — zero manual steps after setup',
+      'Full audit trail: JSON logs captured timestamp, company, email, and status for every send',
+      'Only 3 emails failed due to server-side connection issues — 91% delivery success rate'
     ],
-    technologies: ['Python', 'SMTP / Email API', 'Automation', 'NLP / Text Generation'],
-    timeline: '2024',
+    technologies: ['Python', 'smtplib', 'SMTP / Gmail API', 'pandas', 'openpyxl', 'JSON', 'MIMEMultipart'],
+    timeline: 'February 2026',
     role: 'Personal Project'
   },
   {
@@ -200,6 +203,28 @@ export const projects: Project[] = [
     technologies: ['WordPress', 'Elementor', 'HTML', 'CSS', 'JavaScript', 'WooCommerce'],
     timeline: 'Summer 2023 & 2024',
     role: 'Frontend Developer Intern — DigitalCircle'
+  },
+  {
+    id: 'maria-badari',
+    category: 'Full-Stack',
+    title: 'Maria Badari — Bridal Haute Couture Web App',
+    subtitle: 'Multidisciplinary full-stack web platform for a bridal atelier with AI dress customization, live chat, and rental management',
+    image: 'https://images.unsplash.com/photo-1519741497674-611481863552?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmlkYWwlMjBkcmVzcyUyMGhhdXRlJTIwY291dHVyZXxlbnwxfHx8fDE3NzEyNDA0MDN8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    tags: ['Full-Stack', 'AI', 'Web App', 'Team Project'],
+    overview: 'A multidisciplinary academic project developed with a team of classmates at USJ, building a complete web application for Maria Badari — a bridal haute couture atelier. The platform goes far beyond a showcase website: it lets brides browse the dress collection, request rentals, get AI-guided customization recommendations, chat live with the owner, and gives the atelier full dynamic administrative control over every aspect of the platform.',
+    challenge: 'A traditional bridal atelier website is static and passive — it shows dresses but forces all client interaction offline. The real challenge was digitizing the full client journey for a luxury fashion context: making it easy for brides to explore gowns and request rentals, giving them a personalized experience through AI guidance, enabling direct real-time communication with the owner, and empowering the atelier to manage its catalog and incoming requests without any technical knowledge.',
+    solution: 'Built a feature-complete web application covering the full client and admin experience. Key modules included: a dress browsing gallery with filtering and detail views; a rental request system where clients submit rental inquiries directly through the platform; an AI-guided customization feature that helps brides explore style options and get personalized dress suggestions based on their preferences; a live chat system connecting clients directly with the atelier owner in real time; and a dynamic admin panel giving the owner full control over the dress catalog, rental requests, user messages, and site content — all without touching code.',
+    impact: [
+      'Delivered a production-ready full-stack web app covering the complete bridal client journey',
+      'Integrated AI-guided customization — brides can explore and personalize dress options interactively',
+      'Built a live chat system enabling real-time owner-client communication directly on the platform',
+      'Rental request management system replaced all manual/offline booking with a structured digital flow',
+      'Dynamic admin panel empowers the atelier owner to manage everything independently',
+      'Live at: mariabadari.com'
+    ],
+    technologies: ['Full-Stack Web', 'AI / Recommendation System', 'Live Chat', 'Admin Dashboard', 'Database'],
+    timeline: '2025',
+    role: 'Full-Stack Developer — Academic Team Project, USJ'
   },
   {
     id: 'ccna-networking',
