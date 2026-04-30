@@ -4,7 +4,7 @@ import { projects } from '../data/projects';
 
 declare const anime: any;
 
-const FEATURED_IDS = ['numu-dashboard', 'atm-ml-prediction', 'sound-tracking'];
+const FEATURED_IDS = ['numu-dashboard', 'maria-badari', 'email-agent'];
 
 export function Home() {
   /* ── HERO ENTRANCE TIMELINE ── */
@@ -105,7 +105,8 @@ export function Home() {
             <strong style={{ color: 'var(--text)' }}>Software Engineer & AI Enthusiast</strong> — 4th-year student at USJ 
             turning internships and academic projects into production-ready ML systems, 
             web platforms, and automation tools.
-          </p>
+
+
 
           {/* tags */}
           <div className="hero-tags" style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: 48, opacity: 0 }}>
