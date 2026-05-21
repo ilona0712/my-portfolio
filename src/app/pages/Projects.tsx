@@ -4,11 +4,12 @@ import { projects } from '../data/projects';
 
 declare const anime: any;
 
-const CATEGORIES = ['All', 'Full-Stack', 'Machine Learning', 'Data Engineering', 'Automation', 'Development', 'Embedded Systems', 'Networking'];
+const CATEGORIES = ['All', 'Full-Stack', 'Machine Learning', 'Data Engineering', 'Data Visualization', 'Automation', 'Development', 'Embedded Systems', 'Networking'];
 const CAT_COLORS: Record<string, string> = {
   'Full-Stack':        'var(--neon-cyan)',
   'Machine Learning':  'var(--neon-green)',
   'Data Engineering':  'var(--neon-blue)',
+  'Data Visualization': 'var(--neon-cyan)',
   'Automation':        'var(--neon-pink)',
   'Development':       'var(--neon-yellow)',
   'Embedded Systems':  'var(--neon-pink)',
