@@ -4,7 +4,7 @@ import { projects } from '../data/projects';
 
 declare const anime: any;
 
-const FEATURED_IDS = ['numu-dashboard', 'atm-ml-prediction', 'sound-tracking'];
+const FEATURED_IDS = ['numu-dashboard', 'atm-ml-prediction', 'xray-computer-vision'];
 
 export function Home() {
   /* ── HERO ENTRANCE TIMELINE ── */
