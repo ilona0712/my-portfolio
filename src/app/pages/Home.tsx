@@ -129,7 +129,7 @@ export function Home() {
           }}>
             {[
               { value: '4', label: 'Year of Study', count: true },
-              { value: '11', label: 'Projects Built', count: true },
+              { value: '14', label: 'Projects Built', count: true },
               { value: '2', label: 'Internships',    count: true },
               { value: '2027', label: 'Graduation',  count: false },
             ].map((s, i) => (
