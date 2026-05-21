@@ -32,13 +32,14 @@ export function ProjectDetail() {
   }
 
   const CAT_COLORS: Record<string, string> = {
-    'Full-Stack':       'var(--neon-cyan)',
-    'Machine Learning': 'var(--neon-green)',
-    'Data Engineering': 'var(--neon-blue)',
-    'Automation':       'var(--neon-pink)',
-    'Development':      'var(--neon-yellow)',
-    'Embedded Systems': 'var(--neon-pink)',
-    'Networking':       'var(--neon-yellow)',
+  'Full-Stack':       'var(--neon-cyan)',
+  'Machine Learning': 'var(--neon-green)',
+  'Data Engineering': 'var(--neon-blue)',
+  'Automation':       'var(--neon-pink)',
+  'Development':      'var(--neon-yellow)',
+  'Embedded Systems': 'var(--neon-pink)',
+  'Networking':       'var(--neon-yellow)',
+  'Data Visualization': 'var(--neon-cyan)',
   };
   const neon = CAT_COLORS[project.category] || 'var(--neon-cyan)';
 
