@@ -48,9 +48,15 @@ export const projects: Project[] = [
     tags: ['Machine Learning', 'Python', 'SQL', 'Docker', 'XGBoost'],
     overview: 'Built a production-grade ML system for Byblos Bank that predicts ATM failures 24 hours in advance. The system moved the bank from reactive (fixing failures after customers complain) to proactive (fixing before anyone knows). Fully containerized with automated daily predictions, real-time monitoring, and SHAP interpretability.',
     challenge: 'ATM downtime costs the bank immediately: lost transactions, customer frustration, emergency technician dispatch, and reputational damage. The bank\'s maintenance teams were reactive — they only learned about failures when customers reported them or alarms fired. Needed a way to predict which ATMs would fail in the next 24 hours so technicians could fix them before customers were affected.',
-    solution: 'Engineered a complete ML pipeline: (1) advanced feature engineering with 249 features including component states, error patterns, temporal features, rolling windows, and trend analysis; (2) multi-model training (Random Forest, XGBoost v2.2, LightGBM) with automated model selection; (3) isotonic probability calibration to match bank\'s operational economics; (4) daily Docker containerization with cron scheduling; (5) monitoring layer that tracks model accuracy daily and triggers alerts on drift; (6) correlated-failure detector to surface fleet-wide infrastructure events separately from individual ATM failures. Six iterative engineering fixes resolved real production issues: unknown-branch backfill, threshold tuning, temporal features, weekend handling, infrastructure event detection, and probability calibration.',
+    solution: 'Engineered a complete ML pipeline:',
+    '(1) advanced feature engineering with 249 features including component states, error patterns, temporal features, rolling windows, and trend analysis',
+    '(2) multi-model training (Random Forest, XGBoost v2.2, LightGBM) with automated model selection',
+    '(3) isotonic probability calibration to match bank\'s operational economics',
+    '(4) daily Docker containerization with cron scheduling',
+    '(5) monitoring layer that tracks model accuracy daily and triggers alerts on drift',
+    '(6) correlated-failure detector to surface fleet-wide infrastructure events separately from individual ATM failures. Six iterative engineering fixes resolved real production issues: unknown-branch backfill, threshold tuning, temporal features, weekend handling, infrastructure event detection, and probability calibration.',
     impact: [
-      'Operational ML system running daily in production (v2.2, 249 features, PR-AUC 0.85)',
+      'Operational ML system running daily in production (249 features, PR-AUC 0.85)',
       'Predicts ATM failures 24 hours in advance with 81% average recall across weekdays and weekends',
       'Transformed reactive maintenance: technicians now visit ATMs proactively with a daily ranked watchlist',
       'Risk tiers (Critical/High/Medium/Low) calibrated to bank\'s cost ratio (3:1 false-negative:false-positive)',
@@ -60,8 +66,8 @@ export const projects: Project[] = [
       'SHAP interpretability: maintenance teams see exactly why each ATM is flagged as high-risk'
     ],
     technologies: ['Python', 'SQL Server', 'Pandas', 'XGBoost', 'Scikit-learn', 'LightGBM', 'SHAP', 'Docker', 'NumPy', 'joblib'],
-    timeline: 'Winter 2026 – May 2026',
-    role: 'AI Lab Engineer — Bank Byblos (Handoff Report v1.0)',
+    timeline: 'Feb 2026 – May 2026',
+    role: 'AI Lab Engineer — Bank Byblos',
     liveUrl: 'https://github.com/ilona0712/ATM-Failure-Prediction'
   },
   {
@@ -83,7 +89,7 @@ export const projects: Project[] = [
       'Completed end-to-end deep learning project from data collection to deployment'
     ],
     technologies: ['Python', 'TensorFlow', 'Keras', 'OpenCV', 'NumPy', 'Scikit-learn', 'Matplotlib', 'Pandas'],
-    timeline: 'Early 2026',
+    timeline: 'April 2026',
     role: 'Computer Vision Developer',
     liveUrl: 'https://github.com/ilona0712/X-Ray'
   },
@@ -106,12 +112,12 @@ export const projects: Project[] = [
       'Built scalable system handling thousands of emails'
     ],
     technologies: ['Python', 'Gmail API', 'OAuth 2.0', 'Email Processing', 'Configuration Management'],
-    timeline: 'Winter 2026',
+    timeline: 'May 2026',
     role: 'Automation Engineer'
   },
   {
     id: 'metabase-dashboard',
-    category: 'Data Visualization',
+    category: 'Data Engineering',
     title: 'Interactive Metabase Analytics Dashboard',
     subtitle: 'Real-time business intelligence and data visualization for operational analytics',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXNoYm9hcmQlMjBhbmFseXRpY3MlMjBkYXRhJTIwdmlzdWFsaXphdGlvbnxlbnwxfHx8fDE3NzE5NTAwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080',
@@ -149,7 +155,7 @@ export const projects: Project[] = [
       'Enabled automated data collection reducing manual research time significantly'
     ],
     technologies: ['Python', 'Docker', 'BeautifulSoup', 'Requests', 'Selenium', 'APIs'],
-    timeline: 'Winter 2026 – Present',
+    timeline: 'January 2026',
     role: 'AI Lab Intern — Bank Byblos'
   },
   {
