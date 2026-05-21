@@ -39,7 +39,6 @@ export function ProjectDetail() {
   'Development':      'var(--neon-yellow)',
   'Embedded Systems': 'var(--neon-pink)',
   'Networking':       'var(--neon-yellow)',
-  'Data Visualization': 'var(--neon-cyan)',
   };
   const neon = CAT_COLORS[project.category] || 'var(--neon-cyan)';
 
