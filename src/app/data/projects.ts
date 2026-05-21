@@ -54,7 +54,7 @@ export const projects: Project[] = [
     '(3) isotonic probability calibration to match bank\'s operational economics',
     '(4) daily Docker containerization with cron scheduling',
     '(5) monitoring layer that tracks model accuracy daily and triggers alerts on drift',
-    '(6) correlated-failure detector to surface fleet-wide infrastructure events separately from individual ATM failures. Six iterative engineering fixes resolved real production issues: unknown-branch backfill, threshold tuning, temporal features, weekend handling, infrastructure event detection, and probability calibration.',
+    '(6) correlated-failure detector to surface fleet-wide infrastructure events separately from individual ATM failures. Six iterative engineering fixes resolved real production issues: unknown-branch backfill, threshold tuning, temporal features, weekend handling, infrastructure event detection, and probability calibration.'
     impact: [
       'Operational ML system running daily in production (249 features, PR-AUC 0.85)',
       'Predicts ATM failures 24 hours in advance with 81% average recall across weekdays and weekends',
