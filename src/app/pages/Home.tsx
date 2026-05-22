@@ -7,7 +7,6 @@ declare const anime: any;
 const FEATURED_IDS = ['numu-dashboard', 'atm-ml-prediction', 'xray-computer-vision'];
 
 export function Home() {
-  /* ── HERO ENTRANCE TIMELINE ── */
   useEffect(() => {
     if (typeof anime === 'undefined') return;
     const tl = anime.timeline({ easing: 'easeOutExpo' });
@@ -19,7 +18,6 @@ export function Home() {
       .add({ targets: '.hero-ctas',     opacity: [0, 1], translateY: [20, 0], duration: 600 }, '-=300')
       .add({ targets: '.hero-stats',    opacity: [0, 1], translateY: [30, 0], duration: 700 }, '-=200');
 
-    /* Animated stat counters */
     document.querySelectorAll<HTMLElement>('.stat-value[data-count]').forEach((el) => {
       const countValue = el.dataset.count;
       if (!countValue) return;
@@ -40,7 +38,6 @@ export function Home() {
     });
   }, []);
 
-  /* ── SCROLL OBSERVER (expertise + featured projects) ── */
   useEffect(() => {
     if (typeof anime === 'undefined') return;
     const observer = new IntersectionObserver((entries) => {
@@ -75,11 +72,9 @@ export function Home() {
   return (
     <div style={{ position: 'relative', zIndex: 1 }}>
 
-      {/* ═══ HERO ═══ */}
       <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '100px 0 60px', position: 'relative' }}>
         <div className="section-inner" style={{ width: '100%' }}>
 
-          {/* greeting */}
           <p className="hero-greeting font-mono" style={{
             fontSize: '0.85rem', color: 'var(--neon-green)',
             letterSpacing: '0.15em', marginBottom: 20, opacity: 0,
@@ -87,7 +82,6 @@ export function Home() {
             // Hello, I'm
           </p>
 
-          {/* name */}
           <h1 className="hero-name" style={{
             fontFamily: 'var(--font-display)', fontWeight: 800,
             fontSize: 'clamp(3.2rem, 10vw, 9rem)', lineHeight: 0.92,
@@ -99,7 +93,6 @@ export function Home() {
             </span>
           </h1>
 
-          {/* sub */}
           <p className="hero-sub" style={{
             fontSize: '1.1rem', color: 'var(--muted)', maxWidth: 540,
             lineHeight: 1.7, marginBottom: 40, opacity: 0,
@@ -109,21 +102,18 @@ export function Home() {
             web platforms, and automation tools.
           </p>
 
-          {/* tags */}
           <div className="hero-tags" style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: 48, opacity: 0 }}>
             {['Python', 'Machine Learning', 'SQL', 'Next.js', 'TypeScript', 'Automation', 'Docker', 'WordPress'].map(t => (
               <span key={t} className="tag">{t}</span>
             ))}
           </div>
 
-          {/* CTAs */}
           <div className="hero-ctas" style={{ display: 'flex', gap: 16, flexWrap: 'wrap', opacity: 0 }}>
             <Link to="/projects" className="btn-primary">View Projects →</Link>
             <Link to="/contact" className="btn-ghost">Get in Touch</Link>
             <a href="https://github.com/ilona0712" target="_blank" rel="noopener noreferrer" className="btn-ghost">GitHub ↗</a>
           </div>
 
-          {/* Stats */}
           <div className="hero-stats" style={{
             display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 1,
             marginTop: 80, background: 'var(--border)',
@@ -161,7 +151,6 @@ export function Home() {
 
       </section>
 
-      {/* ═══ EXPERTISE ═══ */}
       <section data-anim="expertise" style={{ padding: '120px 0', background: 'var(--bg2)' }}>
         <div className="section-inner">
           <div className="section-label">What I Do</div>
@@ -189,7 +178,6 @@ export function Home() {
         </div>
       </section>
 
-      {/* ═══ FEATURED PROJECTS ═══ */}
       <section data-anim="featured" style={{ padding: '120px 0' }}>
         <div className="section-inner">
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 20, marginBottom: 56 }}>
@@ -254,7 +242,6 @@ export function Home() {
         </div>
       </section>
 
-      {/* ═══ CTA BAND ═══ */}
       <section style={{ padding: '80px 0', background: 'var(--bg2)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
         <div className="section-inner" style={{ textAlign: 'center' }}>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem,4vw,3.5rem)', fontWeight: 800, color: '#fff', marginBottom: 16 }}>
