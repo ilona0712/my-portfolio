@@ -22,6 +22,7 @@ export function Projects() {
 
   /* Animate cards whenever filter changes */
   useEffect(() => {
+    if (typeof anime === 'undefined') return;
     anime({
       targets: '.project-card',
       opacity: [0, 1],
@@ -34,6 +35,7 @@ export function Projects() {
 
   /* Initial entrance */
   useEffect(() => {
+    if (typeof anime === 'undefined') return;
     anime.timeline({ easing: 'easeOutExpo' })
       .add({ targets: '.projects-title', opacity: [0,1], translateY: [30,0], duration: 700 })
       .add({ targets: '.filter-btn',     opacity: [0,1], scale: [0.85,1], delay: anime.stagger(50), duration: 400 }, '-=400');
@@ -84,7 +86,7 @@ export function Projects() {
 
         {/* Grid */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
-          {filtered.map(project => {
+          {filtered.map((project, idx) => {
             const neon = CAT_COLORS[project.category] || 'var(--neon-cyan)';
             return (
               <Link
@@ -109,7 +111,12 @@ export function Projects() {
                 }}
               >
                 <div style={{ aspectRatio: '16/9', overflow: 'hidden', background: 'var(--bg2)' }}>
-                  <img src={project.image} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'saturate(0.6) brightness(0.75)', transition: 'filter 0.3s' }}
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    loading={idx < 3 ? 'eager' : 'lazy'}
+                    decoding="async"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'saturate(0.6) brightness(0.75)', transition: 'filter 0.3s' }}
                     onMouseEnter={e => (e.currentTarget.style.filter = 'saturate(1) brightness(0.9)')}
                     onMouseLeave={e => (e.currentTarget.style.filter = 'saturate(0.6) brightness(0.75)')}
                   />
