@@ -14,7 +14,7 @@ export function Header() {
   const animFrameRef = useRef<number>(0);
   const isMobile = useIsMobile();
 
-  /* ── Custom cursor (desktop only) ── */
+  /* Custom cursor (desktop only) */
   useEffect(() => {
     if (isMobile) return;
 
@@ -22,7 +22,10 @@ export function Header() {
     const ring = document.getElementById('ic-cursor-ring');
     if (!cursor || !ring) return;
 
-    let mx = 0, my = 0, rx = 0, ry = 0;
+    let mx = 0;
+    let my = 0;
+    let rx = 0;
+    let ry = 0;
     let rafId = 0;
 
     const onMove = (e: MouseEvent) => {
@@ -47,7 +50,7 @@ export function Header() {
     };
   }, [isMobile]);
 
-  /* ── Particle background (desktop only, optimized) ── */
+  /* Particle background (desktop only, optimized) */
   useEffect(() => {
     if (isMobile) return;
 
@@ -57,7 +60,6 @@ export function Header() {
     const ctx = canvas.getContext('2d', { alpha: true });
     if (!ctx) return;
 
-    /* Respect users who prefer reduced motion */
     const prefersReducedMotion =
       typeof window !== 'undefined' &&
       window.matchMedia &&
@@ -70,7 +72,6 @@ export function Header() {
 
     const colors = ['#00ffe0', '#39ff8f', '#ff2d78', '#4d9fff', '#f5e642'];
 
-    /* Reduced from 110 → 60 particles. Biggest perf win. */
     const particles = Array.from({ length: 60 }, () => ({
       x: Math.random() * 1440,
       y: Math.random() * 900,
@@ -94,21 +95,9 @@ export function Header() {
     resize();
     window.addEventListener('resize', resize);
 
-    /* Cap framerate to ~40fps — anything faster is invisible for ambient bg */
     const FRAME_INTERVAL = 1000 / 40;
     let lastFrame = 0;
     let running = true;
-
-    const onVisibilityChange = () => {
-      running = !document.hidden;
-      if (running) {
-        lastFrame = 0;
-        animFrameRef.current = requestAnimationFrame(draw);
-      } else {
-        cancelAnimationFrame(animFrameRef.current);
-      }
-    };
-    document.addEventListener('visibilitychange', onVisibilityChange);
 
     const CONNECT_DIST = 70;
     const CONNECT_DIST_SQ = CONNECT_DIST * CONNECT_DIST;
@@ -123,7 +112,6 @@ export function Header() {
 
       ctx.clearRect(0, 0, width, height);
 
-      /* Move + draw particles */
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
         p.x += p.vx;
@@ -140,7 +128,6 @@ export function Header() {
         ctx.fill();
       }
 
-      /* Connection lines — squared distance avoids sqrt */
       ctx.lineWidth = 0.5;
       for (let i = 0; i < particles.length; i++) {
         const a = particles[i];
@@ -163,6 +150,17 @@ export function Header() {
       ctx.globalAlpha = 1;
       animFrameRef.current = requestAnimationFrame(draw);
     };
+
+    const onVisibilityChange = () => {
+      running = !document.hidden;
+      if (running) {
+        lastFrame = 0;
+        animFrameRef.current = requestAnimationFrame(draw);
+      } else {
+        cancelAnimationFrame(animFrameRef.current);
+      }
+    };
+    document.addEventListener('visibilitychange', onVisibilityChange);
 
     animFrameRef.current = requestAnimationFrame(draw);
 
@@ -303,7 +301,7 @@ export function Header() {
             </li>
           ))}
           <li>
-            
+            <a
               href="https://linkedin.com/in/ilona-chamoun-808295360"
               target="_blank"
               rel="noopener noreferrer"
@@ -384,7 +382,7 @@ export function Header() {
               {link.name}
             </Link>
           ))}
-          
+          <a
             href="https://linkedin.com/in/ilona-chamoun-808295360"
             target="_blank"
             rel="noopener noreferrer"
