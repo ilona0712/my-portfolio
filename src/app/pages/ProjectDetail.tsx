@@ -10,10 +10,13 @@ export function ProjectDetail() {
 
   const project = projects.find(p => p.id === projectId);
   const currentIndex = projects.findIndex(p => p.id === projectId);
-  const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : projects[0];
+  const nextProject = currentIndex >= 0 && currentIndex < projects.length - 1
+    ? projects[currentIndex + 1]
+    : projects[0];
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    if (typeof anime === 'undefined') return;
     anime.timeline({ easing: 'easeOutExpo' })
       .add({ targets: '.detail-hero-title', opacity: [0,1], translateY: [40,0], duration: 800 })
       .add({ targets: '.detail-meta',       opacity: [0,1], translateY: [20,0], duration: 600 }, '-=400')
@@ -32,24 +35,42 @@ export function ProjectDetail() {
   }
 
   const CAT_COLORS: Record<string, string> = {
-  'Full-Stack':       'var(--neon-cyan)',
-  'Machine Learning': 'var(--neon-green)',
-  'Data Engineering': 'var(--neon-blue)',
-  'Automation':       'var(--neon-pink)',
-  'Development':      'var(--neon-yellow)',
-  'Embedded Systems': 'var(--neon-pink)',
-  'Networking':       'var(--neon-yellow)',
+    'Full-Stack':       'var(--neon-cyan)',
+    'Machine Learning': 'var(--neon-green)',
+    'Data Engineering': 'var(--neon-blue)',
+    'Automation':       'var(--neon-pink)',
+    'Development':      'var(--neon-yellow)',
+    'Embedded Systems': 'var(--neon-pink)',
+    'Networking':       'var(--neon-yellow)',
   };
   const neon = CAT_COLORS[project.category] || 'var(--neon-cyan)';
+
+  // ✅ FIX: normalize content to an array of paragraphs whether it's a string or array
+  const toParagraphs = (content: string | string[]): string[] => {
+    if (Array.isArray(content)) return content.filter(Boolean);
+    if (typeof content === 'string') return content.split('\n\n').filter(Boolean);
+    return [];
+  };
+
+  const sections: { label: string; content: string | string[] }[] = [
+    { label: 'Overview',      content: project.overview },
+    { label: 'The Challenge', content: project.challenge },
+    { label: 'The Solution',  content: project.solution as string | string[] },
+  ];
 
   return (
     <div style={{ position: 'relative', zIndex: 1, minHeight: '100vh' }}>
 
       {/* Hero image */}
       <div style={{ height: 'clamp(260px, 42vw, 380px)', overflow: 'hidden', background: 'var(--bg2)', position: 'relative' }}>
-        <img src={project.image} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'saturate(0.5) brightness(0.5)' }} />
+        <img
+          src={project.image}
+          alt={project.title}
+          loading="eager"
+          decoding="async"
+          style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'saturate(0.5) brightness(0.5)' }}
+        />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(5,8,16,0.9), transparent)' }} />
-        {/* Title over image */}
         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: 'clamp(20px, 4vw, 40px)', maxWidth: 1100, margin: '0 auto' }}>
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: neon, letterSpacing: '0.15em', textTransform: 'uppercase', display: 'inline-block', marginBottom: 12, textShadow: `0 0 12px ${neon}` }}>{project.category}</span>
           <h1 className="detail-hero-title" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem,5vw,3.5rem)', fontWeight: 800, color: '#fff', opacity: 0 }}>
@@ -80,14 +101,10 @@ export function ProjectDetail() {
 
         {/* Body */}
         <div className="detail-body" style={{ maxWidth: 720 }}>
-          {[
-            { label: 'Overview',       content: project.overview },
-            { label: 'The Challenge',  content: project.challenge },
-            { label: 'The Solution',   content: project.solution },
-          ].map(s => (
+          {sections.map(s => (
             <div key={s.label} style={{ marginBottom: 40, opacity: 0 }}>
               <div className="section-label">{s.label}</div>
-              {s.content.split('\n\n').map((para, i) => (
+              {toParagraphs(s.content).map((para, i) => (
                 <p key={i} style={{ fontSize: '0.9rem', color: 'var(--muted)', lineHeight: 1.8, marginBottom: 12 }}>{para}</p>
               ))}
             </div>
@@ -97,7 +114,7 @@ export function ProjectDetail() {
           {project.liveUrl && (
             <div style={{ marginBottom: 40, opacity: 0 }} className="detail-body">
               <div className="section-label">Live Demo</div>
-              <a
+              
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -136,7 +153,7 @@ export function ProjectDetail() {
               <div className="section-label">Live Websites</div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
                 {project.websiteLinks.map((site, i) => (
-                  <a
+                  
                     key={i}
                     href={site.url}
                     target="_blank"
