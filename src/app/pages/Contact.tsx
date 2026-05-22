@@ -5,6 +5,7 @@ declare const anime: any;
 
 export function Contact() {
   useEffect(() => {
+    if (typeof anime === 'undefined') return;
     anime.timeline({ easing: 'easeOutExpo' })
       .add({ targets: '.contact-title', opacity: [0,1], translateY: [40,0], duration: 800 })
       .add({ targets: '.contact-sub',   opacity: [0,1], translateY: [20,0], duration: 600 }, '-=400')
