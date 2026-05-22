@@ -48,15 +48,7 @@ export const projects: Project[] = [
     tags: ['Machine Learning', 'Python', 'SQL', 'Docker', 'XGBoost'],
     overview: 'Built a production-grade ML system for Byblos Bank that predicts ATM failures 24 hours in advance. The system moved the bank from reactive (fixing failures after customers complain) to proactive (fixing before anyone knows). Fully containerized with automated daily predictions, real-time monitoring, and SHAP interpretability.',
     challenge: 'ATM downtime costs the bank immediately: lost transactions, customer frustration, emergency technician dispatch, and reputational damage. The bank\'s maintenance teams were reactive — they only learned about failures when customers reported them or alarms fired. Needed a way to predict which ATMs would fail in the next 24 hours so technicians could fix them before customers were affected.',
-    solution: [
-      'Engineered a complete ML pipeline:',
-      '(1) advanced feature engineering with 249 features including component states, error patterns, temporal features, rolling windows, and trend analysis',
-      '(2) multi-model training (Random Forest, XGBoost v2.2, LightGBM) with automated model selection',
-      '(3) isotonic probability calibration to match bank\'s operational economics',
-      '(4) daily Docker containerization with cron scheduling',
-      '(5) monitoring layer that tracks model accuracy daily and triggers alerts on drift',
-      '(6) correlated-failure detector to surface fleet-wide infrastructure events separately from individual ATM failures. Six iterative engineering fixes resolved real production issues: unknown-branch backfill, threshold tuning, temporal features, weekend handling, infrastructure event detection, and probability calibration.'
-    ],
+    solution: 'Engineered a complete ML pipeline:(1) advanced feature engineering with 249 features including component states, error patterns, temporal features, rolling windows, and trend analysis; (2) multi-model training (Random Forest, XGBoost v2.2, LightGBM) with automated model selection; (3) isotonic probability calibration to match bank\'s operational economics; (4) daily Docker containerization with cron scheduling; (5) monitoring layer that tracks model accuracy daily and triggers alerts on drift; (6) correlated-failure detector to surface fleet-wide infrastructure events separately from individual ATM failures. Six iterative engineering fixes resolved real production issues: unknown-branch backfill, threshold tuning, temporal features, weekend handling, infrastructure event detection, and probability calibration.',
     impact: [
       'Operational ML system running daily in production (249 features, PR-AUC 0.85)',
       'Predicts ATM failures 24 hours in advance with 81% average recall across weekdays and weekends',
