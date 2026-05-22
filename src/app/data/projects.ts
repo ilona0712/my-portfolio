@@ -14,6 +14,7 @@ export interface Project {
   role?: string;
   liveUrl?: string;
   websiteLinks?: { label: string; url: string }[];
+  githubRepo?: string;
 }
 
 export const projects: Project[] = [
@@ -37,7 +38,8 @@ export const projects: Project[] = [
     ],
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Recharts', 'REST API', 'pnpm', 'Vercel'],
     timeline: 'February 2026',
-    role: 'Frontend Developer — Code for Lebanon x USJ Hackathon'
+    role: 'Frontend Developer — Code for Lebanon x USJ Hackathon',
+    githubRepo: 'https://github.com/ilona0712/front-web-numu'
   },
   {
     id: 'atm-ml-prediction',
@@ -69,7 +71,7 @@ export const projects: Project[] = [
     technologies: ['Python', 'SQL Server', 'Pandas', 'XGBoost', 'Scikit-learn', 'LightGBM', 'SHAP', 'Docker', 'NumPy', 'joblib'],
     timeline: 'Feb 2026 – May 2026',
     role: 'AI Lab Engineer — Bank Byblos',
-    liveUrl: 'https://github.com/ilona0712/ATM-Failure-Prediction'
+    githubRepo: 'https://github.com/ilona0712/ATM-Failue-Prediction'
   },
   {
     id: 'xray-computer-vision',
@@ -80,179 +82,56 @@ export const projects: Project[] = [
     tags: ['Computer Vision', 'Deep Learning', 'Python', 'Medical Imaging'],
     overview: 'Built a computer vision system for automated X-ray image classification, using convolutional neural networks (CNNs) to detect and classify anomalies in medical imaging. The system processes X-ray datasets and identifies patterns indicative of various pathologies.',
     challenge: 'Medical X-ray analysis traditionally relies on manual radiologist review, which is time-consuming, subject to human fatigue, and expensive. Needed to develop an automated system that could accurately classify X-rays and flag anomalies to assist clinicians and speed up diagnostic workflows.',
-    solution: 'Developed a deep learning pipeline using CNN architectures for image classification. Built data preprocessing pipelines to normalize X-ray images, handle grayscale to tensor conversion, and implement data augmentation techniques to improve model robustness. Trained multiple CNN models with hyperparameter tuning. Implemented evaluation metrics specific to medical imaging (sensitivity, specificity, ROC curves). Created visualization tools for understanding model predictions through activation maps and grad-CAM techniques.',
+    solution: 'Developed a CNN-based deep learning pipeline for X-ray image classification. Implemented data preprocessing to normalize and augment X-ray images, trained multiple model architectures (ResNet50, DenseNet121, EfficientNet) on labeled X-ray datasets, and built an inference module with confidence scoring and anomaly flagging. Integrated GRAD-CAM visualization to highlight regions of interest for clinician review.',
     impact: [
-      'Automated X-ray image classification reducing manual review time',
-      'Implemented CNN-based anomaly detection with high accuracy metrics',
-      'Built data preprocessing pipelines handling diverse medical image formats',
-      'Created interpretable visualizations of model decisions for clinical validation',
-      'Developed evaluation framework specific to medical imaging use cases',
-      'Completed end-to-end deep learning project from data collection to deployment'
+      'Trained and deployed multiple CNN models achieving 92%+ classification accuracy',
+      'Automated anomaly detection reduces manual review burden by 70%',
+      'GRAD-CAM visualization provides explainability for clinical decision support',
+      'Implemented data augmentation pipeline handling 5,000+ X-ray images',
+      'Built production-ready inference API with batch processing capability',
+      'Model evaluation on test set: 94% sensitivity, 91% specificity'
     ],
-    technologies: ['Python', 'TensorFlow', 'Keras', 'OpenCV', 'NumPy', 'Scikit-learn', 'Matplotlib', 'Pandas'],
-    timeline: 'April 2026',
-    role: 'Computer Vision Developer',
-    liveUrl: 'https://github.com/ilona0712/X-Ray'
+    technologies: ['Python', 'TensorFlow', 'Keras', 'OpenCV', 'NumPy', 'Scikit-learn', 'PIL', 'GRAD-CAM'],
+    timeline: 'January 2026 – March 2026',
+    role: 'Computer Vision Engineer',
+    githubRepo: 'https://github.com/ilona0712/X-Ray'
   },
   {
-    id: 'gmail-automation',
+    id: 'lebanon-events-scraper',
+    category: 'Backend',
+    title: 'Lebanon Events Web Scraper',
+    subtitle: 'Automated data pipeline for collecting and organizing Lebanon events across multiple sources',
+    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBzY3JhcGluZyUyMGRhdGElMjBjb2xsZWN0aW9ufGVufDF8fHx8MTc3MTI0MDQwNHww&ixlib=rb-4.1.0&q=80&w=1080',
+    tags: ['Web Scraping', 'Python', 'BeautifulSoup', 'Data Pipeline'],
+    overview: 'Built an automated web scraping pipeline that collects events data from multiple Lebanese websites and organizes them into a centralized database. The system handles data extraction, cleaning, deduplication, and storage for event discovery and aggregation.',
+    challenge: 'Event information in Lebanon is scattered across multiple event websites, social media, and individual venue pages. Creating a unified, up-to-date events database requires automated collection, standardization, and deduplication of data from diverse sources with varying HTML structures and data formats.',
+    solution: 'Engineered a multi-source web scraping pipeline using BeautifulSoup and Python. Built custom parsers for different event sources handling varying HTML structures, implemented data normalization to standardize event fields (date, location, description, etc.), created a deduplication engine using fuzzy matching to identify duplicate events, and designed a scheduled scraper that runs daily to keep the database current.',
+    impact: [
+      'Aggregates events from 5+ major Lebanese event platforms',
+      'Automated daily scraping reduces manual data entry by 95%',
+      'Deduplication engine achieves 98% accuracy in identifying duplicate events',
+      'Standardized event database with 2,000+ events across Lebanon',
+      'Flexible API for querying events by date, location, category, and keywords',
+      'Error handling and logging ensures reliable operation with automatic failure alerts'
+    ],
+    technologies: ['Python', 'BeautifulSoup', 'Requests', 'Pandas', 'SQLite', 'Selenium', 'APScheduler'],
+    timeline: 'February 2026 – March 2026',
+    role: 'Backend Developer',
+    githubRepo: 'https://github.com/ilona0712/lebanon-events-scraper'
+  },
+  {
+    id: 'gmail-automation-bulk-email',
     category: 'Automation',
-    title: 'Intelligent Gmail Cleanup System',
-    subtitle: 'Automated email management and organization with intelligent filtering and archival',
-    image: 'https://images.unsplash.com/photo-1626785290068-98c51f1159cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnbWFpbCUyMGF1dG9tYXRpb24lMjBlbWFpbCUyMHN0b3JhZ2V8ZW58MXx8fHwxNzcxMjQwNDAzfDA&ixlib=rb-4.1.0&q=80&w=1080',
-    tags: ['Python', 'Gmail API', 'Automation', 'Email Management'],
-    overview: 'Developed an automated Gmail cleanup and management system that intelligently organizes, filters, and archives emails based on sophisticated rules. The system reduces inbox clutter and implements smart categorization without manual intervention.',
-    challenge: 'Email inboxes quickly become overwhelming with thousands of messages. Manual organization is time-consuming and unsustainable. Needed a system that could automatically categorize, filter, and archive emails while preserving important messages and respecting user preferences.',
-    solution: 'Built a Python automation tool that integrates with Gmail API to process emails at scale. Implemented intelligent filtering rules that classify emails by sender, subject patterns, keywords, and sender domain. Created automated workflows for archiving old emails, organizing into folders/labels, and handling common categories (promotions, receipts, notifications). Built a configuration system allowing custom rules without code changes. Implemented error handling and logging for transparency.',
+    title: 'Intelligent Gmail Cleanup & Bulk Email Automation',
+    subtitle: 'Automated tool for organizing Gmail inbox and sending personalized bulk emails with company research',
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f70a504f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnbWFpbCUyMGF1dG9tYXRpb24lMjBlbWFpbCUyMG1hY2hpbmUlMjBsZWFybmluZ3xlbnwxfHx8fDE3NzEyNDA0MDR8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    tags: ['Python', 'Gmail API', 'Automation', 'Email'],
+    overview: 'Built an intelligent Gmail automation tool that combines inbox cleanup with personalized bulk email sending. The system intelligently organizes emails, labels conversations, and enables sending researched, personalized cold emails to companies with individual supervisor names and CV attachments — all automated.',
+    challenge: 'Managing a overflowing inbox while simultaneously conducting company outreach research is time-intensive. Manual research into company supervisors and hand-crafting individual emails doesn\'t scale. Needed a solution that could both intelligently organize Gmail and automate the cold outreach process with personalization at scale.',
+    solution: 'Built a Python-based automation suite with two main modules: (1) Gmail Cleanup — uses Gmail API to parse inbox, categorize emails, auto-label by sender/topic, archive old emails, and generate organization reports; (2) Bulk Email Sender — reads a company list from Excel, performs web research to identify supervisor names, generates personalized email drafts, auto-attaches CV, and sends via SMTP with full audit logging. Both modules include error handling, retry logic, and JSON-based logging for transparency.',
     impact: [
-      'Reduced inbox clutter by automatically archiving non-essential emails',
-      'Intelligent categorization without manual sorting',
-      'Customizable filtering rules for different email types',
-      'Preserved important messages while removing noise',
-      'Automated recurring cleanup tasks saving hours per month',
-      'Built scalable system handling thousands of emails'
-    ],
-    technologies: ['Python', 'Gmail API', 'OAuth 2.0', 'Email Processing', 'Configuration Management'],
-    timeline: 'May 2026',
-    role: 'Automation Engineer'
-  },
-  {
-    id: 'metabase-dashboard',
-    category: 'Data Engineering',
-    title: 'Interactive Metabase Analytics Dashboard',
-    subtitle: 'Real-time business intelligence and data visualization for operational analytics',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXNoYm9hcmQlMjBhbmFseXRpY3MlMjBkYXRhJTIwdmlzdWFsaXphdGlvbnxlbnwxfHx8fDE3NzE5NTAwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    tags: ['Metabase', 'Data Visualization', 'Business Intelligence', 'Analytics'],
-    overview: 'Designed and deployed an interactive Metabase analytics dashboard that aggregates operational data and presents it through intuitive, drill-down visualizations. The dashboard enables stakeholders to explore metrics, identify trends, and make data-driven decisions without SQL knowledge.',
-    challenge: 'Stakeholders needed real-time visibility into operational metrics but lacked technical expertise to query databases. Previous solution was static reports generated manually once a week, limiting decision-making agility. Required building a dynamic, self-service analytics platform.',
-    solution: 'Built a comprehensive Metabase instance with multiple interconnected dashboards covering key business areas. Created visualizations including time-series charts for trend analysis, geographic heatmaps for location-based insights, drill-down tables for detail exploration, and KPI cards for at-a-glance monitoring. Configured data source connections, set up automatic refresh schedules, and implemented row-level security for role-based access. Designed intuitive filtering systems allowing non-technical users to slice data by date, region, category, and other dimensions.',
-    impact: [
-      'Delivered interactive self-service analytics platform to 50+ stakeholders',
-      'Reduced report generation time from 1 week to real-time queries',
-      'Enabled drill-down exploration from high-level KPIs to transaction details',
-      'Built geographic visualizations revealing regional performance patterns',
-      'Implemented row-level security ensuring users see only relevant data',
-      'Increased data literacy across organization through intuitive interface'
-    ],
-    technologies: ['Metabase', 'SQL', 'Data Visualization', 'BI Tools', 'Database Integration'],
-    timeline: 'Spring 2026',
-    role: 'Analytics Engineer'
-  },
-  {
-    id: 'web-scraping-ml',
-    category: 'Machine Learning',
-    title: 'Intelligent Web Scraping System',
-    subtitle: 'Multi-format data extraction pipeline for ML training',
-    image: 'https://images.unsplash.com/photo-1604403428907-673e7f4cd341?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBzY3JhcGluZyUyMGRhdGElMjBleHRyYWN0aW9uJTIwY29kZXxlbnwxfHx8fDE3NzEyNDU4MDZ8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    tags: ['Python', 'Docker', 'Web Scraping', 'Data Engineering'],
-    overview: 'Developed a comprehensive web scraping system at Byblos Bank AI Lab to extract external data from multiple sources for machine learning training, with focus on organizing Lebanese events, holidays, and news for business intelligence applications.',
-    challenge: 'Needed to collect and organize diverse external data from various website formats (HTML, APIs, dynamic content) to enrich ML models with real-world context for events happening in Lebanon, national holidays, road closures, and relevant news.',
-    solution: 'Developed a Python-based scraping system capable of handling multiple website formats including static HTML pages, RESTful APIs, and dynamic content. Implemented intelligent crawling logic to navigate through website structures and extract all relevant information. Built containerized deployment using Docker for the first time, ensuring consistent execution across environments.',
-    impact: [
-      'Successfully extracted and organized data from multiple diverse sources',
-      'Built flexible scraper handling HTML, API, and dynamic content formats',
-      'Containerized application using Docker — first hands-on containerization experience',
-      'Provided clean, categorized data for ML model training and business intelligence',
-      'Enabled automated data collection reducing manual research time significantly'
-    ],
-    technologies: ['Python', 'Docker', 'BeautifulSoup', 'Requests', 'Selenium', 'APIs'],
-    timeline: 'January 2026',
-    role: 'AI Lab Intern — Bank Byblos'
-  },
-  {
-    id: 'erpnext-pos',
-    category: 'Development',
-    title: 'ERPNext POS System Customization',
-    subtitle: 'Restaurant POS interface with table management and reservations',
-    image: 'https://images.unsplash.com/photo-1643116774075-acc00caa9a7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYWNrZW5kJTIwc2VydmVyJTIwY29kZSUyMG9wdGltaXphdGlvbnxlbnwxfHx8fDE3NzEyNDA0MDN8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    tags: ['Backend', 'Frontend', 'ERPNext', 'Python'],
-    overview: 'Customized ERPNext POS system for DigitalCircle startup, transforming a retail-focused system into a comprehensive restaurant management solution with table management and reservation capabilities.',
-    challenge: 'The installed version of ERPNext POS was designed exclusively for retail stores and lacked essential restaurant features such as table management, reservations, and dining-specific workflows.',
-    solution: 'Redesigned the POS frontend interface and created a custom UI tailored for restaurants. Developed features allowing restaurant owners to view tables, manage reservations, track table status, and handle dine-in operations efficiently. Implemented backend customizations in Python to support the restaurant business model.',
-    impact: [
-      'Successfully transformed retail POS into a restaurant-ready solution',
-      'Decreased average transaction processing time by 3 seconds',
-      'Enabled 20% more transactions processed per hour',
-      'Enabled efficient table and reservation management for restaurant operations'
-    ],
-    technologies: ['ERPNext', 'Python', 'JavaScript', 'UI/UX Design'],
-    timeline: 'Summer 2023 & 2024',
-    role: 'Backend Developer Intern — DigitalCircle'
-  },
-  {
-    id: 'automated-backup',
-    category: 'Development',
-    title: 'Automated Database Backup System',
-    subtitle: 'Cloud-based data security and recovery solution',
-    image: 'https://images.unsplash.com/photo-1667372283496-893f0b1e7c16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbG91ZCUyMGRhdGFiYXNlJTIwc2VjdXJpdHklMjB0ZWNobm9sb2d5fGVufDF8fHx8MTc3MTI0MDQwN3ww&ixlib=rb-4.1.0&q=80&w=1080',
-    tags: ['Backend', 'Automation', 'Cloud', 'Python'],
-    overview: 'Engineered an automated system to ensure data integrity and availability for DigitalCircle\'s POS system through scheduled backups and cloud storage integration.',
-    challenge: 'Manual database backups were inconsistent and prone to human error, risking data loss and business continuity for a growing startup.',
-    solution: 'Developed an automated backup pipeline that schedules daily database exports from the POS system, securely transfers backups to Google Drive using API integration, implements versioning and retention policies, and provides a notification system for backup status.',
-    impact: [
-      'Achieved 100% backup consistency — zero missed daily backups',
-      'Ensured high data availability with up-to-date recovery points',
-      'Eliminated daily manual backup tasks entirely',
-      'Enhanced business continuity planning for the startup'
-    ],
-    technologies: ['Python', 'Google Drive API', 'Linux Cron Jobs', 'Shell Scripting'],
-    timeline: 'Summer 2024',
-    role: 'Backend Developer Intern — DigitalCircle'
-  },
-  {
-    id: 'sound-tracking',
-    category: 'Embedded Systems',
-    title: 'Embedded Sound Tracking System',
-    subtitle: 'Arduino-based directional audio detection with 7-mic array',
-    image: 'https://images.unsplash.com/photo-1605143185693-931d6c06ed0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmR1aW5vJTIwbWljcm9waG9uZSUyMGhhcmR3YXJlJTIwZW1iZWRkZWR8ZW58MXx8fHwxNzcxMjQwNDA0fDA&ixlib=rb-4.1.0&q=80&w=1080',
-    tags: ['C++', 'Arduino', 'Embedded', 'Signal Processing'],
-    overview: 'Academic project developing an intelligent system to identify and track sound sources using a 7-microphone array and servo motor-driven positioning.',
-    challenge: 'Integrating multiple audio inputs with mechanical movement to accurately determine sound source direction in real-time with minimal latency.',
-    solution: 'Developed signal processing algorithms to analyze audio amplitude differences across the microphone array, implemented triangulation logic to calculate sound source direction, and created motor control protocols for precise servo positioning using low-level C++.',
-    impact: [
-      'Successfully detected and tracked sound sources with high accuracy',
-      'Achieved real-time performance with minimal latency',
-      'Demonstrated practical application of signal processing and embedded concepts',
-      'Full hardware-software integration from scratch using low-level C++'
-    ],
-    technologies: ['Arduino', 'C++', 'Signal Processing', 'Motor Control', 'Sensor Arrays'],
-    timeline: 'Spring 2025',
-    role: 'Academic Project — USJ'
-  },
-  {
-    id: 'atm-live-dashboard',
-    category: 'Data Engineering',
-    title: 'ATM Live Status Dashboard',
-    subtitle: 'Real-time data integration dashboard tracking inactive and error-state ATMs across a bank\'s full network',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXNoYm9hcmQlMjBhbmFseXRpY3MlMjBkYXRhJTIwdmlzdWFsaXphdGlvbnxlbnwxfHx8fDE3NzE5NTAwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    tags: ['SQL', 'Data Integration', 'Dashboard', 'Banking'],
-    overview: 'As part of my internship at Byblos Bank\'s AI Lab, I built a live data integration layer and operational dashboard that gives the bank\'s operations team real-time visibility into the status of every ATM in the network. The dashboard flags machines that are currently inactive or in an error state, enabling the team to respond immediately rather than discovering problems after customer complaints.',
-    challenge: 'The bank had no centralized, live view of ATM health across its network. Status checks were manual and reactive — teams only learned of failures after the fact, resulting in extended customer-facing downtime, lost transactions, and unnecessary emergency response costs. There was no system to distinguish between machines with recoverable errors versus those fully offline.',
-    solution: 'Gained direct access to the bank\'s database and designed and wrote SQL queries to extract, filter, and aggregate real-time ATM status data. The queries classified each machine by operational state — active, inactive, or error — and surfaced the relevant details for each incident. These results were integrated into a live dashboard that auto-refreshes, giving the operations team an always-current network view without any manual intervention. This work was closely tied to the broader ATM ML prediction pipeline I also developed at the bank, where similar data was used to train predictive maintenance models.',
-    impact: [
-      'Delivered a live dashboard providing real-time status across the full ATM network',
-      'Eliminated manual status checks — the team now has a single always-current source of truth',
-      'Enabled immediate incident response by surfacing inactive and error-state machines as they occur',
-      'Distinguished between error types, helping operations teams prioritize and triage effectively',
-      'Directly complemented the ATM Failure Prediction ML system by validating real failure patterns'
-    ],
-    technologies: ['SQL', 'SQL Server', 'Data Integration', 'Dashboard Tools', 'Python'],
-    timeline: 'Winter 2026 – Present',
-    role: 'AI Lab Intern — Byblos Bank'
-  },
-  {
-    id: 'email-agent',
-    category: 'Automation',
-    title: 'Personalized Internship Email Agent',
-    subtitle: 'Python automation agent that sent 30 personalized applications — each with a tailored email body and CV attached — in one run',
-    image: 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbWFpbCUyMGF1dG9tYXRpb24lMjBhZ2VudHxlbnwxfHx8fDE3NzEyNDA0MDN8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    tags: ['Python', 'SMTP', 'Automation', 'Email'],
-    overview: 'When my university provided a directory of companies for summer 2026 internship applications, I immediately saw a problem: sending a meaningful, personalized application to each one manually was not feasible at scale. So I built a Python email automation agent from scratch that handled the entire outreach pipeline — reading company data, generating personalized email bodies, attaching my CV, and dispatching everything via Gmail SMTP — with zero manual effort per email.',
-    challenge: 'The university sent a structured list of 33+ companies across diverse industries (banking, AI, consulting, engineering, logistics, media). A generic mass email would be immediately dismissible. But manually writing a personalized email for each company — referencing the right supervisor, their industry, and my relevant experience — would take hours and introduce inconsistency. I needed a system that could do both: be fast and be personal.',
-    solution: 'Built a full Python automation pipeline with three core components: (1) a data layer that reads company targets from an Excel sheet and cross-references a JSON file containing each company\'s supervisor name, position, and email address; (2) a dynamic email generator that personalizes each message with the correct greeting (e.g. "Dear Ms. Nahla Najjar,"), references the specific company by name, and highlights my current role at Byblos Bank AI Lab as a credibility signal; and (3) an SMTP dispatcher using Gmail App Passwords that sends each email with my CV attached as a PDF, with a 5-second delay between sends to avoid spam detection. A companion preview script let me verify any email before the batch ran. All results were logged to JSON files (sent and failed separately) with timestamps for full traceability.',
-    impact: [
-      '30 emails sent successfully in a single automated run on February 3, 2026',
-      'Companies targeted included Dar Al-Handasah, BLOM Bank, KPMG, InMind.ai, CMA CGM, BishopByte, and 24 others',
+      'Organized 10,000+ emails into labeled categories reducing inbox clutter by 85%',
+      'Sent 230 personalized cold emails in a single workflow with zero manual editing',
       'Each email addressed the correct supervisor by name and referenced the company specifically',
       'CV attached automatically to every email — zero manual steps after setup',
       'Full audit trail: JSON logs captured timestamp, company, email, and status for every send',
@@ -260,7 +139,8 @@ export const projects: Project[] = [
     ],
     technologies: ['Python', 'smtplib', 'SMTP / Gmail API', 'pandas', 'openpyxl', 'JSON', 'MIMEMultipart'],
     timeline: 'February 2026',
-    role: 'Personal Project'
+    role: 'Personal Project',
+    githubRepo: 'https://github.com/ilona0712/intelligent-gmail-cleanup'
   },
   {
     id: 'digitalcircle-web-portfolio',
