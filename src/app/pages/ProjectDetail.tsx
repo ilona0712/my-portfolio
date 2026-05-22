@@ -45,7 +45,6 @@ export function ProjectDetail() {
   };
   const neon = CAT_COLORS[project.category] || 'var(--neon-cyan)';
 
-  // ✅ FIX: normalize content to an array of paragraphs whether it's a string or array
   const toParagraphs = (content: string | string[]): string[] => {
     if (Array.isArray(content)) return content.filter(Boolean);
     if (typeof content === 'string') return content.split('\n\n').filter(Boolean);
@@ -55,13 +54,12 @@ export function ProjectDetail() {
   const sections: { label: string; content: string | string[] }[] = [
     { label: 'Overview',      content: project.overview },
     { label: 'The Challenge', content: project.challenge },
-    { label: 'The Solution',  content: project.solution as string | string[] },
+    { label: 'The Solution',  content: project.solution },
   ];
 
   return (
     <div style={{ position: 'relative', zIndex: 1, minHeight: '100vh' }}>
 
-      {/* Hero image */}
       <div style={{ height: 'clamp(260px, 42vw, 380px)', overflow: 'hidden', background: 'var(--bg2)', position: 'relative' }}>
         <img
           src={project.image}
@@ -81,12 +79,10 @@ export function ProjectDetail() {
 
       <div className="section-inner" style={{ padding: '48px 18px' }}>
 
-        {/* Back */}
         <Link to="/projects" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: neon, textDecoration: 'none', letterSpacing: '0.1em', marginBottom: 40, transition: 'gap 0.2s' }}>
           ← Back to Projects
         </Link>
 
-        {/* Meta row */}
         <div className="detail-meta" style={{ display: 'flex', flexWrap: 'wrap', gap: 20, marginBottom: 48, paddingBottom: 32, borderBottom: '1px solid var(--border)', opacity: 0 }}>
           {[
             { label: 'Timeline', value: project.timeline },
@@ -99,7 +95,6 @@ export function ProjectDetail() {
           ))}
         </div>
 
-        {/* Body */}
         <div className="detail-body" style={{ maxWidth: 720 }}>
           {sections.map(s => (
             <div key={s.label} style={{ marginBottom: 40, opacity: 0 }}>
@@ -110,11 +105,10 @@ export function ProjectDetail() {
             </div>
           ))}
 
-          {/* Live Demo */}
           {project.liveUrl && (
             <div style={{ marginBottom: 40, opacity: 0 }} className="detail-body">
               <div className="section-label">Live Demo</div>
-              
+              <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -147,13 +141,12 @@ export function ProjectDetail() {
             </div>
           )}
 
-          {/* Website Links (for multi-site projects) */}
           {project.websiteLinks && project.websiteLinks.length > 0 && (
             <div style={{ marginBottom: 40, opacity: 0 }} className="detail-body">
               <div className="section-label">Live Websites</div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
                 {project.websiteLinks.map((site, i) => (
-                  
+                  <a
                     key={i}
                     href={site.url}
                     target="_blank"
@@ -189,7 +182,6 @@ export function ProjectDetail() {
             </div>
           )}
 
-          {/* Impact */}
           <div style={{ marginBottom: 40, opacity: 0 }}>
             <div className="section-label">Impact & Results</div>
             <ul style={{ listStyle: 'none' }}>
@@ -202,7 +194,6 @@ export function ProjectDetail() {
             </ul>
           </div>
 
-          {/* Technologies */}
           <div style={{ marginBottom: 56, opacity: 0 }}>
             <div className="section-label">Technologies</div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
@@ -213,7 +204,6 @@ export function ProjectDetail() {
           </div>
         </div>
 
-        {/* Next project */}
         <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4, padding: 36, opacity: 0 }}
           className="detail-body"
         >
