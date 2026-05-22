@@ -5,12 +5,13 @@ declare const anime: any;
 
 export function About() {
   useEffect(() => {
+    if (typeof anime === 'undefined') return;
     anime.timeline({ easing: 'easeOutExpo' })
       .add({ targets: '.about-title', opacity: [0, 1], translateY: [40, 0], duration: 800 })
       .add({ targets: '.about-sub',   opacity: [0, 1], translateY: [20, 0], duration: 600 }, '-=400')
       .add({ targets: '.about-block', opacity: [0, 1], translateY: [24, 0], delay: anime.stagger(80), duration: 600 }, '-=300');
   }, []);
-
+  
   const skills = {
     'Programming Languages': [
       { name: 'Python',       level: 'Primary language — ML, automation, backend scripting, SMTP, web scraping' },
