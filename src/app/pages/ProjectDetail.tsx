@@ -39,7 +39,6 @@ export function ProjectDetail() {
   'Development':      'var(--neon-yellow)',
   'Embedded Systems': 'var(--neon-pink)',
   'Networking':       'var(--neon-yellow)',
-  'Backend':          'var(--neon-blue)',
   };
   const neon = CAT_COLORS[project.category] || 'var(--neon-cyan)';
 
@@ -93,43 +92,6 @@ export function ProjectDetail() {
               ))}
             </div>
           ))}
-
-          {/* GitHub Repository */}
-          {project.githubRepo && (
-            <div style={{ marginBottom: 40, opacity: 0 }} className="detail-body">
-              <div className="section-label">Source Code</div>
-              <a
-                href={project.githubRepo}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 8,
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.85rem',
-                  color: neon,
-                  textDecoration: 'none',
-                  border: `1px solid ${neon}44`,
-                  borderRadius: 2,
-                  padding: '10px 20px',
-                  background: `${neon}08`,
-                  letterSpacing: '0.05em',
-                  transition: 'background 0.2s, box-shadow 0.2s',
-                }}
-                onMouseEnter={e => {
-                  (e.currentTarget as HTMLAnchorElement).style.background = `${neon}18`;
-                  (e.currentTarget as HTMLAnchorElement).style.boxShadow = `0 0 20px ${neon}33`;
-                }}
-                onMouseLeave={e => {
-                  (e.currentTarget as HTMLAnchorElement).style.background = `${neon}08`;
-                  (e.currentTarget as HTMLAnchorElement).style.boxShadow = 'none';
-                }}
-              >
-                ↗ GitHub Repository
-              </a>
-            </div>
-          )}
 
           {/* Live Demo */}
           {project.liveUrl && (
