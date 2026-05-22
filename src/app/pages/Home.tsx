@@ -9,6 +9,7 @@ const FEATURED_IDS = ['numu-dashboard', 'atm-ml-prediction', 'xray-computer-visi
 export function Home() {
   /* ── HERO ENTRANCE TIMELINE ── */
   useEffect(() => {
+    if (typeof anime === 'undefined') return;
     const tl = anime.timeline({ easing: 'easeOutExpo' });
     tl
       .add({ targets: '.hero-greeting', opacity: [0, 1], translateY: [20, 0], duration: 700 })
@@ -41,6 +42,7 @@ export function Home() {
 
   /* ── SCROLL OBSERVER (expertise + featured projects) ── */
   useEffect(() => {
+    if (typeof anime === 'undefined') return;
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
@@ -173,7 +175,6 @@ export function Home() {
                   background: 'var(--bg2)', padding: 40, position: 'relative', overflow: 'hidden',
                   opacity: 0, transform: 'translateY(30px)',
                   transition: 'background 0.3s',
-                  /* top neon line on hover via pseudo handled in theme.css */
                 }}
                 onMouseEnter={el => (el.currentTarget.style.background = 'var(--surface)')}
                 onMouseLeave={el => (el.currentTarget.style.background = 'var(--bg2)')}
@@ -228,7 +229,13 @@ export function Home() {
                   }}
                 >
                   <div style={{ aspectRatio: '16/9', overflow: 'hidden', background: '#0d1525' }}>
-                    <img src={project.image} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'saturate(0.7) brightness(0.8)', transition: 'filter 0.3s' }} />
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      loading="lazy"
+                      decoding="async"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'saturate(0.7) brightness(0.8)', transition: 'filter 0.3s' }}
+                    />
                   </div>
                   <div style={{ padding: 24 }}>
                     <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: catColors[i % 3], letterSpacing: '0.15em', textTransform: 'uppercase', display: 'block', marginBottom: 8, textShadow: '0 0 12px currentColor' }}>{project.category}</span>
