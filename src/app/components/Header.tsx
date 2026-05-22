@@ -14,6 +14,7 @@ export function Header() {
   const animFrameRef = useRef<number>(0);
   const isMobile = useIsMobile();
 
+  /* ── Custom cursor (desktop only) ── */
   useEffect(() => {
     if (isMobile) return;
 
@@ -21,10 +22,8 @@ export function Header() {
     const ring = document.getElementById('ic-cursor-ring');
     if (!cursor || !ring) return;
 
-    let mx = 0;
-    let my = 0;
-    let rx = 0;
-    let ry = 0;
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    let rafId = 0;
 
     const onMove = (e: MouseEvent) => {
       mx = e.clientX;
@@ -32,16 +31,14 @@ export function Header() {
       cursor.style.transform = `translate(${mx - 6}px, ${my - 6}px)`;
     };
 
-    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mousemove', onMove, { passive: true });
 
-    let rafId: number;
     const animRing = () => {
-      rx += (mx - rx) * 0.12;
-      ry += (my - ry) * 0.12;
+      rx += (mx - rx) * 0.18;
+      ry += (my - ry) * 0.18;
       ring.style.transform = `translate(${rx - 6}px, ${ry - 6}px)`;
       rafId = requestAnimationFrame(animRing);
     };
-
     animRing();
 
     return () => {
@@ -50,90 +47,136 @@ export function Header() {
     };
   }, [isMobile]);
 
+  /* ── Particle background (desktop only, optimized) ── */
   useEffect(() => {
     if (isMobile) return;
 
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { alpha: true });
     if (!ctx) return;
 
+    /* Respect users who prefer reduced motion */
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const DPR = Math.min(window.devicePixelRatio || 1, 1.5);
     let width = 0;
     let height = 0;
 
     const colors = ['#00ffe0', '#39ff8f', '#ff2d78', '#4d9fff', '#f5e642'];
-    const particles = Array.from({ length: 110 }, () => ({
+
+    /* Reduced from 110 → 60 particles. Biggest perf win. */
+    const particles = Array.from({ length: 60 }, () => ({
       x: Math.random() * 1440,
       y: Math.random() * 900,
-      r: Math.random() * 1.4 + 0.3,
-      vx: (Math.random() - 0.5) * 0.28,
-      vy: (Math.random() - 0.5) * 0.28,
+      r: Math.random() * 1.3 + 0.4,
+      vx: (Math.random() - 0.5) * 0.25,
+      vy: (Math.random() - 0.5) * 0.25,
       color: colors[Math.floor(Math.random() * colors.length)],
-      alpha: Math.random() * 0.5 + 0.1,
+      alpha: Math.random() * 0.5 + 0.15,
     }));
 
     const resize = () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width * DPR;
+      canvas.height = height * DPR;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
     };
 
     resize();
     window.addEventListener('resize', resize);
 
-    const draw = () => {
+    /* Cap framerate to ~40fps — anything faster is invisible for ambient bg */
+    const FRAME_INTERVAL = 1000 / 40;
+    let lastFrame = 0;
+    let running = true;
+
+    const onVisibilityChange = () => {
+      running = !document.hidden;
+      if (running) {
+        lastFrame = 0;
+        animFrameRef.current = requestAnimationFrame(draw);
+      } else {
+        cancelAnimationFrame(animFrameRef.current);
+      }
+    };
+    document.addEventListener('visibilitychange', onVisibilityChange);
+
+    const CONNECT_DIST = 70;
+    const CONNECT_DIST_SQ = CONNECT_DIST * CONNECT_DIST;
+
+    const draw = (time = 0) => {
+      if (!running) return;
+      if (time - lastFrame < FRAME_INTERVAL) {
+        animFrameRef.current = requestAnimationFrame(draw);
+        return;
+      }
+      lastFrame = time;
+
       ctx.clearRect(0, 0, width, height);
 
-      particles.forEach((particle) => {
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-
-        if (particle.x < 0) particle.x = width;
-        if (particle.x > width) particle.x = 0;
-        if (particle.y < 0) particle.y = height;
-        if (particle.y > height) particle.y = 0;
+      /* Move + draw particles */
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0) p.x = width;
+        else if (p.x > width) p.x = 0;
+        if (p.y < 0) p.y = height;
+        else if (p.y > height) p.y = 0;
 
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.r, 0, Math.PI * 2);
-        ctx.fillStyle = particle.color;
-        ctx.globalAlpha = particle.alpha;
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = p.alpha;
         ctx.fill();
-      });
+      }
 
-      ctx.globalAlpha = 1;
-
-      for (let i = 0; i < particles.length; i += 1) {
-        for (let j = i + 1; j < particles.length; j += 1) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < 80) {
+      /* Connection lines — squared distance avoids sqrt */
+      ctx.lineWidth = 0.5;
+      for (let i = 0; i < particles.length; i++) {
+        const a = particles[i];
+        for (let j = i + 1; j < particles.length; j++) {
+          const b = particles[j];
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const distSq = dx * dx + dy * dy;
+          if (distSq < CONNECT_DIST_SQ) {
             ctx.beginPath();
-            ctx.strokeStyle = particles[i].color;
-            ctx.globalAlpha = (1 - distance / 80) * 0.07;
-            ctx.lineWidth = 0.5;
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = a.color;
+            ctx.globalAlpha = (1 - distSq / CONNECT_DIST_SQ) * 0.07;
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
             ctx.stroke();
           }
         }
       }
 
+      ctx.globalAlpha = 1;
       animFrameRef.current = requestAnimationFrame(draw);
     };
 
-    draw();
+    animFrameRef.current = requestAnimationFrame(draw);
 
     return () => {
+      running = false;
       window.removeEventListener('resize', resize);
+      document.removeEventListener('visibilitychange', onVisibilityChange);
       cancelAnimationFrame(animFrameRef.current);
     };
   }, [isMobile]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
@@ -172,6 +215,7 @@ export function Header() {
               pointerEvents: 'none',
               mixBlendMode: 'difference',
               boxShadow: '0 0 16px var(--neon-cyan)',
+              willChange: 'transform',
             }}
           />
           <div
@@ -188,6 +232,7 @@ export function Header() {
               pointerEvents: 'none',
               transition: 'width 0.2s, height 0.2s',
               margin: '-6px 0 0 -6px',
+              willChange: 'transform',
             }}
           />
           <canvas
@@ -258,7 +303,7 @@ export function Header() {
             </li>
           ))}
           <li>
-            <a
+            
               href="https://linkedin.com/in/ilona-chamoun-808295360"
               target="_blank"
               rel="noopener noreferrer"
@@ -339,7 +384,7 @@ export function Header() {
               {link.name}
             </Link>
           ))}
-          <a
+          
             href="https://linkedin.com/in/ilona-chamoun-808295360"
             target="_blank"
             rel="noopener noreferrer"
