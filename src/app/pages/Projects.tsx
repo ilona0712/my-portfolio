@@ -20,7 +20,6 @@ export function Projects() {
 
   const filtered = selected === 'All' ? projects : projects.filter(p => p.category === selected);
 
-  /* Animate cards whenever filter changes */
   useEffect(() => {
     if (typeof anime === 'undefined') return;
     anime({
@@ -33,7 +32,6 @@ export function Projects() {
     });
   }, [selected]);
 
-  /* Initial entrance */
   useEffect(() => {
     if (typeof anime === 'undefined') return;
     anime.timeline({ easing: 'easeOutExpo' })
@@ -45,7 +43,6 @@ export function Projects() {
     <div style={{ position: 'relative', zIndex: 1, minHeight: '100vh', paddingTop: 100, paddingBottom: 80, background: 'var(--bg)' }}>
       <div className="section-inner">
 
-        {/* Header */}
         <div style={{ marginBottom: 48 }}>
           <div className="section-label">Portfolio</div>
           <h1 className="projects-title section-heading" style={{ opacity: 0 }}>
@@ -56,7 +53,6 @@ export function Projects() {
           </p>
         </div>
 
-        {/* Filters */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 52 }}>
           {CATEGORIES.map(cat => (
             <button
@@ -84,7 +80,6 @@ export function Projects() {
           ))}
         </div>
 
-        {/* Grid */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
           {filtered.map((project, idx) => {
             const neon = CAT_COLORS[project.category] || 'var(--neon-cyan)';
