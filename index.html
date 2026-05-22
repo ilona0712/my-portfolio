@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ilona Chamoun — Portfolio</title>
 
-    <!-- anime.js v3 from CDN (loaded before React so components can use it) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    <!-- Preconnect to image CDN for faster first paint -->
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+
+    <!-- anime.js v3 from CDN — `defer` so it doesn't block HTML parsing -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
   </head>
   <body>
     <div id="root"></div>
