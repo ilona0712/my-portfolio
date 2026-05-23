@@ -282,8 +282,8 @@ export const projects: Project[] = [
     technologies: ['Full-Stack Web', 'AI / Recommendation System', 'Live Chat', 'Admin Dashboard', 'Database'],
     timeline: 'Spring 2026',
     role: 'Full-Stack Developer - Academic Team Project, USJ',
-    github: 'https://github.com/ilona0712/Bridal',
-    liveUrl: 'https://www.mariabadari.com'
+    liveUrl: 'https://www.mariabadari.com',
+    github: 'https://github.com/ilona0712/Bridal'
     
   },
   {
