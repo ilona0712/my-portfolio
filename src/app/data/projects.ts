@@ -284,7 +284,6 @@ export const projects: Project[] = [
     role: 'Full-Stack Developer - Academic Team Project, USJ',
     liveUrl: 'https://www.mariabadari.com',
     github: 'https://github.com/ilona0712/Bridal'
-    
   },
   {
     id: 'ccna-networking',
