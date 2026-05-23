@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { projects } from '../data/projects';
 
 export function Projects() {
@@ -42,11 +43,15 @@ export function Projects() {
         {filtered.map((project) => (
           <div key={project.id} className="project-card">
             <div className="project-image">
-              <img src={project.image} alt={project.title} />
+              <Link to={`/projects/${project.id}`}>
+                <ImageWithFallback src={project.image} alt={project.title} />
+              </Link>
             </div>
             <div className="project-content">
               <p>{project.category}</p>
-              <h3>{project.title}</h3>
+              <h3>
+                <Link to={`/projects/${project.id}`}>{project.title}</Link>
+              </h3>
               <p className="subtitle">{project.subtitle}</p>
               <div className="tags">
                 {project.tags.map((tag) => (
@@ -59,12 +64,12 @@ export function Projects() {
                 </Link>
                 {project.liveUrl && (
                   <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                    View Project
+                    Live Demo
                   </a>
                 )}
                 {project.github && (
                   <a href={project.github} target="_blank" rel="noopener noreferrer">
-                    GitHub
+                    View Code
                   </a>
                 )}
               </div>

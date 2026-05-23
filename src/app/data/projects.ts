@@ -21,69 +21,68 @@ export const projects: Project[] = [
   {
     id: 'numu-dashboard',
     category: 'Full-Stack',
-    title: 'NUMŪ National Analytics Dashboard',
-    subtitle: 'Government monitoring platform for Lebanon\'s national AI upskilling program',
+    title: 'NUMU National Analytics Dashboard',
+    subtitle: "Government monitoring platform for Lebanon's national AI upskilling program",
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=75',
     tags: ['Next.js', 'TypeScript', 'Data Visualization', 'REST API'],
-    overview: 'Built a full-stack national monitoring and analytics platform for Lebanon\'s Ministry of IT & AI (MITAI), commissioned as part of the Code for Lebanon x USJ Hackathon. The platform serves as the operational backbone for the NUMŪ national AI upskilling program, giving ministry officials real-time visibility into registration performance, learner demographics, geographic reach, and training track demand.',
-    challenge: 'The Ministry needed a data-driven tool to monitor the national rollout of NUMŪ across 8 Lebanese regions, tracking 4,800+ registered learners spanning universities, syndicates, public sector entities, NGOs, and employers. Policy decisions around outreach strategy, regional inclusion, and partnership prioritization had to be supported by live, filterable analytics — not static reports.',
-    solution: 'Engineered a two-tier architecture with a REST API backend for data ingestion, normalization, and aggregation, paired with a Next.js/TypeScript frontend. Consumed the NUMŪ Survey API to process raw learner profiles and compute metrics in real-time. Built four policy-facing dashboard modules: Dissemination Performance (channel breakdown with drill-down to sub-entities), Geographic Insights (regional distribution and gap analysis), Interest & Strategy (track demand heatmaps and learning motivation analysis), and a Unified Learner Profile view with provider status badges from Microsoft and Oracle platforms.',
+    overview: "Built a full-stack national monitoring and analytics platform for Lebanon's Ministry of IT & AI (MITAI), commissioned as part of the Code for Lebanon x USJ Hackathon. The platform serves as the operational backbone for the NUMU national AI upskilling program, giving ministry officials real-time visibility into registration performance, learner demographics, geographic reach, and training track demand.",
+    challenge: 'The Ministry needed a data-driven tool to monitor the national rollout of NUMU across 8 Lebanese regions, tracking 4,800+ registered learners spanning universities, syndicates, public sector entities, NGOs, and employers. Policy decisions around outreach strategy, regional inclusion, and partnership prioritization had to be supported by live, filterable analytics, not static reports.',
+    solution: 'Engineered a two-tier architecture with a REST API backend for data ingestion, normalization, and aggregation, paired with a Next.js/TypeScript frontend. Consumed the NUMU Survey API to process raw learner profiles and compute metrics in real-time. Built four policy-facing dashboard modules: Dissemination Performance, Geographic Insights, Interest & Strategy, and a Unified Learner Profile view with provider status badges from Microsoft and Oracle platforms.',
     impact: [
       'Delivered a working government-grade prototype within a 24-hour hackathon',
       'Visualized registration data for 4,800+ learners across 8 Lebanese regions',
-      'Enabled ministry officials to drill down from national to sub-entity level (e.g. specific university)',
+      'Enabled ministry officials to drill down from national to sub-entity level',
       'Identified underrepresented regions for targeted outreach using geographic gap analysis',
-      'Recognized among top finalist groups by Ministry of IT & AI (MITAI) jury',
-      'Deployed live at: v0-frontend-web-numu.vercel.app'
+      'Recognized among top finalist groups by the MITAI jury',
+      'Deployed live on Vercel'
     ],
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Recharts', 'REST API', 'pnpm', 'Vercel'],
     timeline: 'February 2026',
-    role: 'Frontend Developer — Code for Lebanon x USJ Hackathon'
+    role: 'Frontend Developer - Code for Lebanon x USJ Hackathon'
   },
   {
-  id: 'atm-ml-prediction',
-  category: 'Machine Learning',
-  title: 'ATM Failure Prediction System',
-  subtitle: 'Production ML pipeline for predictive maintenance of 130+ Lebanese ATMs',
-  image: 'https://images.unsplash.com/photo-1591453089816-0fbb971b454c?w=500&h=300&fit=crop',
-  tags: ['Machine Learning', 'Python', 'XGBoost', 'SQL', 'Docker'],
-  overview: 'End-to-end ML system that predicts ATM failures 24 hours in advance, enabling proactive maintenance and preventing customer-facing downtime.',
-  challenge: 'ATM maintenance was reactive - only discovering failures through customer complaints. Need to predict failures before they occur.',
-  solution: 'Engineered 249 features from operational data. Trained XGBoost ensemble model with isotonic calibration. Daily predictions + monitoring system.',
-  impact: [
-    '85 PR-AUC on validation set',
-    'Transformed maintenance from reactive to proactive',
-    'Automated daily 24-hour ahead predictions for 130 ATMs',
-    'Infrastructure event detection prevents fleet-wide false alarms'
-  ],
-  technologies: ['Python', 'SQL Server', 'Pandas', 'XGBoost', 'Scikit-learn', 'LightGBM', 'SHAP', 'Docker', 'NumPy', 'joblib'],
-  timeline: 'Winter 2026 – May 2026',
-  role: 'AI Lab Engineer — Bank Byblos (Handoff Report v1.0)',
-  liveUrl: 'https://github.com/ilona0712/ATM-Failure-Prediction', // ← ADD THIS LINE!
-  github: 'https://github.com/ilona0712/ATM-Failure-Prediction'  // ← Also add this
+    id: 'atm-ml-prediction',
+    category: 'Machine Learning',
+    title: 'ATM Failure Prediction System',
+    subtitle: 'Production ML pipeline for predictive maintenance of 130+ Lebanese ATMs',
+    image: '/project-images/atm-failure-prediction.svg',
+    tags: ['Machine Learning', 'Python', 'XGBoost', 'SQL', 'Docker'],
+    overview: 'End-to-end ML system that predicts ATM failures 24 hours in advance, enabling proactive maintenance and preventing customer-facing downtime.',
+    challenge: 'ATM maintenance was reactive, only discovering failures through customer complaints. The goal was to predict failures before they happen.',
+    solution: 'Engineered 249 features from operational data. Trained an XGBoost ensemble model with isotonic calibration and wired it into daily prediction and monitoring workflows.',
+    impact: [
+      '85 PR-AUC on validation set',
+      'Transformed maintenance from reactive to proactive',
+      'Automated daily 24-hour-ahead predictions for 130 ATMs',
+      'Infrastructure event detection prevents fleet-wide false alarms'
+    ],
+    technologies: ['Python', 'SQL Server', 'Pandas', 'XGBoost', 'Scikit-learn', 'LightGBM', 'SHAP', 'Docker', 'NumPy', 'joblib'],
+    timeline: 'Winter 2026 - May 2026',
+    role: 'AI Lab Engineer - Bank Byblos (Handoff Report v1.0)',
+    github: 'https://github.com/ilona0712/ATM-Failure-Prediction'
   },
   {
     id: 'xray-computer-vision',
     category: 'Machine Learning',
-    title: 'X-Ray Image Analysis — Computer Vision System',
+    title: 'X-Ray Image Analysis - Computer Vision System',
     subtitle: 'Deep learning pipeline for automated medical X-ray classification and anomaly detection',
     image: '/project-images/xray-analysis.svg',
     tags: ['Computer Vision', 'Deep Learning', 'Python', 'Medical Imaging'],
-    overview: 'Built a computer vision system for automated X-ray image classification, using convolutional neural networks (CNNs) to detect and classify anomalies in medical imaging. The system processes X-ray datasets and identifies patterns indicative of various pathologies.',
-    challenge: 'Medical X-ray analysis traditionally relies on manual radiologist review, which is time-consuming, subject to human fatigue, and expensive. Needed to develop an automated system that could accurately classify X-rays and flag anomalies to assist clinicians and speed up diagnostic workflows.',
-    solution: 'Developed a deep learning pipeline using CNN architectures for image classification. Built data preprocessing pipelines to normalize X-ray images, handle grayscale to tensor conversion, and implement data augmentation techniques to improve model robustness. Trained multiple CNN models with hyperparameter tuning. Implemented evaluation metrics specific to medical imaging (sensitivity, specificity, ROC curves). Created visualization tools for understanding model predictions through activation maps and grad-CAM techniques.',
+    overview: 'Built a computer vision system for automated X-ray image classification using convolutional neural networks to detect and classify anomalies in medical imaging.',
+    challenge: 'Medical X-ray analysis traditionally relies on manual radiologist review, which is time-consuming and expensive. The goal was to build an automated system that could accurately classify X-rays and flag anomalies to assist clinicians.',
+    solution: 'Developed a deep learning pipeline using CNN architectures for image classification. Built preprocessing pipelines, data augmentation, hyperparameter tuning, and evaluation workflows including ROC curves and interpretability visualizations.',
     impact: [
       'Automated X-ray image classification reducing manual review time',
-      'Implemented CNN-based anomaly detection with high accuracy metrics',
-      'Built data preprocessing pipelines handling diverse medical image formats',
+      'Implemented CNN-based anomaly detection with strong accuracy metrics',
+      'Built preprocessing pipelines handling diverse medical image formats',
       'Created interpretable visualizations of model decisions for clinical validation',
-      'Developed evaluation framework specific to medical imaging use cases',
-      'Completed end-to-end deep learning project from data collection to deployment'
+      'Developed an evaluation framework specific to medical imaging use cases',
+      'Completed an end-to-end deep learning project from data collection to deployment'
     ],
     technologies: ['Python', 'TensorFlow', 'Keras', 'OpenCV', 'NumPy', 'Scikit-learn', 'Matplotlib', 'Pandas'],
     timeline: 'April 2026',
     role: 'Computer Vision Developer',
-    liveUrl: 'https://github.com/ilona0712/X-Ray'
+    github: 'https://github.com/ilona0712/X-Ray'
   },
   {
     id: 'gmail-automation',
@@ -92,16 +91,16 @@ export const projects: Project[] = [
     subtitle: 'Automated email management and organization with intelligent filtering and archival',
     image: '/project-images/gmail-cleanup.svg',
     tags: ['Python', 'Gmail API', 'Automation', 'Email Management'],
-    overview: 'Developed an automated Gmail cleanup and management system that intelligently organizes, filters, and archives emails based on sophisticated rules. The system reduces inbox clutter and implements smart categorization without manual intervention.',
-    challenge: 'Email inboxes quickly become overwhelming with thousands of messages. Manual organization is time-consuming and unsustainable. Needed a system that could automatically categorize, filter, and archive emails while preserving important messages and respecting user preferences.',
-    solution: 'Built a Python automation tool that integrates with Gmail API to process emails at scale. Implemented intelligent filtering rules that classify emails by sender, subject patterns, keywords, and sender domain. Created automated workflows for archiving old emails, organizing into folders/labels, and handling common categories (promotions, receipts, notifications). Built a configuration system allowing custom rules without code changes. Implemented error handling and logging for transparency.',
+    overview: 'Developed an automated Gmail cleanup and management system that intelligently organizes, filters, and archives emails based on sophisticated rules.',
+    challenge: 'Email inboxes quickly become overwhelming with thousands of messages. The system needed to automatically categorize, filter, and archive emails while preserving important messages and respecting user preferences.',
+    solution: 'Built a Python automation tool that integrates with the Gmail API to process emails at scale. Implemented intelligent filtering rules, automated archival workflows, a configurable rules system, and transparent logging.',
     impact: [
       'Reduced inbox clutter by automatically archiving non-essential emails',
-      'Intelligent categorization without manual sorting',
-      'Customizable filtering rules for different email types',
+      'Delivered intelligent categorization without manual sorting',
+      'Added customizable filtering rules for different email types',
       'Preserved important messages while removing noise',
       'Automated recurring cleanup tasks saving hours per month',
-      'Built scalable system handling thousands of emails'
+      'Built a scalable system handling thousands of emails'
     ],
     technologies: ['Python', 'Gmail API', 'OAuth 2.0', 'Email Processing', 'Configuration Management'],
     timeline: 'May 2026',
@@ -114,16 +113,16 @@ export const projects: Project[] = [
     subtitle: 'Real-time business intelligence and data visualization for operational analytics',
     image: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&w=800&q=75',
     tags: ['Metabase', 'Data Visualization', 'Business Intelligence', 'Analytics'],
-    overview: 'Designed and deployed an interactive Metabase analytics dashboard that aggregates operational data and presents it through intuitive, drill-down visualizations. The dashboard enables stakeholders to explore metrics, identify trends, and make data-driven decisions without SQL knowledge.',
-    challenge: 'Stakeholders needed real-time visibility into operational metrics but lacked technical expertise to query databases. Previous solution was static reports generated manually once a week, limiting decision-making agility. Required building a dynamic, self-service analytics platform.',
-    solution: 'Built a comprehensive Metabase instance with multiple interconnected dashboards covering key business areas. Created visualizations including time-series charts for trend analysis, geographic heatmaps for location-based insights, drill-down tables for detail exploration, and KPI cards for at-a-glance monitoring. Configured data source connections, set up automatic refresh schedules, and implemented row-level security for role-based access. Designed intuitive filtering systems allowing non-technical users to slice data by date, region, category, and other dimensions.',
+    overview: 'Designed and deployed an interactive Metabase analytics dashboard that aggregates operational data and presents it through intuitive, drill-down visualizations.',
+    challenge: 'Stakeholders needed real-time visibility into operational metrics but lacked technical expertise to query databases. Static weekly reports were too slow for decision-making.',
+    solution: 'Built a comprehensive Metabase instance with interconnected dashboards, time-series charts, geographic heatmaps, drill-down tables, KPI cards, automated refresh, and role-based access.',
     impact: [
-      'Delivered interactive self-service analytics platform to 50+ stakeholders',
-      'Reduced report generation time from 1 week to real-time queries',
+      'Delivered an interactive self-service analytics platform to 50+ stakeholders',
+      'Reduced report generation time from one week to real-time queries',
       'Enabled drill-down exploration from high-level KPIs to transaction details',
       'Built geographic visualizations revealing regional performance patterns',
-      'Implemented row-level security ensuring users see only relevant data',
-      'Increased data literacy across organization through intuitive interface'
+      'Implemented row-level security for role-based access',
+      'Increased data literacy across the organization through an intuitive interface'
     ],
     technologies: ['Metabase', 'SQL', 'Data Visualization', 'BI Tools', 'Database Integration'],
     timeline: 'Spring 2026',
@@ -136,20 +135,20 @@ export const projects: Project[] = [
     subtitle: 'Multi-format data extraction pipeline for ML training',
     image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=75',
     tags: ['Python', 'Docker', 'Web Scraping', 'Data Engineering'],
-    overview: 'Developed a comprehensive web scraping system at Byblos Bank AI Lab to extract external data from multiple sources for machine learning training, with focus on organizing Lebanese events, holidays, and news for business intelligence applications.',
-    challenge: 'Needed to collect and organize diverse external data from various website formats (HTML, APIs, dynamic content) to enrich ML models with real-world context for events happening in Lebanon, national holidays, road closures, and relevant news.',
-    solution: 'Developed a Python-based scraping system capable of handling multiple website formats including static HTML pages, RESTful APIs, and dynamic content. Implemented intelligent crawling logic to navigate through website structures and extract all relevant information. Built containerized deployment using Docker for the first time, ensuring consistent execution across environments.',
+    overview: "Developed a comprehensive web scraping system at Byblos Bank AI Lab to extract external data from multiple sources for machine learning training, with a focus on Lebanese events, holidays, and news.",
+    challenge: 'Needed to collect and organize diverse external data from multiple website formats to enrich ML models with real-world context.',
+    solution: 'Developed a Python-based scraping system capable of handling static HTML pages, REST APIs, and dynamic content. Built intelligent crawling logic and containerized the workflow with Docker.',
     impact: [
       'Successfully extracted and organized data from multiple diverse sources',
-      'Built flexible scraper handling HTML, API, and dynamic content formats',
-      'Containerized application using Docker — first hands-on containerization experience',
+      'Built a flexible scraper handling HTML, API, and dynamic content formats',
+      'Containerized the application using Docker',
       'Created reusable extraction pipelines for ongoing data collection needs',
       'Enriched ML training data with contextual external information',
-      'Established foundation for production-grade data engineering practices'
+      'Established a foundation for production-grade data engineering practices'
     ],
     technologies: ['Python', 'BeautifulSoup', 'Selenium', 'Requests', 'Docker', 'JSON', 'APIs'],
     timeline: 'Winter 2026',
-    role: 'AI Lab Intern — Byblos Bank'
+    role: 'AI Lab Intern - Byblos Bank'
   },
   {
     id: 'database-backup',
@@ -158,18 +157,18 @@ export const projects: Project[] = [
     subtitle: 'Cloud-based data security and recovery solution',
     image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=75',
     tags: ['Backend', 'Automation', 'Cloud', 'Python'],
-    overview: 'Engineered an automated system to ensure data integrity and availability for DigitalCircle\'s POS system through scheduled backups and cloud storage integration.',
-    challenge: 'Manual database backups were inconsistent and prone to human error, risking data loss and business continuity for a growing startup.',
-    solution: 'Developed an automated backup pipeline that schedules daily database exports from the POS system, securely transfers backups to Google Drive using API integration, implements versioning and retention policies, and provides a notification system for backup status.',
+    overview: "Engineered an automated system to ensure data integrity and availability for DigitalCircle's POS system through scheduled backups and cloud storage integration.",
+    challenge: 'Manual database backups were inconsistent and prone to human error, risking data loss and business continuity.',
+    solution: 'Developed an automated backup pipeline that schedules daily database exports, securely transfers backups to Google Drive, implements versioning and retention policies, and reports backup status.',
     impact: [
-      'Achieved 100% backup consistency — zero missed daily backups',
+      'Achieved 100% backup consistency with zero missed daily backups',
       'Ensured high data availability with up-to-date recovery points',
       'Eliminated daily manual backup tasks entirely',
       'Enhanced business continuity planning for the startup'
     ],
     technologies: ['Python', 'Google Drive API', 'Linux Cron Jobs', 'Shell Scripting'],
     timeline: 'Summer 2024',
-    role: 'Backend Developer Intern — DigitalCircle'
+    role: 'Backend Developer Intern - DigitalCircle'
   },
   {
     id: 'sound-tracking',
@@ -179,56 +178,55 @@ export const projects: Project[] = [
     image: 'https://images.unsplash.com/photo-1553406830-ef2513450d76?auto=format&fit=crop&w=800&q=75',
     tags: ['C++', 'Arduino', 'Embedded', 'Signal Processing'],
     overview: 'Academic project developing an intelligent system to identify and track sound sources using a 7-microphone array and servo motor-driven positioning.',
-    challenge: 'Integrating multiple audio inputs with mechanical movement to accurately determine sound source direction in real-time with minimal latency.',
-    solution: 'Developed signal processing algorithms to analyze audio amplitude differences across the microphone array, implemented triangulation logic to calculate sound source direction, and created motor control protocols for precise servo positioning using low-level C++.',
+    challenge: 'Integrating multiple audio inputs with mechanical movement to accurately determine sound source direction in real time with minimal latency.',
+    solution: 'Developed signal processing algorithms to analyze audio amplitude differences across the microphone array, implemented triangulation logic to calculate direction, and created motor control protocols for precise servo positioning.',
     impact: [
       'Successfully detected and tracked sound sources with high accuracy',
       'Achieved real-time performance with minimal latency',
       'Demonstrated practical application of signal processing and embedded concepts',
-      'Full hardware-software integration from scratch using low-level C++'
+      'Completed full hardware-software integration from scratch using low-level C++'
     ],
     technologies: ['Arduino', 'C++', 'Signal Processing', 'Motor Control', 'Sensor Arrays'],
     timeline: 'Spring 2025',
-    role: 'Academic Project — USJ'
+    role: 'Academic Project - USJ'
   },
   {
     id: 'atm-live-dashboard',
     category: 'Data Engineering',
     title: 'ATM Live Status Dashboard',
-    subtitle: 'Real-time data integration dashboard tracking inactive and error-state ATMs across a bank\'s full network',
+    subtitle: "Real-time data integration dashboard tracking inactive and error-state ATMs across a bank's full network",
     image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=75',
     tags: ['SQL', 'Data Integration', 'Dashboard', 'Banking'],
-    overview: 'As part of my internship at Byblos Bank\'s AI Lab, I built a live data integration layer and operational dashboard that gives the bank\'s operations team real-time visibility into the status of every ATM in the network. The dashboard flags machines that are currently inactive or in an error state, enabling the team to respond immediately rather than discovering problems after customer complaints.',
-    challenge: 'The bank had no centralized, live view of ATM health across its network. Status checks were manual and reactive — teams only learned of failures after the fact, resulting in extended customer-facing downtime, lost transactions, and unnecessary emergency response costs. There was no system to distinguish between machines with recoverable errors versus those fully offline.',
-    solution: 'Gained direct access to the bank\'s database and designed and wrote SQL queries to extract, filter, and aggregate real-time ATM status data. The queries classified each machine by operational state — active, inactive, or error — and surfaced the relevant details for each incident. These results were integrated into a live dashboard that auto-refreshes, giving the operations team an always-current network view without any manual intervention. This work was closely tied to the broader ATM ML prediction pipeline I also developed at the bank, where similar data was used to train predictive maintenance models.',
+    overview: "Built a live data integration layer and operational dashboard that gives the bank's operations team real-time visibility into the status of every ATM in the network.",
+    challenge: 'The bank had no centralized live view of ATM health across its network. Status checks were manual and reactive, resulting in extended downtime and slower incident response.',
+    solution: 'Designed and wrote SQL queries to extract, filter, and aggregate real-time ATM status data, classify machine states, and surface incidents through a live auto-refreshing dashboard.',
     impact: [
       'Delivered a live dashboard providing real-time status across the full ATM network',
-      'Eliminated manual status checks — the team now has a single always-current source of truth',
+      'Eliminated manual status checks with a single always-current source of truth',
       'Enabled immediate incident response by surfacing inactive and error-state machines as they occur',
       'Distinguished between error types, helping operations teams prioritize and triage effectively',
       'Directly complemented the ATM Failure Prediction ML system by validating real failure patterns'
     ],
     technologies: ['SQL', 'SQL Server', 'Data Integration', 'Dashboard Tools', 'Python'],
-    timeline: 'Winter 2026 – Present',
-    role: 'AI Lab Intern — Byblos Bank'
+    timeline: 'Winter 2026 - Present',
+    role: 'AI Lab Intern - Byblos Bank'
   },
   {
     id: 'email-agent',
     category: 'Automation',
     title: 'Personalized Internship Email Agent',
-    subtitle: 'Python automation agent that sent 30 personalized applications — each with a tailored email body and CV attached — in one run',
+    subtitle: 'Python automation agent that sent 30 personalized applications in one run',
     image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=75',
     tags: ['Python', 'SMTP', 'Automation', 'Email'],
-    overview: 'When my university provided a directory of companies for summer 2026 internship applications, I immediately saw a problem: sending a meaningful, personalized application to each one manually was not feasible at scale. So I built a Python email automation agent from scratch that handled the entire outreach pipeline — reading company data, generating personalized email bodies, attaching my CV, and dispatching everything via Gmail SMTP — with zero manual effort per email.',
-    challenge: 'The university sent a structured list of 33+ companies across diverse industries (banking, AI, consulting, engineering, logistics, media). A generic mass email would be immediately dismissible. But manually writing a personalized email for each company — referencing the right supervisor, their industry, and my relevant experience — would take hours and introduce inconsistency. I needed a system that could do both: be fast and be personal.',
-    solution: 'Built a full Python automation pipeline with three core components: (1) a data layer that reads company targets from an Excel sheet and cross-references a JSON file containing each company\'s supervisor name, position, and email address; (2) a dynamic email generator that personalizes each message with the correct greeting (e.g. "Dear Ms. Nahla Najjar,"), references the specific company by name, and highlights my current role at Byblos Bank AI Lab as a credibility signal; and (3) an SMTP dispatcher using Gmail App Passwords that sends each email with my CV attached as a PDF, with a 5-second delay between sends to avoid spam detection. A companion preview script let me verify any email before the batch ran. All results were logged to JSON files (sent and failed separately) with timestamps for full traceability.',
+    overview: 'Built a Python email automation agent from scratch to handle the entire internship outreach pipeline, from reading company data to generating personalized messages and attaching a CV.',
+    challenge: 'The university sent a structured list of 33+ companies across diverse industries. Manually writing personalized applications for each one would have been slow and inconsistent.',
+    solution: 'Built a pipeline with a data layer for targets and contact info, a personalized email generator, and an SMTP dispatcher using Gmail App Passwords. Added preview tooling and JSON audit logging.',
     impact: [
       '30 emails sent successfully in a single automated run on February 3, 2026',
-      'Companies targeted included Dar Al-Handasah, BLOM Bank, KPMG, InMind.ai, CMA CGM, BishopByte, and 24 others',
       'Each email addressed the correct supervisor by name and referenced the company specifically',
-      'CV attached automatically to every email — zero manual steps after setup',
-      'Full audit trail: JSON logs captured timestamp, company, email, and status for every send',
-      'Only 3 emails failed due to server-side connection issues — 91% delivery success rate'
+      'Attached the CV automatically to every email',
+      'Captured a full audit trail with timestamps, company, email, and status',
+      'Reached a 91% delivery success rate'
     ],
     technologies: ['Python', 'smtplib', 'SMTP / Gmail API', 'pandas', 'openpyxl', 'JSON', 'MIMEMultipart'],
     timeline: 'February 2026',
@@ -237,53 +235,53 @@ export const projects: Project[] = [
   {
     id: 'digitalcircle-web-portfolio',
     category: 'Development',
-    title: 'Client Website Portfolio — DigitalCircle',
+    title: 'Client Website Portfolio - DigitalCircle',
     subtitle: '6 production websites built with WordPress & Elementor across diverse industries',
     image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=800&q=75',
     tags: ['WordPress', 'Elementor', 'UI/UX', 'Frontend'],
-    overview: 'During my internship at DigitalCircle, I independently designed and developed 6 production client websites using WordPress and Elementor across a range of industries — from FMCG manufacturing and wood furniture e-commerce to NGOs, medical spas, interior design, and local business marketing. Each site was built from client consultation through to launch, with a focus on responsive design, brand accuracy, and fast turnaround.',
-    challenge: 'Each client came from a completely different industry with distinct audiences, branding needs, and functional requirements. The challenge was delivering polished, professional results efficiently — adapting layouts, content hierarchy, and UX patterns to fit each context — while maintaining quality across all projects simultaneously.',
-    solution: 'Handled each project end-to-end: gathering requirements, designing custom layouts in Elementor, structuring content, and ensuring full mobile/desktop responsiveness. Developed a reusable workflow that let me move fast without sacrificing quality. The six sites span juice manufacturing (junetlb.com), wood furniture e-commerce (woodies.design), bespoke interior woodworking (boisdesign.me), an NGO research network under the Norwegian Refugee Council (camealeon.org), a regional business marketing platform for the Zahle area (bzahle.com), and a luxury medical spa in Connecticut, USA (dvinemedspa.com) — each built from brief to launch with full mobile and desktop responsiveness.',
+    overview: 'During my internship at DigitalCircle, I independently designed and developed 6 production client websites using WordPress and Elementor across a range of industries.',
+    challenge: 'Each client had different audiences, branding needs, and functional requirements. The challenge was delivering polished results efficiently while adapting the UX to each context.',
+    solution: 'Handled each project end-to-end: gathering requirements, designing custom layouts in Elementor, structuring content, and ensuring full mobile and desktop responsiveness.',
     impact: [
       'Delivered 6 live, production-ready websites across 6 different industries',
-      'Built junetlb.com entirely solo — from requirements to launch',
+      'Built junetlb.com entirely solo from requirements to launch',
       'Resolved over 90% of front-end bugs within 48 hours across all client sites',
       'Handled projects for clients in Lebanon and the United States',
       'Delivered pixel-perfect, fully responsive designs for both phone and desktop'
     ],
     technologies: ['WordPress', 'Elementor', 'HTML', 'CSS', 'JavaScript', 'WooCommerce'],
     timeline: 'Summer 2023 & 2024',
-    role: 'Frontend Developer Intern — DigitalCircle',
+    role: 'Frontend Developer Intern - DigitalCircle',
     websiteLinks: [
-      { label: 'junetlb.com',      url: 'https://junetlb.com' },
-      { label: 'woodies.design',   url: 'https://woodies.design' },
-      { label: 'boisdesign.me',    url: 'https://boisdesign.me' },
-      { label: 'camealeon.org',    url: 'https://camealeon.org' },
-      { label: 'bzahle.com',       url: 'https://bzahle.com' },
-      { label: 'dvinemedspa.com',  url: 'https://dvinemedspa.com' },
+      { label: 'junetlb.com', url: 'https://junetlb.com' },
+      { label: 'woodies.design', url: 'https://woodies.design' },
+      { label: 'boisdesign.me', url: 'https://boisdesign.me' },
+      { label: 'camealeon.org', url: 'https://camealeon.org' },
+      { label: 'bzahle.com', url: 'https://bzahle.com' },
+      { label: 'dvinemedspa.com', url: 'https://dvinemedspa.com' }
     ]
   },
   {
     id: 'maria-badari',
     category: 'Full-Stack',
-    title: 'Maria Badari — Bridal Haute Couture Web App',
+    title: 'Maria Badari - Bridal Haute Couture Web App',
     subtitle: 'Multidisciplinary full-stack web platform for a bridal atelier with AI dress customization, live chat, and rental management',
     image: 'https://images.unsplash.com/photo-1594552072238-5c4a26f10bce?auto=format&fit=crop&w=800&q=75',
     tags: ['Full-Stack', 'AI', 'Web App', 'Team Project'],
-    overview: 'A multidisciplinary academic project developed with a team of classmates at USJ, building a complete web application for Maria Badari — a bridal haute couture atelier. The platform goes far beyond a showcase website: it lets brides browse the dress collection, request rentals, get AI-guided customization recommendations, chat live with the owner, and gives the atelier full dynamic administrative control over every aspect of the platform.',
-    challenge: 'A traditional bridal atelier website is static and passive — it shows dresses but forces all client interaction offline. The real challenge was digitizing the full client journey for a luxury fashion context: making it easy for brides to explore gowns and request rentals, giving them a personalized experience through AI guidance, enabling direct real-time communication with the owner, and empowering the atelier to manage its catalog and incoming requests without any technical knowledge.',
-    solution: 'Built a feature-complete web application covering the full client and admin experience. Key modules included: a dress browsing gallery with filtering and detail views; a rental request system where clients submit rental inquiries directly through the platform; an AI-guided customization feature that helps brides explore style options and get personalized dress suggestions based on their preferences; a live chat system connecting clients directly with the atelier owner in real time; and a dynamic admin panel giving the owner full control over the dress catalog, rental requests, user messages, and site content — all without touching code.',
+    overview: 'A multidisciplinary academic project developed with classmates at USJ, building a complete web application for Maria Badari, a bridal haute couture atelier.',
+    challenge: 'The challenge was digitizing the full client journey for a luxury fashion context while preserving personalization and giving the atelier owner control without technical overhead.',
+    solution: 'Built a feature-complete web application with a dress browsing gallery, rental requests, AI-guided customization, live chat, and a dynamic admin panel for the atelier owner.',
     impact: [
       'Delivered a production-ready full-stack web app covering the complete bridal client journey',
-      'Integrated AI-guided customization — brides can explore and personalize dress options interactively',
-      'Built a live chat system enabling real-time owner-client communication directly on the platform',
-      'Rental request management system replaced all manual/offline booking with a structured digital flow',
-      'Dynamic admin panel empowers the atelier owner to manage everything independently',
-      'Live at: mariabadari.com'
+      'Integrated AI-guided customization for dress exploration and personalization',
+      'Built a live chat system enabling real-time owner-client communication',
+      'Replaced manual rental booking with a structured digital flow',
+      'Empowered the atelier owner to manage everything independently',
+      'Launched at mariabadari.com'
     ],
     technologies: ['Full-Stack Web', 'AI / Recommendation System', 'Live Chat', 'Admin Dashboard', 'Database'],
     timeline: 'Spring 2026',
-    role: 'Full-Stack Developer — Academic Team Project, USJ',
+    role: 'Full-Stack Developer - Academic Team Project, USJ',
     liveUrl: 'https://www.mariabadari.com'
   },
   {
@@ -293,14 +291,14 @@ export const projects: Project[] = [
     subtitle: 'Enterprise network design and implementation',
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=75',
     tags: ['Networking', 'Cisco', 'CCNA', 'Infrastructure'],
-    overview: 'Comprehensive networking knowledge gained through Cisco CCNA certification program, covering fundamental to intermediate networking concepts and practical configurations.',
+    overview: 'Comprehensive networking knowledge gained through the Cisco CCNA certification program, covering fundamental to intermediate networking concepts and practical configurations.',
     challenge: 'Mastering complex networking concepts and practical configuration skills required for enterprise network deployment.',
-    solution: 'Completed CCNA 1 (Introduction to Networking) covering OSI/TCP-IP models, IP addressing, subnetting, and basic router/switch configuration. Completed CCNA 2 (Routing & Switching Essentials) covering static/dynamic routing, VLAN configuration, inter-VLAN routing, and network security.',
+    solution: 'Completed CCNA 1 covering OSI/TCP-IP models, IP addressing, subnetting, and basic router/switch configuration, then CCNA 2 covering routing, VLANs, inter-VLAN routing, and network security.',
     impact: [
-      'Cisco CCNA 1 certified — Introduction to Networking',
-      'Cisco CCNA 2 certified — Routing & Switching Essentials',
+      'Cisco CCNA 1 certified - Introduction to Networking',
+      'Cisco CCNA 2 certified - Routing & Switching Essentials',
       'Acquired hands-on experience with router and switch configuration',
-      'Built foundation for enterprise networking and infrastructure roles'
+      'Built a foundation for enterprise networking and infrastructure roles'
     ],
     technologies: ['Cisco Routers', 'Cisco Switches', 'Packet Tracer', 'Network Protocols'],
     timeline: 'Completed',
