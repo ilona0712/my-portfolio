@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router';
 import { projects } from '../data/projects';
+import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 
 declare const anime: any;
 
@@ -217,7 +218,7 @@ export function Home() {
                   }}
                 >
                   <div style={{ aspectRatio: '16/9', overflow: 'hidden', background: '#0d1525' }}>
-                    <img
+                    <ImageWithFallback
                       src={project.image}
                       alt={project.title}
                       loading="lazy"
