@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">X-Ray Image Analysis</title>
+  <desc id="desc">Abstract medical imaging interface for an X-ray computer vision project.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07161d" />
+      <stop offset="50%" stop-color="#102833" />
+      <stop offset="100%" stop-color="#09141b" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)" />
+  <g opacity="0.12" stroke="#67e8f9" stroke-width="2">
+    <path d="M80 170H1520" />
+    <path d="M80 730H1520" />
+    <path d="M180 90V810" />
+    <path d="M1420 90V810" />
+  </g>
+  <rect x="170" y="120" width="520" height="660" rx="28" fill="#0a1b24" stroke="#67e8f9" stroke-opacity="0.4" />
+  <g transform="translate(430 450)">
+    <rect x="-170" y="-250" width="340" height="500" rx="22" fill="#0f2530" />
+    <circle cx="0" cy="-110" r="92" fill="#89f0ff" fill-opacity="0.18" />
+    <rect x="-58" y="-16" width="116" height="170" rx="50" fill="#89f0ff" fill-opacity="0.18" />
+    <rect x="-118" y="158" width="236" height="40" rx="18" fill="#89f0ff" fill-opacity="0.12" />
+    <path d="M-66-70C-98-38-108 6-108 58c0 30 14 74 48 110M66-70C98-38 108 6 108 58c0 30-14 74-48 110" fill="none" stroke="#baf6ff" stroke-opacity="0.7" stroke-width="10" stroke-linecap="round" />
+  </g>
+  <g>
+    <rect x="790" y="150" width="650" height="600" rx="28" fill="#09141b" stroke="#67e8f9" stroke-opacity="0.3" />
+    <text x="860" y="250" fill="#ecfeff" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700">X-Ray Computer Vision</text>
+    <text x="860" y="308" fill="#a5f3fc" font-family="Arial, Helvetica, sans-serif" font-size="30">Automated classification and anomaly detection</text>
+    <g fill="#cffafe" font-family="Courier New, monospace" font-size="25">
+      <text x="860" y="410">CNN classification pipeline</text>
+      <text x="860" y="456">Grad-CAM explainability views</text>
+      <text x="860" y="502">Medical imaging evaluation metrics</text>
+    </g>
+    <g transform="translate(1110 570)">
+      <rect x="-190" y="-90" width="380" height="160" rx="20" fill="#0f2530" />
+      <rect x="-155" y="-48" width="88" height="76" rx="12" fill="#164e63" />
+      <rect x="-36" y="-48" width="88" height="76" rx="12" fill="#0e7490" />
+      <rect x="83" y="-48" width="72" height="76" rx="12" fill="#155e75" />
+      <path d="M-123 16l34-38 31 22 38-50 54 70" fill="none" stroke="#67e8f9" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+  </g>
+</svg>

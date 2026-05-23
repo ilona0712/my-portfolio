@@ -13,6 +13,7 @@ export interface Project {
   timeline: string;
   role?: string;
   liveUrl?: string;
+  github?: string;
   websiteLinks?: { label: string; url: string }[];
 }
 
@@ -40,29 +41,26 @@ export const projects: Project[] = [
     role: 'Frontend Developer — Code for Lebanon x USJ Hackathon'
   },
   {
-    id: 'atm-ml-prediction',
-    category: 'Machine Learning',
-    title: 'ATM Failure Prediction System',
-    subtitle: 'Production ML pipeline for predictive maintenance of 130+ Lebanese ATMs',
-    image: '/project-images/atm-failure-prediction.svg',
-    tags: ['Machine Learning', 'Python', 'SQL', 'Docker', 'XGBoost'],
-    overview: 'Built a production-grade ML system for Byblos Bank that predicts ATM failures 24 hours in advance. The system moved the bank from reactive (fixing failures after customers complain) to proactive (fixing before anyone knows). Fully containerized with automated daily predictions, real-time monitoring, and SHAP interpretability.',
-    challenge: 'ATM downtime costs the bank immediately: lost transactions, customer frustration, emergency technician dispatch, and reputational damage. The bank\'s maintenance teams were reactive — they only learned about failures when customers reported them or alarms fired. Needed a way to predict which ATMs would fail in the next 24 hours so technicians could fix them before customers were affected.',
-    solution: 'Engineered a complete ML pipeline: (1) advanced feature engineering with 249 features including component states, error patterns, temporal features, rolling windows, and trend analysis; (2) multi-model training (Random Forest, XGBoost v2.2, LightGBM) with automated model selection; (3) isotonic probability calibration to match bank\'s operational economics; (4) daily Docker containerization with cron scheduling; (5) monitoring layer that tracks model accuracy daily and triggers alerts on drift; (6) correlated-failure detector to surface fleet-wide infrastructure events separately from individual ATM failures. Six iterative engineering fixes resolved real production issues: unknown-branch backfill, threshold tuning, temporal features, weekend handling, infrastructure event detection, and probability calibration.',
-    impact: [
-      'Operational ML system running daily in production (v2.2, 249 features, PR-AUC 0.85)',
-      'Predicts ATM failures 24 hours in advance with 81% average recall across weekdays and weekends',
-      'Transformed reactive maintenance: technicians now visit ATMs proactively with a daily ranked watchlist',
-      'Risk tiers (Critical/High/Medium/Low) calibrated to bank\'s cost ratio (3:1 false-negative:false-positive)',
-      'Correlated-failure detector catches fleet-wide infrastructure events and routes them to network team vs. individual dispatch',
-      'Complete daily monitoring layer: compares predictions to actuals, tracks PR-AUC and recall, auto-detects model drift',
-      'Fully containerized: one-command deployment with Docker + cron scheduling',
-      'SHAP interpretability: maintenance teams see exactly why each ATM is flagged as high-risk'
-    ],
-    technologies: ['Python', 'SQL Server', 'Pandas', 'XGBoost', 'Scikit-learn', 'LightGBM', 'SHAP', 'Docker', 'NumPy', 'joblib'],
-    timeline: 'Winter 2026 – May 2026',
-    role: 'AI Lab Engineer — Bank Byblos (Handoff Report v1.0)',
-    liveUrl: 'https://github.com/ilona0712/ATM-Failure-Prediction'
+  id: 'atm-ml-prediction',
+  category: 'Machine Learning',
+  title: 'ATM Failure Prediction System',
+  subtitle: 'Production ML pipeline for predictive maintenance of 130+ Lebanese ATMs',
+  image: 'https://images.unsplash.com/photo-1591453089816-0fbb971b454c?w=500&h=300&fit=crop',
+  tags: ['Machine Learning', 'Python', 'XGBoost', 'SQL', 'Docker'],
+  overview: 'End-to-end ML system that predicts ATM failures 24 hours in advance, enabling proactive maintenance and preventing customer-facing downtime.',
+  challenge: 'ATM maintenance was reactive - only discovering failures through customer complaints. Need to predict failures before they occur.',
+  solution: 'Engineered 249 features from operational data. Trained XGBoost ensemble model with isotonic calibration. Daily predictions + monitoring system.',
+  impact: [
+    '85 PR-AUC on validation set',
+    'Transformed maintenance from reactive to proactive',
+    'Automated daily 24-hour ahead predictions for 130 ATMs',
+    'Infrastructure event detection prevents fleet-wide false alarms'
+  ],
+  technologies: ['Python', 'SQL Server', 'Pandas', 'XGBoost', 'Scikit-learn', 'LightGBM', 'SHAP', 'Docker', 'NumPy', 'joblib'],
+  timeline: 'Winter 2026 – May 2026',
+  role: 'AI Lab Engineer — Bank Byblos (Handoff Report v1.0)',
+  liveUrl: 'https://github.com/ilona0712/ATM-Failure-Prediction', // ← ADD THIS LINE!
+  github: 'https://github.com/ilona0712/ATM-Failure-Prediction'  // ← Also add this
   },
   {
     id: 'xray-computer-vision',
