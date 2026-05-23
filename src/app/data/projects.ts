@@ -266,7 +266,7 @@ export const projects: Project[] = [
     category: 'Full-Stack',
     title: 'Maria Badari - Bridal Haute Couture Web App',
     subtitle: 'Multidisciplinary full-stack web platform for a bridal atelier with AI dress customization, live chat, and rental management',
-    image: 'bridemeupjpg',
+    image: '/project-images/bridemeup.jpg',
     tags: ['Full-Stack', 'AI', 'Web App', 'Team Project'],
     overview: 'A multidisciplinary academic project developed with classmates at USJ, building a complete web application for Maria Badari, a bridal haute couture atelier.',
     challenge: 'The challenge was digitizing the full client journey for a luxury fashion context while preserving personalization and giving the atelier owner control without technical overhead.',
