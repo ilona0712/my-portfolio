@@ -221,7 +221,7 @@ export function ProjectDetail() {
 
           {project.certificateUrl && (
             <div style={{ marginBottom: 40, opacity: 0 }} className="detail-body">
-              <div className="section-label">Certificate</div>
+              <div className="section-label">Project View</div>
               <a
                 href={project.certificateUrl}
                 target="_blank"
@@ -250,7 +250,7 @@ export function ProjectDetail() {
                   (e.currentTarget as HTMLAnchorElement).style.boxShadow = 'none';
                 }}
               >
-                &#128196; View Certificate
+                View Dashboard
               </a>
             </div>
           )}
