@@ -104,7 +104,8 @@ export const projects: Project[] = [
     ],
     technologies: ['Python', 'Gmail API', 'OAuth 2.0', 'Email Processing', 'Configuration Management'],
     timeline: 'May 2026',
-    role: 'Automation Engineer'
+    role: 'Automation Engineer',
+    github:'https://github.com/ilona0712/gmail-cleanup-tool'
   },
   {
     id: 'metabase-dashboard',
@@ -148,7 +149,8 @@ export const projects: Project[] = [
     ],
     technologies: ['Python', 'BeautifulSoup', 'Selenium', 'Requests', 'Docker', 'JSON', 'APIs'],
     timeline: 'Winter 2026',
-    role: 'AI Lab Intern - Byblos Bank'
+    role: 'AI Lab Intern - Byblos Bank',
+    girhub:'https://github.com/ilona0712/lebanon-events-scraper'
   },
   {
     id: 'database-backup',
@@ -230,7 +232,8 @@ export const projects: Project[] = [
     ],
     technologies: ['Python', 'smtplib', 'SMTP / Gmail API', 'pandas', 'openpyxl', 'JSON', 'MIMEMultipart'],
     timeline: 'February 2026',
-    role: 'Personal Project'
+    role: 'Personal Project',
+    github:'https://github.com/ilona0712/job-application-emailer'
   },
   {
     id: 'digitalcircle-web-portfolio',
