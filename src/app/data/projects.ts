@@ -106,7 +106,7 @@ export const projects: Project[] = [
     technologies: ['Python', 'Gmail API', 'OAuth 2.0', 'Email Processing', 'Configuration Management'],
     timeline: 'May 2026',
     role: 'Automation Engineer',
-    github: 'https://github.com/ilona0712/gmail-cleanup-tool
+    github: 'https://github.com/ilona0712/gmail-cleanup-tool'
   },
   {
     id: 'metabase-dashboard',
