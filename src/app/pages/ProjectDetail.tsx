@@ -183,6 +183,80 @@ export function ProjectDetail() {
             </div>
           )}
 
+          {/* GitHub Link */}
+          {project.github && (
+            <div style={{ marginBottom: 40, opacity: 0 }} className="detail-body">
+              <div className="section-label">GitHub Repository</div>
+    
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.85rem',
+                  color: neon,
+                  textDecoration: 'none',
+                  border: `1px solid ${neon}44`,
+                  borderRadius: 2,
+                  padding: '10px 20px',
+                  background: `${neon}08`,
+                  letterSpacing: '0.05em',
+                  transition: 'background 0.2s, box-shadow 0.2s',
+                }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLAnchorElement).style.background = `${neon}18`;
+                  (e.currentTarget as HTMLAnchorElement).style.boxShadow = `0 0 20px ${neon}33`;
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLAnchorElement).style.background = `${neon}08`;
+                  (e.currentTarget as HTMLAnchorElement).style.boxShadow = 'none';
+                }}
+              >
+                ↗ View on GitHub
+              </a>
+            </div>
+          )}
+
+          {/* Certificate PDF */}
+          {project.certificateUrl && (
+            <div style={{ marginBottom: 40, opacity: 0 }} className="detail-body">
+              <div className="section-label">Certificate</div>
+              
+                href={project.certificateUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.85rem',
+                  color: neon,
+                  textDecoration: 'none',
+                  border: `1px solid ${neon}44`,
+                  borderRadius: 2,
+                  padding: '10px 20px',
+                  background: `${neon}08`,
+                  letterSpacing: '0.05em',
+                  transition: 'background 0.2s, box-shadow 0.2s',
+                }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLAnchorElement).style.background = `${neon}18`;
+                  (e.currentTarget as HTMLAnchorElement).style.boxShadow = `0 0 20px ${neon}33`;
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLAnchorElement).style.background = `${neon}08`;
+                  (e.currentTarget as HTMLAnchorElement).style.boxShadow = 'none';
+                }}
+              >
+                📄 View Certificate
+              </a>
+            </div>
+          )}
+
           <div style={{ marginBottom: 40, opacity: 0 }}>
             <div className="section-label">Impact & Results</div>
             <ul style={{ listStyle: 'none' }}>
