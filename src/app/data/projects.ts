@@ -15,6 +15,7 @@ export interface Project {
   liveUrl?: string;
   github?: string;
   websiteLinks?: { label: string; url: string }[];
+  certificateUrl?: string;
 }
 
 export const projects: Project[] = [
@@ -59,7 +60,7 @@ export const projects: Project[] = [
     technologies: ['Python', 'SQL Server', 'Pandas', 'XGBoost', 'Scikit-learn', 'LightGBM', 'SHAP', 'Docker', 'NumPy', 'joblib'],
     timeline: 'Winter 2026 - May 2026',
     role: 'AI Lab Engineer - Bank Byblos',
-    github: 'https://github.com/ilona0712/ATM-Failure-Prediction '
+    github: 'https://github.com/ilona0712/ATM-Failure-Prediction'
   },
   {
     id: 'xray-computer-vision',
@@ -82,7 +83,7 @@ export const projects: Project[] = [
     technologies: ['Python', 'TensorFlow', 'Keras', 'OpenCV', 'NumPy', 'Scikit-learn', 'Matplotlib', 'Pandas'],
     timeline: 'April 2026',
     role: 'Computer Vision Developer',
-    github: 'https://github.com/ilona0712/X-Ray '
+    github: 'https://github.com/ilona0712/X-Ray'
   },
   {
     id: 'gmail-automation',
@@ -105,7 +106,7 @@ export const projects: Project[] = [
     technologies: ['Python', 'Gmail API', 'OAuth 2.0', 'Email Processing', 'Configuration Management'],
     timeline: 'May 2026',
     role: 'Automation Engineer',
-    github: 'https://github.com/ilona0712/gmail-cleanup-tool '
+    github: 'https://github.com/ilona0712/gmail-cleanup-tool
   },
   {
     id: 'metabase-dashboard',
@@ -127,7 +128,8 @@ export const projects: Project[] = [
     ],
     technologies: ['Metabase', 'SQL', 'Data Visualization', 'BI Tools', 'Database Integration'],
     timeline: 'Spring 2026',
-    role: 'Analytics Engineer'
+    role: 'Analytics Engineer',
+    certificateUrl: '/certificates/metabase-dashboard.pdf'
   },
   {
     id: 'web-scraping-ml',
@@ -150,7 +152,7 @@ export const projects: Project[] = [
     technologies: ['Python', 'BeautifulSoup', 'Selenium', 'Requests', 'Docker', 'JSON', 'APIs'],
     timeline: 'Winter 2026',
     role: 'AI Lab Intern - Byblos Bank',
-    girhub: 'https://github.com/ilona0712/lebanon-events-scraper '
+    github: 'https://github.com/ilona0712/lebanon-events-scraper'
   },
   {
     id: 'database-backup',
@@ -233,7 +235,7 @@ export const projects: Project[] = [
     technologies: ['Python', 'smtplib', 'SMTP / Gmail API', 'pandas', 'openpyxl', 'JSON', 'MIMEMultipart'],
     timeline: 'February 2026',
     role: 'Personal Project',
-    github: 'https://github.com/ilona0712/job-application-emailer '
+    github: 'https://github.com/ilona0712/job-application-emailer'
   },
   {
     id: 'digitalcircle-web-portfolio',
