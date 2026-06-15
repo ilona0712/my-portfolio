@@ -29,7 +29,7 @@ export function ProjectDetail() {
       <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1, position: 'relative' }}>
         <div style={{ textAlign: 'center' }}>
           <h2 style={{ fontFamily: 'var(--font-display)', color: '#fff', marginBottom: 16 }}>Project not found</h2>
-          <Link to="/projects" style={{ color: 'var(--neon-cyan)', fontFamily: 'var(--font-mono)' }}>← Back to Projects</Link>
+          <Link to="/projects" style={{ color: 'var(--neon-cyan)', fontFamily: 'var(--font-mono)' }}>&#8592; Back to Projects</Link>
         </div>
       </div>
     );
@@ -81,7 +81,7 @@ export function ProjectDetail() {
       <div className="section-inner" style={{ padding: '48px 18px' }}>
 
         <Link to="/projects" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: neon, textDecoration: 'none', letterSpacing: '0.1em', marginBottom: 40, transition: 'gap 0.2s' }}>
-          ← Back to Projects
+          &#8592; Back to Projects
         </Link>
 
         <div className="detail-meta" style={{ display: 'flex', flexWrap: 'wrap', gap: 20, marginBottom: 48, paddingBottom: 32, borderBottom: '1px solid var(--border)', opacity: 0 }}>
@@ -137,7 +137,7 @@ export function ProjectDetail() {
                   (e.currentTarget as HTMLAnchorElement).style.boxShadow = 'none';
                 }}
               >
-                ↗ {project.liveUrl.replace(/^https?:\/\//, '')}
+                &#8599; {project.liveUrl.replace(/^https?:\/\//, '')}
               </a>
             </div>
           )}
@@ -176,18 +176,17 @@ export function ProjectDetail() {
                       (e.currentTarget as HTMLAnchorElement).style.boxShadow = 'none';
                     }}
                   >
-                    ↗ {site.label}
+                    &#8599; {site.label}
                   </a>
                 ))}
               </div>
             </div>
           )}
 
-          {/* GitHub Link */}
           {project.github && (
             <div style={{ marginBottom: 40, opacity: 0 }} className="detail-body">
               <div className="section-label">GitHub Repository</div>
-    
+              <a
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -215,16 +214,15 @@ export function ProjectDetail() {
                   (e.currentTarget as HTMLAnchorElement).style.boxShadow = 'none';
                 }}
               >
-                ↗ View on GitHub
+                &#8599; View on GitHub
               </a>
             </div>
           )}
 
-          {/* Certificate PDF */}
           {project.certificateUrl && (
             <div style={{ marginBottom: 40, opacity: 0 }} className="detail-body">
               <div className="section-label">Certificate</div>
-              
+              <a
                 href={project.certificateUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -252,17 +250,17 @@ export function ProjectDetail() {
                   (e.currentTarget as HTMLAnchorElement).style.boxShadow = 'none';
                 }}
               >
-                📄 View Certificate
+                &#128196; View Certificate
               </a>
             </div>
           )}
 
           <div style={{ marginBottom: 40, opacity: 0 }}>
-            <div className="section-label">Impact & Results</div>
+            <div className="section-label">Impact &amp; Results</div>
             <ul style={{ listStyle: 'none' }}>
               {project.impact.map((item, i) => (
                 <li key={i} style={{ display: 'flex', gap: 12, marginBottom: 12, fontSize: '0.875rem', color: 'var(--muted)', lineHeight: 1.7 }}>
-                  <span style={{ color: neon, flexShrink: 0, marginTop: 2 }}>✓</span>
+                  <span style={{ color: neon, flexShrink: 0, marginTop: 2 }}>&#10003;</span>
                   {item}
                 </li>
               ))}
@@ -285,7 +283,7 @@ export function ProjectDetail() {
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--muted)', letterSpacing: '0.15em', display: 'block', marginBottom: 8 }}>NEXT PROJECT</span>
           <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 700, color: '#fff', marginBottom: 24 }}>{nextProject.title}</h3>
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-            <button onClick={() => navigate(`/projects/${nextProject.id}`)} className="btn-primary">View Project →</button>
+            <button onClick={() => navigate(`/projects/${nextProject.id}`)} className="btn-primary">View Project &#8594;</button>
             <Link to="/projects" className="btn-ghost">All Projects</Link>
           </div>
         </div>
