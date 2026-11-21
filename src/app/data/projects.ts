@@ -200,7 +200,7 @@ export const projects: Project[] = [
     title: 'ATM Live Status Dashboard',
     subtitle: "Real-time data integration dashboard tracking inactive and error-state ATMs across a bank's full network",
     image: '/project-images/atm-live-dashboard.jpg',
-    tags: ['SQL', 'Data Integration', 'Dashboard', 'Banking'],
+    tags: ['SQL', 'Data Integration', 'Metabase', 'Dashboard', 'Banking'],
     overview: "Built a live data integration layer and operational dashboard that gives the bank's operations team real-time visibility into the status of every ATM in the network.",
     challenge: 'The bank had no centralized live view of ATM health across its network. Status checks were manual and reactive, resulting in extended downtime and slower incident response.',
     solution: 'Designed and wrote SQL queries to extract, filter, and aggregate real-time ATM status data, classify machine states, and surface incidents through a live auto-refreshing dashboard.',
@@ -211,7 +211,7 @@ export const projects: Project[] = [
       'Distinguished between error types, helping operations teams prioritize and triage effectively',
       'Directly complemented the ATM Failure Prediction ML system by validating real failure patterns'
     ],
-    technologies: ['SQL', 'SQL Server', 'Data Integration', 'Dashboard Tools', 'Python'],
+    technologies: ['SQL', 'SQL Server', 'Metabase', 'Data Integration', 'Python'],
     timeline: 'Winter 2026 - Present',
     role: 'AI Lab Intern - Byblos Bank'
   },
@@ -272,7 +272,7 @@ export const projects: Project[] = [
     title: 'Maria Badari - Bridal Haute Couture Web App',
     subtitle: 'Multidisciplinary full-stack web platform for a bridal atelier with AI dress customization, live chat, and rental management',
     image: '/project-images/bridemeup.jpg',
-    tags: ['Full-Stack', 'AI', 'Web App', 'Team Project'],
+    tags: ['Full-Stack', 'React', 'TypeScript', 'Supabase', 'AI', 'Team Project'],
     overview: 'A multidisciplinary academic project developed with classmates at USJ, building a complete web application for Maria Badari, a bridal haute couture atelier.',
     challenge: 'The challenge was digitizing the full client journey for a luxury fashion context while preserving personalization and giving the atelier owner control without technical overhead.',
     solution: 'Built a feature-complete web application with a dress browsing gallery, rental requests, AI-guided customization, live chat, and a dynamic admin panel for the atelier owner.',
@@ -282,9 +282,10 @@ export const projects: Project[] = [
       'Built a live chat system enabling real-time owner-client communication',
       'Replaced manual rental booking with a structured digital flow',
       'Empowered the atelier owner to manage everything independently',
+      'Built by a team of 6 students for the Multidisciplinary Project course at USJ (ESIB)',
       'Launched at mariabadari.com'
     ],
-    technologies: ['Full-Stack Web', 'AI / Recommendation System', 'Live Chat', 'Admin Dashboard', 'Database'],
+    technologies: ['React', 'TypeScript', 'Supabase', 'AI-guided Customization', 'Live Chat', 'Admin Dashboard'],
     timeline: 'Spring 2026',
     role: 'Full-Stack Developer - Academic Team Project, USJ',
     liveUrl: 'https://www.mariabadari.com',

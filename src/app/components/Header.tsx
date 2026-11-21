@@ -302,7 +302,7 @@ export function Header() {
           ))}
           <li>
             <a
-              href="https://linkedin.com/in/ilona-chamoun-808295360"
+              href="https://www.linkedin.com/in/ilona-chamoun"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -383,7 +383,7 @@ export function Header() {
             </Link>
           ))}
           <a
-            href="https://linkedin.com/in/ilona-chamoun-808295360"
+            href="https://www.linkedin.com/in/ilona-chamoun"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}

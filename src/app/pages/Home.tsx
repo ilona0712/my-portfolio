@@ -104,7 +104,7 @@ export function Home() {
           </p>
 
           <div className="hero-tags" style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: 48, opacity: 0 }}>
-            {['Python', 'Machine Learning', 'SQL', 'Next.js', 'TypeScript', 'Automation', 'Docker', 'WordPress'].map(t => (
+            {['Python', 'Machine Learning', 'SQL', 'C# / .NET', 'React', 'Next.js', 'TypeScript', 'Automation', 'Docker', 'WordPress'].map(t => (
               <span key={t} className="tag">{t}</span>
             ))}
           </div>
@@ -122,7 +122,7 @@ export function Home() {
           }}>
             {[
               { value: '4', label: 'Year of Study', count: true },
-              { value: '14', label: 'Projects Built', count: true },
+              { value: String(projects.length), label: 'Projects Built', count: true },
               { value: '2', label: 'Internships',    count: true },
               { value: '2027', label: 'Graduation',  count: false },
             ].map((s, i) => (
@@ -248,7 +248,7 @@ export function Home() {
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem,4vw,3.5rem)', fontWeight: 800, color: '#fff', marginBottom: 16 }}>
             Let's Work <span style={{ color: 'var(--neon-cyan)' }}>Together</span>
           </h2>
-          <p style={{ color: 'var(--muted)', marginBottom: 36, fontSize: '1rem' }}>Available for Summer 2026 internship opportunities</p>
+          <p style={{ color: 'var(--muted)', marginBottom: 36, fontSize: '1rem' }}>Open to a final year project (Jan – May 2027) and junior software engineering roles</p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: 16, flexWrap: 'wrap' }}>
             <Link to="/contact" className="btn-primary">Contact Me →</Link>
             <Link to="/about" className="btn-ghost">Learn More</Link>

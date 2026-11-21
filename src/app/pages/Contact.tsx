@@ -15,14 +15,14 @@ export function Contact() {
 
   const contactLinks = [
     { label: 'Email',    value: 'chamounilona@gmail.com',                        href: 'mailto:chamounilona@gmail.com',                            icon: '✉', color: 'var(--neon-cyan)' },
-    { label: 'LinkedIn', value: 'ilona-chamoun-808295360',                        href: 'https://linkedin.com/in/ilona-chamoun-808295360',          icon: 'in', color: 'var(--neon-blue)' },
+    { label: 'LinkedIn', value: 'linkedin.com/in/ilona-chamoun',                        href: 'https://www.linkedin.com/in/ilona-chamoun',          icon: 'in', color: 'var(--neon-blue)' },
     { label: 'GitHub',   value: 'github.com/ilona0712',                          href: 'https://github.com/ilona0712',                            icon: 'gh', color: 'var(--neon-green)' },
     { label: 'Phone',    value: '+961 70 735 745',                               href: 'tel:+96170735745',                                         icon: '☎', color: 'var(--neon-pink)' },
   ];
 
   const availability = [
-    { title: 'Software Engineering Internship', detail: 'Summer 2026',  color: 'var(--neon-cyan)' },
-    { title: 'ML / Data Engineering Roles',     detail: 'Summer 2026',  color: 'var(--neon-green)' },
+    { title: 'Final Year Project (Software Engineering)', detail: 'Jan – May 2027', color: 'var(--neon-cyan)' },
+    { title: 'Junior Software / Full-Stack / .NET Roles', detail: '2027', color: 'var(--neon-green)' },
     { title: 'Backend Development Projects',    detail: 'Open',         color: 'var(--neon-blue)' },
     { title: 'Collaboration & Networking',      detail: 'Always',       color: 'var(--neon-pink)' },
   ];
@@ -38,7 +38,7 @@ export function Contact() {
             Get in<br /><span style={{ color: 'var(--neon-cyan)' }}>Touch</span><span style={{ color: 'var(--neon-pink)' }}>.</span>
           </h1>
           <p className="contact-sub" style={{ fontSize: '1rem', color: 'var(--muted)', maxWidth: 500, lineHeight: 1.7, opacity: 0 }}>
-            Available for Summer 2026 internship opportunities. I respond to emails within 24 hours.
+            Open to a final year project (Jan – May 2027) and junior software engineering roles. I respond to emails within 24 hours.
           </p>
         </div>
       </div>
