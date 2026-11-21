@@ -140,9 +140,9 @@ export function About() {
     color: 'var(--neon-green)',
   },
   {
-    label: '42 Beirut Piscine - Selected for the Core Curriculum',
-    file: undefined as string | undefined,
-    date: '2026',
+    label: '42 Beirut Piscine - Certificate of Participation and Endurance',
+    file: '/certificates/42-piscine.pdf' as string | undefined,
+    date: 'Aug 21, 2026',
     color: 'var(--neon-cyan)',
   },
 ];
@@ -207,13 +207,9 @@ export function About() {
             </div>
             <div className="about-block" style={{ opacity: 0 }}>
               <div className="section-label" style={{ marginBottom: 20 }}>My Journey</div>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text)', lineHeight: 1.8, fontFamily: 'var(--font-body)', marginBottom: 14 }}>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text)', lineHeight: 1.8, fontFamily: 'var(--font-body)' }}>
                 My path into software engineering began with a fascination for how systems work beneath the surface.
                 This curiosity led me to explore everything from low-level embedded systems to high-level backend architecture.
-              </p>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text)', lineHeight: 1.8, fontFamily: 'var(--font-body)' }}>
-                During my internships at DigitalCircle in 2023 and 2024, I gained invaluable real-world experience
-                learning to optimize for performance, ensure data integrity, and deliver solutions that impact business operations.
               </p>
             </div>
           </div>
