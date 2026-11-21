@@ -17,6 +17,7 @@ export function About() {
       { name: 'Python',       level: 'Primary language — ML, automation, backend scripting, SMTP, web scraping' },
       { name: 'SQL',          level: 'Advanced queries, window functions, CTEs, lag calculations, data integration' },
       { name: 'Java',         level: 'Design Patterns, OOP, Backend Development' },
+      { name: 'C#',           level: '.NET Framework to modern .NET migration, enterprise backend development' },
       { name: 'C++',          level: 'Low-level programming, Pointers, Inheritance, Embedded Systems' },
       { name: 'TypeScript',   level: 'Full-stack development with Next.js and React' },
       { name: 'JavaScript',   level: 'Frontend interactivity, React components, DOM manipulation' },
@@ -24,7 +25,7 @@ export function About() {
     ],
     'Machine Learning & AI': [
       'End-to-end ML pipeline design and deployment',
-      'Feature Engineering (136+ features, rolling patterns, lag calculations)',
+      'Feature Engineering (249 features, rolling patterns, lag calculations)',
       'Model Training & Selection — Random Forest, XGBoost, LightGBM',
       'Time-Series Analysis and Predictive Maintenance',
       'Model Interpretability with SHAP',
@@ -33,6 +34,7 @@ export function About() {
     ],
     'Data Engineering': [
       'Real-time data integration and live dashboard design',
+      'Metabase — live operational analytics dashboards',
       'Database access and SQL-based status monitoring',
       'Web scraping — static HTML, REST APIs, dynamic content (Selenium)',
       'Data extraction pipelines for ML training',
@@ -44,11 +46,14 @@ export function About() {
       'Email automation — SMTP, MIMEMultipart, Gmail App Passwords',
       'Process automation with pandas + openpyxl pipelines',
       'REST API design and integration',
+      'SOAP and REST integration — IBM Integration Bus, Temenos T24 / GLOBUS, OAuth2',
+      'Legacy application modernization — .NET Framework to modern .NET, SQL Server query optimization',
       'Linux Cron Jobs and Shell Scripting',
       'Google Drive API integration',
     ],
     'Full-Stack & Web': [
       'Next.js, React, TypeScript — national-scale dashboards',
+      'React, TypeScript and Supabase — Maria Badari bridal platform',
       'Tailwind CSS, Recharts — data visualization',
       'WordPress & Elementor — 6 production client websites',
       'WooCommerce — e-commerce implementation',
@@ -72,10 +77,35 @@ export function About() {
     ],
   };
 
+  const impact = [
+    { org: 'Byblos Bank', text: 'Built an ML model that moved 130+ ATMs from reactive to predictive maintenance, reducing unplanned downtime.' },
+    { org: 'Byblos Bank', text: 'Drove the modernization of a legacy application, migrating it from .NET Framework to the latest .NET across C#, SQL Server and backend infrastructure.' },
+    { org: 'DigitalCircle', text: 'Accelerated transaction processing by 20% and automated critical database infrastructure, alongside web development.' },
+  ];
+
+  const experiences = [
+    {
+      role: '.NET Developer Intern at Byblos Bank',
+      period: 'Summer 2026',
+      paragraphs: [
+        'Took ownership of a legacy enterprise application and led its migration from .NET Framework to modern .NET while keeping production stable, working across C#, SQL Server and backend services.',
+        'Reviewed database schemas, optimized queries, worked with infrastructure teams on server environments and deployment pipelines, and documented migration steps and architectural decisions.',
+      ],
+    },
+    {
+      role: 'AI Lab Intern at Byblos Bank',
+      period: 'Jan 2026 — Summer 2026',
+      paragraphs: [
+        'Worked in the AI Lab at Byblos Bank on machine learning and data engineering. This role introduced me to Docker for the first time and challenged me to build production-ready ML systems.',
+        'Projects like ATM failure prediction and intelligent web scraping taught me that successful ML is about feature engineering, data quality, system optimization, and building trust through interpretability.',
+      ],
+    },
+  ];
+
   const languages = [
     { name: 'Arabic',  level: 'Native' },
-    { name: 'English', level: 'Fluent' },
-    { name: 'French',  level: 'Intermediate' },
+    { name: 'English', level: 'Professional' },
+    { name: 'French',  level: 'DELF B2' },
   ];
 
   const certifications = [
@@ -96,6 +126,24 @@ export function About() {
     file: '/certificates/java_backend.pdf',
     date: 'Dec 8, 2025',
     color: 'var(--neon-green)',
+  },
+  {
+    label: 'AI Fluency for Small Businesses - Anthropic',
+    file: undefined as string | undefined,
+    date: 'Jun 2026',
+    color: 'var(--neon-green)',
+  },
+  {
+    label: 'Kanz AI Training Hackathon - Certificate of Participation',
+    file: 'https://try.ka.nz/certificate/KANZ-ATT-48E9C9B436?certificate_type=participation&recipient_name=ilona&issue_date=July+15%2C+2026&certificate_id=KANZ-ATT-48E9C9B436' as string | undefined,
+    date: 'Jul 2026',
+    color: 'var(--neon-green)',
+  },
+  {
+    label: '42 Beirut Piscine - Selected for the Core Curriculum',
+    file: undefined as string | undefined,
+    date: '2026',
+    color: 'var(--neon-cyan)',
   },
 ];
 
@@ -136,7 +184,7 @@ export function About() {
             className="about-sub"
             style={{ fontSize: '1rem', color: 'var(--muted)', maxWidth: 500, lineHeight: 1.7, opacity: 0 }}
           >
-            4th-year Computer and Communication Engineering student passionate about solving
+            5th-year Computer and Communication Engineering student and 42 Beirut student, passionate about solving
             complex technical challenges through elegant, efficient code.
           </p>
         </div>
@@ -151,9 +199,10 @@ export function About() {
             <div className="about-block" style={{ opacity: 0 }}>
               <div className="section-label" style={{ marginBottom: 20 }}>Who I Am</div>
               <p style={{ fontSize: '0.9rem', color: 'var(--text)', lineHeight: 1.8, fontFamily: 'var(--font-body)' }}>
-                I'm Ilona Chamoun, a 4th-year Software Engineering student at Université Saint-Joseph de Beyrouth (USJ)
+                I'm Ilona Chamoun, a 5th-year Software Engineering student at Université Saint-Joseph de Beyrouth (USJ)
                 in Lebanon, specializing in Computer and Communication Engineering. My journey in technology is driven
                 by a passion for solving complex technical challenges through elegant, efficient code.
+                I am also a student at 42 Beirut (Core Curriculum, since November 2026) and a LIFE Lebanon Scholar.
               </p>
             </div>
             <div className="about-block" style={{ opacity: 0 }}>
@@ -169,29 +218,63 @@ export function About() {
             </div>
           </div>
 
-          {/* CURRENT ROLE */}
+          {/* IMPACT + LIFE SCHOLAR */}
+          <div className="about-block" style={{ opacity: 0 }}>
+            <div className="section-label" style={{ marginBottom: 20 }}>Impact So Far</div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 12 }}>
+              {impact.map(({ org, text }) => (
+                <div key={text} style={{ padding: '20px 24px', border: '1px solid var(--border)', borderTop: '2px solid var(--neon-cyan)', borderRadius: 4, background: 'var(--surface)' }}>
+                  <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, color: 'var(--neon-cyan)', marginBottom: 8, fontSize: '0.85rem' }}>{org}</h4>
+                  <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.7 }}>{text}</p>
+                </div>
+              ))}
+            </div>
+            <p style={{ fontSize: '0.85rem', color: 'var(--muted)', lineHeight: 1.8, marginTop: 20, maxWidth: 720 }}>
+              I care about code quality, system reliability and outcomes I can measure. I'm equally comfortable shipping
+              frontend features, building data pipelines, automating QA workflows or modernizing large-scale enterprise systems.
+            </p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 16 }}>
+              {['C# / .NET', 'Python (ETL, ML pipelines)', 'SQL Server', 'React & Next.js', 'QA automation', 'REST APIs'].map(t => (
+                <span key={t} className="tag">{t}</span>
+              ))}
+            </div>
+          </div>
+
           <div
             className="about-block"
-            style={{ opacity: 0, padding: '32px 36px', border: '1px solid var(--border)', borderLeft: '4px solid var(--neon-cyan)', borderRadius: 4, background: 'var(--surface)', boxShadow: '0 0 40px rgba(0,255,224,0.04)' }}
+            style={{ opacity: 0, padding: '28px 32px', border: '1px solid var(--border)', borderLeft: '4px solid var(--neon-green)', borderRadius: 4, background: 'var(--surface)' }}
           >
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 12, marginBottom: 16 }}>
-              <div>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--neon-cyan)', letterSpacing: '0.15em', textTransform: 'uppercase', display: 'block', marginBottom: 6 }}>Currently</span>
-                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 700, color: '#fff' }}>AI Lab Intern at Byblos Bank</h3>
-              </div>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', padding: '6px 14px', borderRadius: 20, background: 'rgba(0,255,224,0.08)', color: 'var(--neon-cyan)', border: '1px solid rgba(0,255,224,0.2)', whiteSpace: 'nowrap' }}>
-                Jan 2026 — Present
-              </span>
-            </div>
-            <p style={{ fontSize: '0.875rem', color: 'var(--muted)', lineHeight: 1.8, marginBottom: 12 }}>
-              Working in the AI Lab at Byblos Bank, diving deep into machine learning and data engineering.
-              This role introduced me to Docker for the first time and challenged me to build production-ready ML systems.
-            </p>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--neon-green)', letterSpacing: '0.15em', textTransform: 'uppercase', display: 'block', marginBottom: 6 }}>Scholarship</span>
+            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.15rem', fontWeight: 700, color: '#fff', marginBottom: 12 }}>LIFE Lebanon Scholar</h3>
             <p style={{ fontSize: '0.875rem', color: 'var(--muted)', lineHeight: 1.8 }}>
-              Projects like ATM failure prediction and intelligent web scraping taught me that successful ML
-              is about feature engineering, data quality, system optimization, and building trust through interpretability.
+              Selected as a LIFE Lebanon Scholar in 2026, with mentorship and a community that supports my path in tech and AI.
+              Part of the LIFE Academy Fall 2026 program at USJ: orientation, community building, workshops and personal growth.
             </p>
           </div>
+
+          {/* EXPERIENCE */}
+          {experiences.map((exp, i) => (
+            <div
+              key={exp.role}
+              className="about-block"
+              style={{ opacity: 0, padding: '32px 36px', border: '1px solid var(--border)', borderLeft: '4px solid var(--neon-cyan)', borderRadius: 4, background: 'var(--surface)', boxShadow: '0 0 40px rgba(0,255,224,0.04)' }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 12, marginBottom: 16 }}>
+                <div>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--neon-cyan)', letterSpacing: '0.15em', textTransform: 'uppercase', display: 'block', marginBottom: 6 }}>{i === 0 ? 'Latest' : 'Experience'}</span>
+                  <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 700, color: '#fff' }}>{exp.role}</h3>
+                </div>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', padding: '6px 14px', borderRadius: 20, background: 'rgba(0,255,224,0.08)', color: 'var(--neon-cyan)', border: '1px solid rgba(0,255,224,0.2)', whiteSpace: 'nowrap' }}>
+                  {exp.period}
+                </span>
+              </div>
+              {exp.paragraphs.map((text, j) => (
+                <p key={j} style={{ fontSize: '0.875rem', color: 'var(--muted)', lineHeight: 1.8, marginBottom: j === exp.paragraphs.length - 1 ? 0 : 12 }}>
+                  {text}
+                </p>
+              ))}
+            </div>
+          ))}
 
           {/* WHAT DRIVES ME */}
           <div className="about-block" style={{ opacity: 0 }}>
@@ -295,6 +378,16 @@ export function About() {
                   Expected Graduation: 2027
                 </span>
                 <p style={{ fontSize: '0.8rem', color: 'var(--muted)', marginTop: 12 }}>Specialization: Software Engineering</p>
+                <p style={{ fontSize: '0.8rem', color: 'var(--muted)', marginTop: 4 }}>GPA: 14.91/20 (≈ 3.7/4.0)</p>
+              </div>
+              <div style={{ padding: '24px', border: '1px solid var(--border)', borderRadius: 4, background: 'var(--surface)', marginTop: 12 }}>
+                <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, color: '#fff', marginBottom: 10, fontSize: '0.95rem', lineHeight: 1.4 }}>
+                  42 Beirut - Core Curriculum
+                </h4>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text)', marginBottom: 12 }}>Architecture of Digital Technologies Program</p>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', padding: '4px 12px', borderRadius: 20, background: 'rgba(0,255,224,0.08)', color: 'var(--neon-cyan)', border: '1px solid rgba(0,255,224,0.2)' }}>
+                  November 2026 — Present
+                </span>
               </div>
             </div>
 
@@ -307,9 +400,7 @@ export function About() {
     {certifications.map((cert, i) => (
       <a
         key={i}
-        href={cert.file}
-        target="_blank"
-        rel="noopener noreferrer"
+        {...(cert.file ? { href: cert.file, target: '_blank', rel: 'noopener noreferrer' } : {})}
         style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 14, padding: '16px 20px', border: '1px solid var(--border)', borderRadius: 4, background: 'var(--surface)', textDecoration: 'none', color: 'inherit', transition: 'border-color 0.2s, transform 0.2s' }}
         onMouseEnter={e => { e.currentTarget.style.borderColor = cert.color; e.currentTarget.style.transform = 'translateX(4px)'; }}
         onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.transform = 'none'; }}
@@ -320,7 +411,7 @@ export function About() {
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}>
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted)' }}>{cert.date}</span>
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: cert.color }}>↗</span>
+          {cert.file && <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: cert.color }}>↗</span>}
         </div>
       </a>
     ))}
@@ -344,13 +435,26 @@ export function About() {
                 ))}
               </div>
             </div>
+            <div style={{ padding: '28px 32px', border: '1px solid var(--border)', borderLeft: '4px solid var(--neon-green)', borderRadius: 4, background: 'var(--surface)', marginTop: 12 }}>
+              <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, color: 'var(--neon-green)', marginBottom: 16, fontSize: '0.95rem' }}>
+                Scholarships & Hackathons
+              </h4>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                {['LIFE Lebanon Scholar (2026)', 'Code4Lebanon x USJ Hackathon: team ranked Top 3 (NUMU Dashboard)', 'Kanz AI Training Hackathon participant (2026)'].map((item, i) => (
+                  <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                    <div style={{ width: 5, height: 5, borderRadius: '50%', background: 'var(--neon-green)', boxShadow: '0 0 6px var(--neon-green)', flexShrink: 0 }} />
+                    <span style={{ fontSize: '0.875rem', color: 'var(--text)', fontFamily: 'var(--font-body)' }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* LOOKING FORWARD */}
           <div className="about-block" style={{ opacity: 0 }}>
             <div className="section-label" style={{ marginBottom: 24 }}>Looking Forward</div>
             <p style={{ fontSize: '0.9rem', color: 'var(--muted)', lineHeight: 1.8, marginBottom: 24, maxWidth: 640, fontFamily: 'var(--font-body)' }}>
-              As I approach my graduation in 2027, I'm excited to take on more challenging projects. I'm particularly interested in opportunities that involve:
+              As I approach my graduation in 2027, I'm open to junior software engineer, full-stack developer and .NET developer roles (remote, hybrid or on-site), and to a final year project from January to May 2027. I'm particularly interested in opportunities that involve:
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 10 }}>
               {lookingForward.map(({ icon, label }, i) => (

@@ -30,7 +30,7 @@ export function Footer() {
           onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
         >GITHUB ↗</a>
         <a
-          href="https://linkedin.com/in/ilona-chamoun-808295360"
+          href="https://www.linkedin.com/in/ilona-chamoun"
           target="_blank" rel="noopener noreferrer"
           style={{
             fontFamily: 'var(--font-mono)', fontSize: '0.65rem',
@@ -61,7 +61,7 @@ export function Footer() {
           to="/contact"
           style={{ color: 'var(--neon-cyan)', textDecoration: 'none' }}
         >
-          Available Summer 2026
+          Open to FYP & junior roles
         </Link>
       </span>
     </footer>

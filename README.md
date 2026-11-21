@@ -27,7 +27,7 @@ A fully responsive single-page application with a custom neon dark mode aestheti
 
 ### Featured Projects
 - **NUMŪ National Analytics Dashboard** — Government policy monitoring platform for Lebanon's Ministry of IT & AI (Code for Lebanon × USJ Hackathon finalist)
-- **ATM Failure Prediction System** — ML pipeline for predictive maintenance across 250+ machines at Bank Byblos
+- **ATM Failure Prediction System** — ML pipeline for predictive maintenance across 130+ machines at Bank Byblos
 - **Embedded Sound Tracking System** — 7-microphone array with real-time directional audio detection
 
 ---
