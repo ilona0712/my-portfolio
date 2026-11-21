@@ -77,6 +77,12 @@ export function About() {
     ],
   };
 
+  const impact = [
+    { org: 'Byblos Bank', text: 'Built an ML model that moved 130+ ATMs from reactive to predictive maintenance, reducing unplanned downtime.' },
+    { org: 'Byblos Bank', text: 'Drove the modernization of a legacy application, migrating it from .NET Framework to the latest .NET across C#, SQL Server and backend infrastructure.' },
+    { org: 'DigitalCircle', text: 'Accelerated transaction processing by 20% and automated critical database infrastructure, alongside web development.' },
+  ];
+
   const experiences = [
     {
       role: '.NET Developer Intern at Byblos Bank',
@@ -210,6 +216,40 @@ export function About() {
                 learning to optimize for performance, ensure data integrity, and deliver solutions that impact business operations.
               </p>
             </div>
+          </div>
+
+          {/* IMPACT + LIFE SCHOLAR */}
+          <div className="about-block" style={{ opacity: 0 }}>
+            <div className="section-label" style={{ marginBottom: 20 }}>Impact So Far</div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 12 }}>
+              {impact.map(({ org, text }) => (
+                <div key={text} style={{ padding: '20px 24px', border: '1px solid var(--border)', borderTop: '2px solid var(--neon-cyan)', borderRadius: 4, background: 'var(--surface)' }}>
+                  <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, color: 'var(--neon-cyan)', marginBottom: 8, fontSize: '0.85rem' }}>{org}</h4>
+                  <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.7 }}>{text}</p>
+                </div>
+              ))}
+            </div>
+            <p style={{ fontSize: '0.85rem', color: 'var(--muted)', lineHeight: 1.8, marginTop: 20, maxWidth: 720 }}>
+              I care about code quality, system reliability and outcomes I can measure. I'm equally comfortable shipping
+              frontend features, building data pipelines, automating QA workflows or modernizing large-scale enterprise systems.
+            </p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 16 }}>
+              {['C# / .NET', 'Python (ETL, ML pipelines)', 'SQL Server', 'React & Next.js', 'QA automation', 'REST APIs'].map(t => (
+                <span key={t} className="tag">{t}</span>
+              ))}
+            </div>
+          </div>
+
+          <div
+            className="about-block"
+            style={{ opacity: 0, padding: '28px 32px', border: '1px solid var(--border)', borderLeft: '4px solid var(--neon-green)', borderRadius: 4, background: 'var(--surface)' }}
+          >
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--neon-green)', letterSpacing: '0.15em', textTransform: 'uppercase', display: 'block', marginBottom: 6 }}>Scholarship</span>
+            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.15rem', fontWeight: 700, color: '#fff', marginBottom: 12 }}>LIFE Lebanon Scholar</h3>
+            <p style={{ fontSize: '0.875rem', color: 'var(--muted)', lineHeight: 1.8 }}>
+              Selected as a LIFE Lebanon Scholar in 2026, with mentorship and a community that supports my path in tech and AI.
+              Part of the LIFE Academy Fall 2026 program at USJ: orientation, community building, workshops and personal growth.
+            </p>
           </div>
 
           {/* EXPERIENCE */}
@@ -414,7 +454,7 @@ export function About() {
           <div className="about-block" style={{ opacity: 0 }}>
             <div className="section-label" style={{ marginBottom: 24 }}>Looking Forward</div>
             <p style={{ fontSize: '0.9rem', color: 'var(--muted)', lineHeight: 1.8, marginBottom: 24, maxWidth: 640, fontFamily: 'var(--font-body)' }}>
-              As I approach my graduation in 2027, I'm excited to take on more challenging projects. I'm particularly interested in opportunities that involve:
+              As I approach my graduation in 2027, I'm open to junior software engineer, full-stack developer and .NET developer roles (remote, hybrid or on-site), and to a final year project from January to May 2027. I'm particularly interested in opportunities that involve:
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 10 }}>
               {lookingForward.map(({ icon, label }, i) => (
