@@ -64,7 +64,7 @@ export function Home() {
     .filter(Boolean) as typeof projects;
 
   const expertise = [
-    { icon: '⬡', color: 'var(--neon-cyan)',   num: '01', title: 'Machine Learning & AI',    desc: 'End-to-end ML pipelines, 136-feature engineering, XGBoost / LightGBM / Random Forest, SHAP interpretability, predictive maintenance at Byblos Bank AI Lab.' },
+    { icon: '⬡', color: 'var(--neon-cyan)',   num: '01', title: 'Machine Learning & AI',    desc: 'End-to-end ML pipelines, 249-feature engineering, XGBoost / LightGBM / Random Forest, SHAP interpretability, predictive maintenance at Byblos Bank AI Lab.' },
     { icon: '◈', color: 'var(--neon-green)',  num: '02', title: 'Data Engineering',          desc: 'Real-time SQL-based data integration, live ATM status dashboards, web scraping pipelines (HTML, REST APIs, Selenium), automated backup systems.' },
     { icon: '◎', color: 'var(--neon-pink)',   num: '03', title: 'Full-Stack Development',    desc: 'Next.js, React, TypeScript, Tailwind. Delivered a national analytics dashboard for Lebanon\'s Ministry of IT & AI and a bridal e-commerce platform with AI customization and live chat.' },
     { icon: '◇', color: 'var(--neon-yellow)', num: '04', title: 'Automation & Web',          desc: 'Python email automation agents (SMTP, MIME), process pipelines with pandas & openpyxl. 6 production WordPress & Elementor sites delivered across Lebanon and the USA.' },
@@ -98,7 +98,7 @@ export function Home() {
             fontSize: '1.1rem', color: 'var(--muted)', maxWidth: 540,
             lineHeight: 1.7, marginBottom: 40, opacity: 0,
           }}>
-            <strong style={{ color: 'var(--text)' }}>Software Engineer & AI Enthusiast</strong> — 4th-year student at USJ 
+            <strong style={{ color: 'var(--text)' }}>Software Engineer & AI Enthusiast</strong> — 5th-year engineering student at USJ and 42 Beirut student 
             turning internships and academic projects into production-ready ML systems, 
             web platforms, and automation tools.
           </p>
@@ -121,7 +121,7 @@ export function Home() {
             border: '1px solid var(--border)', opacity: 0,
           }}>
             {[
-              { value: '4', label: 'Year of Study', count: true },
+              { value: '5', label: 'Year of Study', count: true },
               { value: String(projects.length), label: 'Projects Built', count: true },
               { value: '2', label: 'Internships',    count: true },
               { value: '2027', label: 'Graduation',  count: false },

@@ -25,7 +25,7 @@ export function About() {
     ],
     'Machine Learning & AI': [
       'End-to-end ML pipeline design and deployment',
-      'Feature Engineering (136+ features, rolling patterns, lag calculations)',
+      'Feature Engineering (249 features, rolling patterns, lag calculations)',
       'Model Training & Selection — Random Forest, XGBoost, LightGBM',
       'Time-Series Analysis and Predictive Maintenance',
       'Model Interpretability with SHAP',
@@ -129,7 +129,7 @@ export function About() {
   },
   {
     label: 'Kanz AI Training Hackathon - Certificate of Participation',
-    file: undefined as string | undefined,
+    file: 'https://try.ka.nz/certificate/KANZ-ATT-48E9C9B436?certificate_type=participation&recipient_name=ilona&issue_date=July+15%2C+2026&certificate_id=KANZ-ATT-48E9C9B436' as string | undefined,
     date: 'Jul 2026',
     color: 'var(--neon-green)',
   },
@@ -178,7 +178,7 @@ export function About() {
             className="about-sub"
             style={{ fontSize: '1rem', color: 'var(--muted)', maxWidth: 500, lineHeight: 1.7, opacity: 0 }}
           >
-            4th-year Computer and Communication Engineering student passionate about solving
+            5th-year Computer and Communication Engineering student and 42 Beirut student, passionate about solving
             complex technical challenges through elegant, efficient code.
           </p>
         </div>
@@ -193,7 +193,7 @@ export function About() {
             <div className="about-block" style={{ opacity: 0 }}>
               <div className="section-label" style={{ marginBottom: 20 }}>Who I Am</div>
               <p style={{ fontSize: '0.9rem', color: 'var(--text)', lineHeight: 1.8, fontFamily: 'var(--font-body)' }}>
-                I'm Ilona Chamoun, a 4th-year Software Engineering student at Université Saint-Joseph de Beyrouth (USJ)
+                I'm Ilona Chamoun, a 5th-year Software Engineering student at Université Saint-Joseph de Beyrouth (USJ)
                 in Lebanon, specializing in Computer and Communication Engineering. My journey in technology is driven
                 by a passion for solving complex technical challenges through elegant, efficient code.
                 I am also a student at 42 Beirut (Core Curriculum, since November 2026) and a LIFE Lebanon Scholar.

@@ -39,7 +39,9 @@ export const projects: Project[] = [
     ],
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Recharts', 'REST API', 'pnpm', 'Vercel'],
     timeline: 'February 2026',
-    role: 'Frontend Developer - Code for Lebanon x USJ Hackathon'
+    role: 'Frontend Developer - Code for Lebanon x USJ Hackathon',
+    liveUrl: 'https://v0-frontend-web-numu.vercel.app',
+    github: 'https://github.com/ilona0712/frontend-web-numu'
   },
   {
     id: 'atm-ml-prediction',
@@ -50,7 +52,7 @@ export const projects: Project[] = [
     tags: ['Machine Learning', 'Python', 'XGBoost', 'SQL', 'Docker'],
     overview: 'End-to-end ML system that predicts ATM failures 24 hours in advance, enabling proactive maintenance and preventing customer-facing downtime.',
     challenge: 'ATM maintenance was reactive, only discovering failures through customer complaints. The goal was to predict failures before they happen.',
-    solution: 'Engineered 249 features from operational data. Trained an XGBoost ensemble model with isotonic calibration and wired it into daily prediction and monitoring workflows.',
+    solution: 'Engineered 249 features from operational data. Trained and compared three models (XGBoost, Random Forest and LightGBM), selected XGBoost with isotonic calibration, and wired it into daily prediction and monitoring workflows.',
     impact: [
       '85 PR-AUC on validation set',
       'Transformed maintenance from reactive to proactive',
